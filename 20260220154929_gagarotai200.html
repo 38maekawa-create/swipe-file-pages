@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@gagarotai200 - OpenClawでAIエージェントにTikTok運用を完全自動化するガイド</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
+.container{max-width:680px;margin:0 auto;padding:16px}
+.header{background:#1a73e8;color:#fff;padding:16px;border-radius:12px 12px 0 0;margin-bottom:0}
+.header h1{font-size:18px;margin-bottom:8px}
+.meta{font-size:13px;opacity:0.9}
+.content{background:#fff;padding:20px;border-radius:0 0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.author{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e0e0e0}
+.author img{width:48px;height:48px;border-radius:50%}
+.author-info{flex:1}
+.author-name{font-weight:bold;font-size:15px}
+.author-id{color:#666;font-size:13px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.tag{background:#e8f0fe;color:#1a73e8;padding:2px 10px;border-radius:12px;font-size:12px}
+.tweet-text{white-space:pre-wrap;margin:16px 0;font-size:15px;line-height:1.8}
+.summary{background:#f8f9fa;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #1a73e8}
+.summary h3{font-size:14px;color:#1a73e8;margin-bottom:8px}
+.original-link{display:inline-block;margin-top:16px;color:#1a73e8;text-decoration:none;font-weight:bold}
+.back-link{text-align:center;margin-top:20px}
+.back-link a{color:#666;text-decoration:none;font-size:13px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>OpenClawでAIエージェントにTikTok運用を完全自動化するガイド</h1>
+<div class="meta">リール・ストーリー | 2026/02/19 15:33 | 単体投稿</div>
+</div>
+<div class="content">
+<div class="author">
+<img src="https://pbs.twimg.com/profile_images/2024338817160007682/aJJ4Icey_200x200.jpg" alt="@gagarotai200" onerror="this.style.display='none'">
+<div class="author-info">
+<div class="author-name">ガガロットAI</div>
+<div class="author-id">@gagarotai200</div>
+</div>
+</div>
+<div class="summary">
+<h3>3行要約</h3>
+<p>OpenClawのミッションコントロールでAIが自律的にタスク実行<br>完全自動で800万再生を獲得した実践ノウハウ<br>AIエージェントの全貌と管理画面の構築方法を解説</p>
+</div>
+<div class="tags">
+<span class="tag">OpenClaw</span>
+<span class="tag">AIエージェント</span>
+<span class="tag">TikTok自動化</span>
+</div>
+<div class="tweet-text">AIが自律的に動く時代が来た
+オラはこのシステムで完全自動で800万再生を獲得した
+今回紹介するのは、OpenClawというAIエージェントに
+「ミッションコントロール」という管理画面を作らせるシステムだ。
+OpenClaw単体だと、普通のAIエージェントとあまり変わらない。
+でも、ミッションコントロールという管理画面を作ってやると、完全に別次元の存在になる。
+何がすごいって、AIが自分で考えてタスクをこなし、仕事を自律的に終わらせてくれること。しかも、その過程が全部可視化されているから、今何をやっているか一目でわかる。
+今回は、このOpenClawミッションコントロールの全貌を解説していく。
+OpenClawって何？なんでミッションコントロールが必要なの？
+まず基本から説明する。
+OpenClawは高性能なAIエージェントだが、単体だと「ただのチャットボット」的な使い方になりがち。
+でも、ミッションコントロール（Mission Control）という専用の管理画面を作ると、一気に「自律型AIワーカー」に変わる。
+ミッションコントロールの役割
+ミッションコントロールは、簡単に言うと：
+AIが何をやっているか可視化する
+AIのメモリを強化する
+カスタムツールを追加する
+複数のAIエージェントを管理する
+この機能を持った「AIの司令塔」だ。
+AIエージェントたちが独自にメインのAIに質問しながら、実際のタスクを遂行してくれる。ミッションコントロールがあるからこそ実現できることだ。
+技術スタック：NextJS + Convex
+使う技術は：
+フロントエンド：NextJS
+データベース：Convex
+この組み合わせがかなり優秀で、リアルタイムでデータが更新されるし、UIも軽快に動く。
+そして重要なのが、自分でコードを書く必要がないという点。OpenClawに「これ作って」と指示するだけで、勝手にコードを書いて実装してくれる。
+ツール①：タスクボード - AIの仕事を完全可視化
+最初に紹介するのがタスクボードだ。これが一番重要な機能になる。
+なぜタスクボードが必要なのか
+AIエージェントを放置していると「今何やってるの？」という状態になりがちだ。
+タスクボードがあれば：
+AIが今何のタスクをやっているか一目瞭然
+自分が何をやっているかもAIに共有できる
+AIが朝の間に勝手にタスクを終わらせてくれる
+実際に、タスクボードを導入した翌朝に起きたら、AIが複数のタスクを自動で完了させていたという事例がある。タスクボードがあるからこそAIが主体的に動けるということだ。
+タスクボードの構成
+基本的な構成はシンプルだ：
+カラム 説明     Todo これからやるタスク   In Progress 今やっているタスク   Done 終わったタスク   担当者 自分 or AI
+シンプルだが、これがあるだけで、AIは「これは自分がやるタスクだ」と理解して動いてくれるようになる。
+実装プロンプト
+実際にOpenClawに作らせる際はこう指示する：
+タスクボードを作ってください。
+すべてのタスクのステータスと担当者（私 or あなた）を
+表示できるようにしてください。
+今後、あなたが取り組むタスクは全てこのボードに登録し、
+リアルタイムで更新してください。
+これだけで、OpenClawがNextJSでタスクボードのUIを実装してくれる。
+ツール②：コンテンツパイプライン - 自動でコンテンツ量産
+次はコンテンツパイプラインだ。コンテンツクリエイターには特に重要な機能。
+コンテンツ制作の自動化フロー
+コンテンツ制作は工程が多い：
+アイデア出し
+スクリプト作成
+サムネイル制作
+撮影/編集
+投稿
+この全工程を手動でやっていると、時間がいくらあっても足りない。コンテンツパイプラインを作ると、AIが自動で各工程を進めてくれる。
+コンテンツパイプラインの運用例
+実際の使い方はこうだ：
+アイデアを「Idea」カラムに入力する
+1日1回、AIがスクリプトを自動生成
+ローカルの画像生成AIがサムネイルを自動作成
+「Filming」カラムに移動して、撮影待ち状態になる
+アイデアさえ投入すれば、あとはAIが各ステージを自動で進めてくれる。
+コンテンツパイプラインのカラム構成
+カラム 役割     Ideas アイデアのストック   Script スクリプト作成中   Thumbnail サムネイル生成中   Filming 撮影待ち   Editing 編集中   Published 公開済み
+パイプライン化することで、どの段階で詰まっているかも一目でわかる。ボトルネックの発見と解消が楽になる。
+実装プロンプト
+コンテンツパイプラインツールを作ってください。
+コンテンツ制作の</div>
+<a href="https://x.com/gagarotai200/status/2024371815699943799" target="_blank" class="original-link">元の投稿を見る →</a>
+</div>
+<div class="back-link"><a href="index.html">← 一覧に戻る</a></div>
+</div>
+</body>
+</html>
