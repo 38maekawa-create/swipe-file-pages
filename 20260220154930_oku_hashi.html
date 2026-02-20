@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@oku_hashi - AI×解説系リール動画で100万再生を作る完全マニュアル</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
-.container{max-width:680px;margin:0 auto;padding:16px}
-.header{background:#1a73e8;color:#fff;padding:16px;border-radius:12px 12px 0 0;margin-bottom:0}
-.header h1{font-size:18px;margin-bottom:8px}
-.meta{font-size:13px;opacity:0.9}
-.content{background:#fff;padding:20px;border-radius:0 0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.author{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e0e0e0}
-.author img{width:48px;height:48px;border-radius:50%}
-.author-info{flex:1}
-.author-name{font-weight:bold;font-size:15px}
-.author-id{color:#666;font-size:13px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.tag{background:#e8f0fe;color:#1a73e8;padding:2px 10px;border-radius:12px;font-size:12px}
-.tweet-text{white-space:pre-wrap;margin:16px 0;font-size:15px;line-height:1.8}
-.summary{background:#f8f9fa;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #1a73e8}
-.summary h3{font-size:14px;color:#1a73e8;margin-bottom:8px}
-.original-link{display:inline-block;margin-top:16px;color:#1a73e8;text-decoration:none;font-weight:bold}
-.back-link{text-align:center;margin-top:20px}
-.back-link a{color:#666;text-decoration:none;font-size:13px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@oku_hashi の投稿 - スワイプファイル</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
+    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+    .meta span { display: inline-block; margin-right: 16px; }
+    .tags { margin: 10px 0; }
+    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
+    .tweet-video { margin: 12px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 8px; }
+    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
+    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
+    .author-name { font-weight: bold; }
+    .author-id { color: #666; font-size: 0.9em; }
+  </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<h1>AI×解説系リール動画で100万再生を作る完全マニュアル</h1>
-<div class="meta">リール・ストーリー | 2026/02/17 19:26 | 単体投稿</div>
-</div>
-<div class="content">
-<div class="author">
-<img src="https://pbs.twimg.com/profile_images/2022350935281012739/9L7blf_J_200x200.jpg" alt="@oku_hashi" onerror="this.style.display='none'">
-<div class="author-info">
-<div class="author-name">ワニ＠インスタ3億</div>
-<div class="author-id">@oku_hashi</div>
-</div>
-</div>
-<div class="summary">
-<h3>3行要約</h3>
-<p>解説系×AI動画がインスタでバズりまくっている現状を解説<br>Gemini・NanobananaPro・CapCutを使った動画制作手順<br>どのジャンルでも使えるバズらせるためのポイントを公開</p>
-</div>
-<div class="tags">
-<span class="tag">AI動画制作</span>
-<span class="tag">解説系リール</span>
-<span class="tag">バズ手法</span>
-</div>
-<div class="tweet-text">まずはこちらの動画をご覧ください↓
+  <h1>AI×解説系リール動画で100万再生を作る完全マニュアル</h1>
+
+  <div class="author-info">
+    <img src="https://pbs.twimg.com/profile_images/2022350935281012739/9L7blf_J_200x200.jpg" alt="@oku_hashi" onerror="this.style.display='none'">
+    <div>
+      <div class="author-name">ワニ＠インスタ3億</div>
+      <div class="author-id">@oku_hashi</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <span>📅 投稿日時: 2026/02/17 19:26</span>
+    <span>💾 保存日時: 2026/02/21</span>
+    <span>単体投稿</span>
+  </div>
+
+  <div class="tags">
+    <span class="tag">リール・ストーリー</span>
+    <span class="tag">#AI動画制作</span> <span class="tag">#解説系リール</span> <span class="tag">#バズ手法</span>
+  </div>
+
+  <div class="engagement">
+    <span>❤️ 43</span>
+    <span>🔄 1</span>
+    <span>💬 2</span>
+  </div>
+
+  <div class="summary-box"><h3>3行要約</h3><p>解説系×AI動画がインスタでバズりまくっている現状を解説<br>Gemini・NanobananaPro・CapCutを使った動画制作手順<br>どのジャンルでも使えるバズらせるためのポイントを公開</p></div>
+
+  <h2 class="article-title">100万再生の作り方、全部教えます‼️</h2>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">まずはこちらの動画をご覧ください↓
 今インスタでは、このような
 解説系×AI動画がバズりまくっています！
 例えば、これや
@@ -156,9 +168,10 @@ CapCutを開いて、新規のプロジェクト。
 このあたりの詳しい内容は、下記で近日全て公開予定です！
 期間限定の７大特典もプレゼントしていますので、是非ご参加ください！
 1月31日</div>
-<a href="https://x.com/oku_hashi/status/2023705616133615676" target="_blank" class="original-link">元の投稿を見る →</a>
-</div>
-<div class="back-link"><a href="index.html">← 一覧に戻る</a></div>
-</div>
+
+  <div class="back-link">
+    <a href="index.html">← 一覧に戻る</a> |
+    <a href="https://x.com/oku_hashi/status/2023705616133615676" target="_blank">元の投稿を見る ↗</a>
+  </div>
 </body>
 </html>

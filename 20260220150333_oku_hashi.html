@@ -14,32 +14,255 @@
     .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
     .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
     .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .section-header { background: #1a73e8; color: white; padding: 8px 12px; border-radius: 4px; margin-top: 24px; }
+    .tweet-video { margin: 12px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 8px; }
     .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
     a { color: #1a73e8; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
+    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
+    .author-name { font-weight: bold; }
+    .author-id { color: #666; font-size: 0.9em; }
   </style>
 </head>
 <body>
-  <h1>@oku_hashi の投稿</h1>
+  <h1>Claude Codeでインスタ用バズリール自動作成ツールを開発</h1>
+
+  <div class="author-info">
+    <img src="https://pbs.twimg.com/profile_images/2022350935281012739/9L7blf_J_200x200.jpg" alt="@oku_hashi" onerror="this.style.display='none'">
+    <div>
+      <div class="author-name">ワニ＠インスタ3億</div>
+      <div class="author-id">@oku_hashi</div>
+    </div>
+  </div>
+
   <div class="meta">
-    <span>📅 投稿日時: Sat Feb 14 11:41:34 +0000 2026</span>
-    <span>💾 保存日時: 2026-02-21 00:03</span>
+    <span>📅 投稿日時: 2026/02/14 20:41</span>
+    <span>💾 保存日時: 2026/02/21</span>
     <span>単体投稿</span>
   </div>
-  <div class="tags"><span class="tag">#その他</span></div>
+
+  <div class="tags">
+    <span class="tag">リール・ストーリー</span>
+    <span class="tag">#Claude Code</span> <span class="tag">#リール自動作成</span> <span class="tag">#ツール開発</span>
+  </div>
+
   <div class="engagement">
     <span>❤️ 179</span>
     <span>🔄 9</span>
     <span>💬 6</span>
   </div>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text"></div>
+  <div class="summary-box"><h3>3行要約</h3><p>プログラミング知識ゼロから15分でインスタツールを完成<br>Claude Codeのセットアップから開発手順を丁寧に解説<br>Windows/Mac両対応のステップバイステップガイド</p></div>
 
-  
-  
+  <h2 class="article-title">ClaudeCodeでバズリール自動作成ツール開発‼️</h2>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">まずはこちらをご覧ください！
+こちらは僕が知識０から初めてClaudeCode（クロード コード）で作ったインスタツールです。
+これ、開始１５分くらいで完成しました！
+
+
+最近、Xで話題のClaudeCodeですが、
+一体何ができるの？
+
+どうやってはじめたらいいかわからない！！
+なんか難しそう....パソコン得意じゃないし....
+
+こんなの出来ても役に立たないでしょ
+
+
+めちゃめちゃわかります！笑
+最初は僕もそう思っていました。
+
+そういった方のために僕がこの記事で分かりやすく解説していきます！
+この記事で学べる事
+・ClaudeCodeのセットアップ
+・ツール開発の仕方。
+・作り方のコツ
+それではClaudeCodeを始めるための
+準備をしていきましょう！
+WindowsとMacでセットアップ方法が異なるので注意してください。
+両方まとめますね！
+◆Windows編（Macの方は飛ばしてください）
+事前に必要なもの
+Windows 10 以降 / Windows 11
+メモリ4GB以上ストレージ4GB以上の空き容量インターネット接続必須AnthropicアカウントClaude Pro/Max プラン、またはAPIキー
+ステップ1　アカウント作成！
+まずは、ブラウザで以下のURLからClaudeのアカウントを作ります。   
+
+https://claude.ai
+アカウントを作成したらClaude Proにアップグレード（必須）してください。月額20＄（約3,000～）ほどで利用可能です。
+左下のユーザー名をクリック
+「Upgrade to Pro」を選択
+支払い情報を入力
+「Subscribe」をクリック
+月額20ドルで課金開始
+
+画面上部に「Claude Pro」と表示されればOK！
+いつでもキャンセル可能です。
+忘れないうちに月額課金したらすぐにサブスクキャンセルしておくのが
+おすすめです！
+ステップ2　インストール
+PowerShellを開く
+Windowsキーを押す
+「PowerShell」と入力
+「Windows PowerShell」を右クリック
+「管理者として実行」を選択黒い背景の画面が開きます
+インストールコマンド実行
+PowerShellに上記のコマンドをコピペしてEnter！
+このような表示がでたら完了です！！
+
+
+PowerShellを再起動
+重要：設定を反映するため、PowerShellを必ず閉じて開き直してください。
+現在のPowerShellウィンドウを閉じる
+新しいPowerShellを開く（管理者権限は不要です）
+新しいPowerShellで以下のコマンドを実行してください。
+ステップ３　作業用フォルダを作ります！
+Claude Codeは今から作るフォルダ内でファイルを作成・編集したりします。
+PowerShellで下記をコピペしてEnterを押してください。
+次にこちらをコピペしてEnter
+これで作業用フォルダの完成です！
+ステップ４　ClaudeCodeを起動！
+PowerShellに下記をコピペするとClaudeCodeが起動します！
+この「claude」というのがClaudeCodeの起動コマンドです！
+このような画面が出てきたらOKです！
+最初にダークモードやライトモードの選択ができるので、
+好きなものを指定してEnterを押してください。
+次に、Claudeにログインするよう言われるので、１を選択してEnter。 ブラウザが開くので課金したアカウントでログインすればOKです！
+この画面が表示されれば準備完了です！！！お疲れ様でした！！
+
+※もしこのやり方でうまくいかなかったり、エラーが出る場合は、
+Claudeにエラー内容をそのままコピペすると改善策を出してくれるので指示通りに進めてみてください！
+◆Mac編
+事前に必要なもの
+・MacmacOS 10.15（Catalina）以降
+・メモリ4GB以上
+・インターネット接続必須
+・AnthropicアカウントClaude Pro/Max プラン、またはAPIキー
+ステップ 1　ターミナルを開く
+ターミナルはMacに最初から入っているアプリです。
+Spotlight検索を開く → Command ⌘ + Space を同時押し
+ターミナルと入力して Enter
+黒い（または白い）ウィンドウが開けばOK！
+ターミナルは「Macにテキストで指示を出すためのアプリ」です。
+怖がらなくて大丈夫です！
+ステップ 2 Claude Codeをインストールする
+2つの方法があります。お好きな方を選んでください。
+方法1：ワンライナーでインストール（おすすめ・最も簡単）
+ターミナルに以下をコピー＆ペーストして Enter を押します!
+bash
+curl -fsSL https://claude.ai/install.sh | bash
+これだけで自動的にダウンロード＆インストールされます。
+
+Node.jsは不要です。
+方法2 Homebrewでインストール
+すでにHomebrewを使っている方はこちらでもOKです！
+bash
+brew install --cask claude-c Homebrew版は自動アップデートされないため、定期的に brew upgrade claude-code を実行してください。
+ステップ 3　インストールを確認する
+ターミナルで以下を入力して Enter
+bash
+claude --version
+バージョン番号（例：2.1.41）が表示されれば、インストール成功です ！！
+もしエラーが出た場合は、ターミナルを一度閉じて開き直してから再度試してください。
+ステップ 4　認証（ログイン）する
+ターミナルで以下を入力して Enter
+bash
+claude
+初回起動時、ブラウザが自動的に開きますもし自動で開かない場合は、ターミナルに表示されるURLを Command ⌘ + クリック で開いてください
+ブラウザでClaudeのアカウントにログインします
+認証が完了するとターミナルに戻り、使えるようになります
+認証方法の選択肢
+方法対象者Claude Pro / Max プラン月額サブスクリプションで利用したい方（おすすめ）Claude Console（APIキー）従量課金で利用したい方
+ステップ 5：プロジェクトで使ってみる
+実際にプロジェクトフォルダに移動して使ってみましょう：
+bash
+cd ~/Desktop/my-project
+claude
+&gt; マークが表示されたら、Claude Codeが入力待ちの状態です。試しに話しかけてみましょう！
+&gt; このプロジェクトの構成を説明して
+&gt; README.mdを作成して
+&gt; このファイルのバグを修正して
+Claude Codeは変更を提案し、あなたが承認するまで実際のファイルは変更されません。安心して使えます。
+よくあるトラブルと対処法
+「command not found」と出る
+ターミナルを一度閉じて開き直してください。それでもダメな場合は再インストールを試してください。
+ブラウザが自動で開かない
+ターミナルに表示される長いURLをコピーして、ブラウザに手動で貼り付けてください。
+インストール後の診断
+bash
+claude doctor
+を実行すると、環境の問題を自動で検出して対処法を教えてくれます。
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+ここからは実際に僕が作ったツールの
+制作手順を公開していきます！
+最初に、ClaudeCodeを起動してターミナルの入力欄にこのように指示しました！
+
+
+「&gt; インスタのリール動画用の素材画像を、台本に添った内容で一括で生成できるツールを作りたい。」
+すると、AIが次々とどういう内容で作っていくかを聞いてきてくれるので、
+作りたいイメージに添った回答をしていきます！
+今回はGeminiの画像生成機能をつかって、リール動画の背景用画像を生成してくれるツールを作ってみたいと思います！
+AIが考えてくれた質問に簡単に答えたり、軽く自分のイメージをつたえるだけで、開始数分ですぐにこのようなツールができました！
+
+途中何回かエラーがでました、AIが勝手に修正してくれます笑
+ツールの背景や、ロゴ、デザインなども作りたいイメージに添って、ClaudeCodeにチャットで伝えてあげれば自由自在に作ってくれます！
+
+完成したツールを実際に使ってみます！
+
+
+
+用意したリール動画の台本をコピペしてAIで解析をポチっ！
+台本を自動でカット割りして、画像生成用のプロンプトをカットごとに出力してくれました！
+そして画像を一括生成！
+そして出力されたのが....
+おおおおお！！今回は投資に関する台本だったので、シーンに添った内容の画像を一括で生成してくれました！！！
+
+３０カットとかの素材をいちいち生成していくのは大変なので、
+これなら一瞬で素材画像が揃えられますね！！
+気に入らない画像は、カットごとに再生成できるように、チャットで指示して
+作ってもらいました！
+このようにチャットの指示だけで、自分が使いやすいように何でも作ってくれます！！
+
+※一度に大量の指示を出すとうまく処理されない場合が多いので、少しずつ指示を出しながら作っていくのがバイブコーディングのコツです！
+難しいプログラミングも一切不要です笑
+
+ClaudeCodeを使えば、いままで月額を払っていた色んなツールや、
+欲しかったツールを自分で作れてしまうんです！！
+
+例えば、本来外注すると数十万円かかる
+ホームページやLPが作れたり、
+
+ファイルの整理や、スライド、資料制作や
+アプリづくり、Webデザインまで全てできてしまいます！
+
+
+
+「ドラえもん」に例えると…
+
+ChatGPTやGeminiなどは、
+知識豊富な「本」みたいなもんですが、
+Claude Codeは実際に手足を動かして部屋の掃除や片付けをしてくれる
+「ロボット」です！！
+
+あなたの家にドラえもんがやってきたようなものです！！
+まだ誰もClaudeCodeなんて使っていなので、
+使うだけで上位0.2％くらいになれます！
+
+是非この機会に話題のClaudeCodeを使ってみてください！
+
+
+ここまで読んでいただいてありがとうございました！
+🎁 ～おまけ～
+100万再生を連発するノウハウや、フォロワー0から1投稿目でバズらせる手法、初心者がたった3投稿で120万を稼いだ極秘ノウハウをこちらで
+近日公開予定です！！
+さらに実際にショート動画を活用して億を稼いだ限定7大特典もプレゼントしています。ぜひ受け取ってください↓</div>
 
   <div class="back-link">
     <a href="index.html">← 一覧に戻る</a> |

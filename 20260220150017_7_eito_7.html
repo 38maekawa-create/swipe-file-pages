@@ -14,32 +14,189 @@
     .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
     .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
     .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .section-header { background: #1a73e8; color: white; padding: 8px 12px; border-radius: 4px; margin-top: 24px; }
+    .tweet-video { margin: 12px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 8px; }
     .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
     a { color: #1a73e8; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
+    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
+    .author-name { font-weight: bold; }
+    .author-id { color: #666; font-size: 0.9em; }
   </style>
 </head>
 <body>
-  <h1>@7_eito_7 の投稿</h1>
+  <h1>AIプロンプトでSEO対策を効率化する7つの方法</h1>
+
+  <div class="author-info">
+    <img src="https://pbs.twimg.com/profile_images/1973311534291144704/sbydrfrt_200x200.jpg" alt="@7_eito_7" onerror="this.style.display='none'">
+    <div>
+      <div class="author-name">えいと</div>
+      <div class="author-id">@7_eito_7</div>
+    </div>
+  </div>
+
   <div class="meta">
-    <span>📅 投稿日時: Tue Feb 17 14:47:23 +0000 2026</span>
-    <span>💾 保存日時: 2026-02-21 00:00</span>
+    <span>📅 投稿日時: 2026/02/17 23:47</span>
+    <span>💾 保存日時: 2026/02/21</span>
     <span>単体投稿</span>
   </div>
-  <div class="tags"><span class="tag">#その他</span></div>
+
+  <div class="tags">
+    <span class="tag">マーケティング戦略</span>
+    <span class="tag">#SEO</span> <span class="tag">#AI活用</span> <span class="tag">#プロンプト設計</span>
+  </div>
+
   <div class="engagement">
     <span>❤️ 735</span>
     <span>🔄 31</span>
     <span>💬 2</span>
   </div>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text"></div>
+  <div class="summary-box"><h3>3行要約</h3><p>SEOの作業負担をAIプロンプトで大幅削減する方法を紹介<br>競合分析・キーワード設計・構造化データ監査の具体的プロンプト7つ<br>月100万円の外注費をかけずにSEO対策を実施する手法</p></div>
 
-  
-  
+  <h2 class="article-title">検索上位表示・キーワード設計・競合分析まで。この7つでSEO対策は激変します。</h2>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">SEOは難しいと言われます。
+でも実際にやってみると分かるのは、
+難しいというより「時間がかかりすぎる」ということ。
+・競合を調べる
+・キーワードを洗い出す
+・構造化データを確認する
+・Googleビジネスプロフィールを分析する
+やるべきことは明確なのに、手が回らない。
+だから外注する。
+日本でも月100万円以上。
+でも最近、Claude を触っていて思いました。
+「これ、作業部分はほぼ再現できるな」と。
+今日は、SEO対策で使えるプロンプトを紹介します。
+① 競合のコンテンツギャップを特定する
+プロンプト：
+Chromeで以下の競合サイトを開いて分析してください：
+
+{{競合URL1}}
+{{競合URL2}}
+{{競合URL3}}
+
+以下を特定してください：
+
+1. 各サイトが扱っている主要トピック
+2. 扱っていない重要トピック（コンテンツギャップ）
+3. 私が上位表示を狙うために作成すべき具体的な記事テーマを5つ
+
+抽象的なアドバイスは禁止。
+具体的に提示してください。
+② 構造化データ（Schema）の監査
+プロンプト：
+Chromeで {{対象URL}} を開いてください。
+
+ページソースを確認し、存在しているSchemaの種類をすべて列挙してください。
+
+出力形式：
+
+1. 既存Schemaの一覧 + 簡潔な評価
+2. 不足している、または弱いSchema + 優先度（高・中・低）
+
+優先度「高」のもののみ、実装可能なJSON-LDを生成してください。
+
+推測は禁止。
+解説は不要。
+③ 「今すぐ客」キーワードの抽出
+プロンプト：
+[サービス名] を [地域名] で提供するビジネス向けに、
+購入意欲が非常に高いローカルキーワードを20個抽出してください。
+
+以下を重視してください：
+
+・「近く」「近隣」などの地域意図
+・「緊急」「即日」「今すぐ」などの緊急性
+・明確な購入・依頼意図
+
+カテゴリ別にテーブル形式で出力してください。
+④ 自社と競合のポジショニング比較
+プロンプト：
+Chromeで私のサイト {{自社URL}} を開いてください。
+
+以下を抽出してください：
+
+・事業名
+・提供サービス
+・対応地域
+・強み・訴求ポイント
+
+次に、以下の競合サイトを分析してください：
+
+{{競合1}}
+{{競合2}}
+
+比較してください：
+
+・サービスの違い
+・地域ターゲットの違い
+・信頼要素（レビュー、保証、資格など）
+
+私が弱い点と、優位に立てるポイントを明確に示してください。
+⑤ Googleビジネスプロフィール（GBP）投稿最適化
+プロンプト：
+Chromeで以下の競合のGoogleビジネスプロフィール投稿を確認してください：
+
+{{競合1}}
+{{競合2}}
+
+分析項目：
+
+・投稿タイプ
+・投稿頻度
+・テーマ
+・CTAの内容
+・画像・動画の使い方
+
+キーワードギャップを特定し、
+[地域名] のランドマークを含めた
+「今すぐ電話」CTA付きの投稿を10本作成してください。
+⑥ 勝ちパターンから投稿戦略を設計する
+プロンプト：
+競合のGoogleビジネスプロフィール投稿分析をもとに、
+
+・上位表示と相関がありそうな投稿パターン
+・エンゲージメントが高い投稿の特徴
+
+を特定してください。
+
+そのうえで、具体的な週間投稿計画を作成してください：
+
+・投稿タイプ
+・頻度
+・テーマ
+・CTAの書き方
+
+抽象論は禁止。
+すぐ実行できる内容にしてください。
+⑦ キーワードリサーチの高速化
+プロンプト：
+Chromeで {{競合サイトURL}} を分析してください。
+
+上位表示されている20ページを特定し、
+
+・狙っているキーワード
+・検索ボリューム
+・競合難易度
+
+を抽出してください。
+
+優先順位をつけてテーブル形式で出力してください。
+SEO対策はAIを活用して効率よく行うべき
+SEO戦略は、人間が考えるものです。
+でも、作業の大半は「やろうと思えばできるけど、時間が足りない」部分。
+Claudeはそこを補ってくれます。
+この投稿が役に立ったなら
+・えいと(@7_eito_7)をフォロー。
+・いいねとリポストもお願いします</div>
 
   <div class="back-link">
     <a href="index.html">← 一覧に戻る</a> |

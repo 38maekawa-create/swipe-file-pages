@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@OnebookofMAG - 形容詞を動詞に変えて文章に映像を宿す技法</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
-.container{max-width:680px;margin:0 auto;padding:16px}
-.header{background:#1a73e8;color:#fff;padding:16px;border-radius:12px 12px 0 0;margin-bottom:0}
-.header h1{font-size:18px;margin-bottom:8px}
-.meta{font-size:13px;opacity:0.9}
-.content{background:#fff;padding:20px;border-radius:0 0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.author{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e0e0e0}
-.author img{width:48px;height:48px;border-radius:50%}
-.author-info{flex:1}
-.author-name{font-weight:bold;font-size:15px}
-.author-id{color:#666;font-size:13px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
-.tag{background:#e8f0fe;color:#1a73e8;padding:2px 10px;border-radius:12px;font-size:12px}
-.tweet-text{white-space:pre-wrap;margin:16px 0;font-size:15px;line-height:1.8}
-.summary{background:#f8f9fa;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #1a73e8}
-.summary h3{font-size:14px;color:#1a73e8;margin-bottom:8px}
-.original-link{display:inline-block;margin-top:16px;color:#1a73e8;text-decoration:none;font-weight:bold}
-.back-link{text-align:center;margin-top:20px}
-.back-link a{color:#666;text-decoration:none;font-size:13px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@OnebookofMAG の投稿 - スワイプファイル</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
+    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+    .meta span { display: inline-block; margin-right: 16px; }
+    .tags { margin: 10px 0; }
+    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
+    .tweet-video { margin: 12px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 8px; }
+    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
+    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
+    .author-name { font-weight: bold; }
+    .author-id { color: #666; font-size: 0.9em; }
+  </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<h1>形容詞を動詞に変えて文章に映像を宿す技法</h1>
-<div class="meta">コピーライティング | 2026/02/18 20:42 | 単体投稿</div>
-</div>
-<div class="content">
-<div class="author">
-<img src="https://pbs.twimg.com/profile_images/1842796727805616128/i71xgKwj_200x200.jpg" alt="@OnebookofMAG" onerror="this.style.display='none'">
-<div class="author-info">
-<div class="author-name">川岸宏司｜DIL COO</div>
-<div class="author-id">@OnebookofMAG</div>
-</div>
-</div>
-<div class="summary">
-<h3>3行要約</h3>
-<p>「悲しい」を「涙が溢れた」に変える文章マジック<br>読者の脳内に情景を再生させる表現テクニック<br>毎回1万いいねを獲得する投稿の秘密を公開</p>
-</div>
-<div class="tags">
-<span class="tag">文章術</span>
-<span class="tag">表現技法</span>
-<span class="tag">ライティング</span>
-</div>
-<div class="tweet-text">私が死ぬほど大好きな文章マジックの1つに
+  <h1>形容詞を動詞に変えて文章に映像を宿す技法</h1>
+
+  <div class="author-info">
+    <img src="https://pbs.twimg.com/profile_images/1842796727805616128/i71xgKwj_200x200.jpg" alt="@OnebookofMAG" onerror="this.style.display='none'">
+    <div>
+      <div class="author-name">川岸宏司｜DIL COO</div>
+      <div class="author-id">@OnebookofMAG</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <span>📅 投稿日時: 2026/02/18 20:42</span>
+    <span>💾 保存日時: 2026/02/21</span>
+    <span>単体投稿</span>
+  </div>
+
+  <div class="tags">
+    <span class="tag">コピーライティング</span>
+    <span class="tag">#文章術</span> <span class="tag">#表現技法</span> <span class="tag">#ライティング</span>
+  </div>
+
+  <div class="engagement">
+    <span>❤️ 10706</span>
+    <span>🔄 1083</span>
+    <span>💬 31</span>
+  </div>
+
+  <div class="summary-box"><h3>3行要約</h3><p>「悲しい」を「涙が溢れた」に変える文章マジック<br>読者の脳内に情景を再生させる表現テクニック<br>毎回1万いいねを獲得する投稿の秘密を公開</p></div>
+
+  <h2 class="article-title">文章で一番好きなマジックはこれです</h2>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">私が死ぬほど大好きな文章マジックの1つに
 「形容詞を動詞に変える」
 があるのですが…これ好き過ぎて、よく擦り倒して投稿しています。
 ほぼ毎回1万いいねをいただけます。
 私だけじゃなく、みんな好きなマジックかもです。
 ちなみにたとえると、
-「悲しい」を"涙が溢れた"に。
-「嬉しい」を"小さくガッツポーズした"に。
+「悲しい」を&quot;涙が溢れた&quot;に。
+「嬉しい」を&quot;小さくガッツポーズした&quot;に。
 こんな感じ。たったこれだけで、文章に映像が宿ってくる。
 感情が色づくというか、読んだ人の脳内に情景が再生される感覚。わかりますかね。
 もう少し雑に言うと「あ、映像が見えた」って感じです。料理で言うと塩みたいなもので、入れすぎると台無しだけど、入れないと味がしないイメージ。
-余談ですが、世の中には「形容詞を使うな」系の文章術が溢れていて、書籍もnoteもYouTubeもゴロゴロ出てくるのだけど…大半が"文章を書く人向け"で止まってるじゃないですか。
+余談ですが、世の中には「形容詞を使うな」系の文章術が溢れていて、書籍もnoteもYouTubeもゴロゴロ出てくるのだけど…大半が&quot;文章を書く人向け&quot;で止まってるじゃないですか。
 「ライターじゃないし関係ないわ」
 で閉じられて終わり。これがもったいなさすぎるなと思っています。
 というのも、この技術の本当のヤバさは文章の外にあるからです。
@@ -81,7 +93,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 お前が医者なら診断しろよと。
 これを動詞に変えた瞬間、映像が宿ります。
 「メンバー間の会話が減って、それぞれが自分の作業に閉じこもっている」
-同じ状態を指しているのに、後者は"カメラで撮れる"んですよね。
+同じ状態を指しているのに、後者は&quot;カメラで撮れる&quot;んですよね。
 人はラベルでは動かないです。映像で動きます。
 「いい感じで」も同じで、相手にエスパー能力を要求しているだけ。
 「冒頭にデータを入れて、結論から書いて」まで変換して初めて、相手が動ける。（ちょう当たり前）
@@ -123,15 +135,37 @@ LINEでもSlackでも使えます。「嬉しいです！」より「思わず�
 ・もうちょっとこう… → 見出しの文字を2pt大きくして
 部下に「いい感じで」と5回言うくらいなら、1回「結論から書いて」と言った方がお互い幸せですよね。
 「なんか違う」って、フィードバックじゃなくて
-"言語化の責任の押し付け"。
+&quot;言語化の責任の押し付け&quot;。
 せめて何が違うかくらいは言語化してから口を開いてくれ…と心の底から思います。
 ━━━━━━━━━━━━━━
 形容詞を手放した先の景色
 ━━━━━━━━━━━━━━
-</div>
-<a href="https://x.com/onebookofmag/status/2024087195267854604" target="_blank" class="original-link">元の投稿を見る →</a>
-</div>
-<div class="back-link"><a href="index.html">← 一覧に戻る</a></div>
-</div>
+私がこれを意識しはじめてから、言葉の解像度が明らかに変わりました。
+文章を書けば「刺さる」と言われることが増えたし、打ち合わせで「わかりやすい」と言われることが増えた。
+変えたことはシンプルで、「今日1日、形容詞を禁止する」を試しただけ。
+「すごい」を封印した瞬間、脳が勝手に&quot;具体的な動詞&quot;を探しはじめるんですよ。
+「やばい」を封印した瞬間、何がやばいのかを考えはじめる。これがたぶん、
+言語化力の正体
+だと思っています。
+形容詞は便利です。でも便利すぎて、思考を止めます。コンビニ弁当みたいなもので、手軽だけど毎日食べてたら確実に体を壊すでしょ。
+言葉に映像を宿らせたいなら、まず形容詞を手放すこと。
+…ちなみに私、今日この記事を書きながら「すごい」を3回使いそうになって全部消しました。
+でも、やばいは使います。えぐいも使います。えもいはもっと使います。
+封印、地味にキツいです笑
+…FIN
+本を出しています。
+速く読む技術についての本で、私が最後に出すと決めていた、速読術です。ぜひこちらも読んでみてください。
+https://note.com/onebookof_mag/n/nd6d0d5895771
+━━━━━━━━━━━━━━
+普段長文はnoteの記事で投稿しています。
+特にXについての考察等を週に2回更新しているので、ぜひこちらも読んでいただけると幸いです。
+https://note.com/onebookof_mag
+Xのフォロー、記事の感想も引用投稿でぜひお願いいたします。
+https://x.com/OnebookofMAG</div>
+
+  <div class="back-link">
+    <a href="index.html">← 一覧に戻る</a> |
+    <a href="https://x.com/onebookofmag/status/2024087195267854604" target="_blank">元の投稿を見る ↗</a>
+  </div>
 </body>
 </html>
