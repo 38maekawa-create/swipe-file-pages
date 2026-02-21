@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@axcel0901 の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/16 21:58</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/16 21:58</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,92 +84,99 @@
 
   <h2 class="article-title">noteがなぜか上位表示するキーワードの正体</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">これ、何の共通点かわかりますか？
-・転職　後悔　ブログ
-・ダイエット　挫折　体験談
-・失恋　立ち直れない
-・
-・
-・
-・
-・
-答えはシンプルです。
-Googleで検索すると、noteドメインが1位か2位にいることがめちゃくちゃ多いキーワードです。
-実はこれ、偶然じゃありません。
-実は、noteへのアクセスの42％がOrganic（つまりGoogleから）で、Social（XなどのSNS）のアクセスはたったの８％しかありません。
-そこで、さっそく調査をしてみました。
-するとnoteドメインには上がりやすいジャンルの癖がありました。
-少し前までは、「やっぱり個人は無理か・・・」なんて思っていたこともありましたが・・・・
-また、noteが上がっているキーワードを徹底的に調べていくうちに、ある共通パターンが見えてきたんです。
-つまり、ジャンルやキーワードさえ間違えなければ、個人でもGoogleからアクセスを取りにいけるんです。
-とはいえ、
-「どうやって探すの？」
-「SEOとか難しい・・・」
-「キーワード選定が一番面倒」
-わかります。
-正直、ここで挫折する人が9割です。
-だから今回、その作業を自動化しました。
-ジャンルを入力するだけで、
-・上位表示しやすいキーワードを抽出
-・検索意図を整理
-・タイトル案を生成
-・見出し構成を作成
-・記事本文まで下書き
-ここまで出してくれるツールを作りました。
-googleのAPIに課金しているので、過去のデータではなく、リアルタイムのデータを見ることができます。
-ここで大事なのは、「ラクして稼げる」ではありません。
-正しい土俵で戦うということです。
-SEOはギャンブルじゃなく、ポジション取りです。
-実際のシステムの中身を解説します
-実際に、noteは検索上位に表示されています
-多くのSEOツールは、検索ボリュームや難易度しか見ません。
-でも、それではnoteが本当に勝てるかはわからりません。
-このツールは、違います。
-12個のキーワード中、8個でnoteがTop10に複数表示。
-つまり「理論上いけそう」ではなく「現実にいけている場所」だけを選んでいます。
-だからあなたは「書いてみないと分からない賭け」をしなくていい。
-最初から勝っている場所で戦えます。
-書く前に、勝てるかどうかが分かる仕組み
-SEOで一番怖いのは、「なんとなくいけそう」で記事を書くこと。
-でも、このツールでは、
-・難しいジャンルは最初に除外
-・企業が強すぎるキーワードは避ける
-・個人でも入り込める余地があるものだけを抽出
-という仕組みになっています。
-もし競合が強すぎる場合は、そのキーワードは選びません。
-代わりに、個人でも勝てる隙間キーワードが見つかるまで自動で検出し続けます。
-つまり、勝てない戦いは、最初からしない。
-戦う前に、勝率がある程度見えている状態を作るのです。
-勝てるキーワードが見つかるまで、掘り続ける仕組み
-普通の人はこうなります。
-キーワードを選ぶ
-↓
-記事を書く
-↓
-検索に出ない
-↓
-心が折れる。
-でも、このツールは違います。
-最初の段階で
-勝てないジャンルは除外
-↓
-キーワードを再分析
-↓
-上位表示している3つだけ採用
-つまり、やらなくていい努力を消します。
-努力量ではなく場所選び勝つ。
-遠回りを消すことが最大の効率化です。
-これが最大の価値です。
-たしかに、キーワード提案ツールはあります。
-でも、「noteが勝てるか」まで、本気で分析しているツールはほぼありません。
-これはnoteで収益を作るためだけに設計された専用の検索構造ツールです。
-遠回りしたくない人だけ、使ってくださいね。
-こういうツールは、メルマガ限定で紹介しています。
-SNSでは紹介しませんので、この機会にぜひ、メルマガにご登録ください。
-ただし、今すぐツールを見たいという方もいると思うので、この記事を引用してくれたらシークレットリプライで送ります。
-引用ポストは、「見たい」とか「後で読む」とか「ブクマしておく」とかでOKです。</div>
-  
+  <h2>記事本文</h2>
+  <p class="article-paragraph">これ、何の共通点かわかりますか？</p>
+<p class="article-paragraph">・転職　後悔　ブログ</p>
+<p class="article-paragraph">・ダイエット　挫折　体験談</p>
+<p class="article-paragraph">・失恋　立ち直れない</p>
+<p class="article-paragraph">・</p>
+<p class="article-paragraph">・</p>
+<p class="article-paragraph">・</p>
+<p class="article-paragraph">・</p>
+<p class="article-paragraph">・</p>
+<p class="article-paragraph">答えはシンプルです。</p>
+<p class="article-paragraph">Googleで検索すると、noteドメインが1位か2位にいることがめちゃくちゃ多いキーワードです。</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR6J_obsAAfBuk.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR6OIZaIAA9Nu0.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR6XurbsAAsxwC.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<h2 class="article-h1">実はこれ、偶然じゃありません。</h2>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBZcGgUaQAAhtuJ.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">実は、noteへのアクセスの42％がOrganic（つまりGoogleから）で、Social（XなどのSNS）のアクセスはたったの８％しかありません。</p>
+<p class="article-paragraph">そこで、さっそく調査をしてみました。</p>
+<p class="article-paragraph">するとnoteドメインには上がりやすいジャンルの癖がありました。</p>
+<p class="article-paragraph">少し前までは、「やっぱり個人は無理か・・・」なんて思っていたこともありましたが・・・・</p>
+<p class="article-paragraph">また、noteが上がっているキーワードを徹底的に調べていくうちに、ある共通パターンが見えてきたんです。</p>
+<p class="article-paragraph">つまり、ジャンルやキーワードさえ間違えなければ、個人でもGoogleからアクセスを取りにいけるんです。</p>
+<p class="article-paragraph">とはいえ、</p>
+<p class="article-paragraph">「どうやって探すの？」</p>
+<p class="article-paragraph">「SEOとか難しい・・・」</p>
+<p class="article-paragraph">「キーワード選定が一番面倒」</p>
+<p class="article-paragraph">わかります。</p>
+<p class="article-paragraph">正直、ここで挫折する人が9割です。</p>
+<h2 class="article-h1">だから今回、その作業を自動化しました。</h2>
+<p class="article-paragraph">ジャンルを入力するだけで、</p>
+<p class="article-paragraph">・上位表示しやすいキーワードを抽出</p>
+<p class="article-paragraph">・検索意図を整理</p>
+<p class="article-paragraph">・タイトル案を生成</p>
+<p class="article-paragraph">・見出し構成を作成</p>
+<p class="article-paragraph">・記事本文まで下書き</p>
+<p class="article-paragraph">ここまで出してくれるツールを作りました。</p>
+<p class="article-paragraph">googleのAPIに課金しているので、過去のデータではなく、リアルタイムのデータを見ることができます。</p>
+<div class="embedded-tweet"><a href="https://x.com/i/status/2024240783071859033" target="_blank">埋め込みツイートを見る ↗</a></div>
+<p class="article-paragraph">ここで大事なのは、「ラクして稼げる」ではありません。</p>
+<p class="article-paragraph">正しい土俵で戦うということです。</p>
+<p class="article-paragraph">SEOはギャンブルじゃなく、ポジション取りです。</p>
+<h2 class="article-h1">実際のシステムの中身を解説します</h2>
+<h3 class="article-h2">実際に、noteは検索上位に表示されています</h3>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR8B8daYAEPt49.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">多くのSEOツールは、検索ボリュームや難易度しか見ません。</p>
+<p class="article-paragraph">でも、それではnoteが本当に勝てるかはわからりません。</p>
+<p class="article-paragraph">このツールは、違います。</p>
+<p class="article-paragraph">12個のキーワード中、8個でnoteがTop10に複数表示。</p>
+<p class="article-paragraph">つまり「理論上いけそう」ではなく「現実にいけている場所」だけを選んでいます。</p>
+<p class="article-paragraph">だからあなたは「書いてみないと分からない賭け」をしなくていい。</p>
+<p class="article-paragraph">最初から勝っている場所で戦えます。</p>
+<h3 class="article-h2">書く前に、勝てるかどうかが分かる仕組み</h3>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR84o6bEAA_J9D.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">SEOで一番怖いのは、「なんとなくいけそう」で記事を書くこと。</p>
+<p class="article-paragraph">でも、このツールでは、</p>
+<p class="article-paragraph">・難しいジャンルは最初に除外</p>
+<p class="article-paragraph">・企業が強すぎるキーワードは避ける</p>
+<p class="article-paragraph">・個人でも入り込める余地があるものだけを抽出</p>
+<p class="article-paragraph">という仕組みになっています。</p>
+<p class="article-paragraph">もし競合が強すぎる場合は、そのキーワードは選びません。</p>
+<p class="article-paragraph">代わりに、個人でも勝てる隙間キーワードが見つかるまで自動で検出し続けます。</p>
+<p class="article-paragraph">つまり、勝てない戦いは、最初からしない。</p>
+<p class="article-paragraph">戦う前に、勝率がある程度見えている状態を作るのです。</p>
+<h3 class="article-h2">勝てるキーワードが見つかるまで、掘り続ける仕組み</h3>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBR9MugaIAAvZbc.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">普通の人はこうなります。</p>
+<p class="article-paragraph">キーワードを選ぶ</p>
+<p class="article-paragraph">↓</p>
+<p class="article-paragraph">記事を書く</p>
+<p class="article-paragraph">↓</p>
+<p class="article-paragraph">検索に出ない</p>
+<p class="article-paragraph">↓</p>
+<p class="article-paragraph">心が折れる。</p>
+<p class="article-paragraph">でも、このツールは違います。</p>
+<p class="article-paragraph">最初の段階で</p>
+<p class="article-paragraph">勝てないジャンルは除外</p>
+<p class="article-paragraph">↓</p>
+<p class="article-paragraph">キーワードを再分析</p>
+<p class="article-paragraph">↓</p>
+<p class="article-paragraph">上位表示している3つだけ採用</p>
+<p class="article-paragraph">つまり、やらなくていい努力を消します。</p>
+<p class="article-paragraph">努力量ではなく場所選び勝つ。</p>
+<p class="article-paragraph">遠回りを消すことが最大の効率化です。</p>
+<p class="article-paragraph">これが最大の価値です。</p>
+<p class="article-paragraph">たしかに、キーワード提案ツールはあります。</p>
+<p class="article-paragraph">でも、「noteが勝てるか」まで、本気で分析しているツールはほぼありません。</p>
+<p class="article-paragraph">これはnoteで収益を作るためだけに設計された専用の検索構造ツールです。</p>
+<p class="article-paragraph">遠回りしたくない人だけ、使ってくださいね。</p>
+<p class="article-paragraph">こういうツールは、メルマガ限定で紹介しています。</p>
+<p class="article-paragraph">SNSでは紹介しませんので、この機会にぜひ、メルマガにご登録ください。</p>
+<p class="article-paragraph">ただし、今すぐツールを見たいという方もいると思うので、この記事を引用してくれたらシークレットリプライで送ります。</p>
+<p class="article-paragraph">引用ポストは、「見たい」とか「後で読む」とか「ブクマしておく」とかでOKです。</p>
   
 
   <div class="back-link">

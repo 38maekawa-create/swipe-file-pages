@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@kajikent の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/13 11:24</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/13 11:24</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -67,8 +90,8 @@
 ピクセルソートで背景をストライプ化しつつ、ブラウザ上のAIモデル（RMBG-1.4 + YOLOS-tiny）で人物だけ自動で残す仕組み。
 
 サーバーレスで推論もすべてクライアント完結。企画からデプロイまで数時間。すごい時代だよほんと。</div>
+<div class="tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2022134059284168705/img/xgKikahgEvjSGwRj.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2022134059284168705/vid/avc1/3440x2042/60czZWLLPR615yQd.mp4?tag=21" type="video/mp4"></video></div>
   
-    <div class="tweet-video" style="width:100%;margin:8px 0;"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2022134059284168705/img/xgKikahgEvjSGwRj.jpg" style="width:100%;border-radius:8px;" playsinline><source src="https://video.twimg.com/amplify_video/2022134059284168705/vid/avc1/3440x2042/60czZWLLPR615yQd.mp4?tag=21" type="video/mp4"></video></div>
 
   <div class="back-link">
     <a href="index.html">← 一覧に戻る</a> |

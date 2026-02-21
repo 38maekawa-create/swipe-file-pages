@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@7_eito_7 の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/17 23:47</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/17 23:47</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,23 +84,23 @@
 
   <h2 class="article-title">検索上位表示・キーワード設計・競合分析まで。この7つでSEO対策は激変します。</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">SEOは難しいと言われます。
-でも実際にやってみると分かるのは、
-難しいというより「時間がかかりすぎる」ということ。
-・競合を調べる
+  <h2>記事本文</h2>
+  <p class="article-paragraph">SEOは難しいと言われます。</p>
+<p class="article-paragraph">でも実際にやってみると分かるのは、
+難しいというより「時間がかかりすぎる」ということ。</p>
+<p class="article-paragraph">・競合を調べる
 ・キーワードを洗い出す
 ・構造化データを確認する
-・Googleビジネスプロフィールを分析する
-やるべきことは明確なのに、手が回らない。
-だから外注する。
-日本でも月100万円以上。
-でも最近、Claude を触っていて思いました。
-「これ、作業部分はほぼ再現できるな」と。
-今日は、SEO対策で使えるプロンプトを紹介します。
-① 競合のコンテンツギャップを特定する
-プロンプト：
-Chromeで以下の競合サイトを開いて分析してください：
+・Googleビジネスプロフィールを分析する</p>
+<p class="article-paragraph">やるべきことは明確なのに、手が回らない。</p>
+<p class="article-paragraph">だから外注する。
+日本でも月100万円以上。</p>
+<p class="article-paragraph">でも最近、Claude を触っていて思いました。</p>
+<p class="article-paragraph">「これ、作業部分はほぼ再現できるな」と。</p>
+<p class="article-paragraph">今日は、SEO対策で使えるプロンプトを紹介します。</p>
+<h3 class="article-h2">① 競合のコンテンツギャップを特定する</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">Chromeで以下の競合サイトを開いて分析してください：
 
 {{競合URL1}}
 {{競合URL2}}
@@ -90,10 +113,10 @@ Chromeで以下の競合サイトを開いて分析してください：
 3. 私が上位表示を狙うために作成すべき具体的な記事テーマを5つ
 
 抽象的なアドバイスは禁止。
-具体的に提示してください。
-② 構造化データ（Schema）の監査
-プロンプト：
-Chromeで {{対象URL}} を開いてください。
+具体的に提示してください。</p>
+<h3 class="article-h2">② 構造化データ（Schema）の監査</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">Chromeで {{対象URL}} を開いてください。
 
 ページソースを確認し、存在しているSchemaの種類をすべて列挙してください。
 
@@ -105,10 +128,10 @@ Chromeで {{対象URL}} を開いてください。
 優先度「高」のもののみ、実装可能なJSON-LDを生成してください。
 
 推測は禁止。
-解説は不要。
-③ 「今すぐ客」キーワードの抽出
-プロンプト：
-[サービス名] を [地域名] で提供するビジネス向けに、
+解説は不要。</p>
+<h3 class="article-h2">③ 「今すぐ客」キーワードの抽出</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">[サービス名] を [地域名] で提供するビジネス向けに、
 購入意欲が非常に高いローカルキーワードを20個抽出してください。
 
 以下を重視してください：
@@ -117,10 +140,10 @@ Chromeで {{対象URL}} を開いてください。
 ・「緊急」「即日」「今すぐ」などの緊急性
 ・明確な購入・依頼意図
 
-カテゴリ別にテーブル形式で出力してください。
-④ 自社と競合のポジショニング比較
-プロンプト：
-Chromeで私のサイト {{自社URL}} を開いてください。
+カテゴリ別にテーブル形式で出力してください。</p>
+<h3 class="article-h2">④ 自社と競合のポジショニング比較</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">Chromeで私のサイト {{自社URL}} を開いてください。
 
 以下を抽出してください：
 
@@ -140,10 +163,10 @@ Chromeで私のサイト {{自社URL}} を開いてください。
 ・地域ターゲットの違い
 ・信頼要素（レビュー、保証、資格など）
 
-私が弱い点と、優位に立てるポイントを明確に示してください。
-⑤ Googleビジネスプロフィール（GBP）投稿最適化
-プロンプト：
-Chromeで以下の競合のGoogleビジネスプロフィール投稿を確認してください：
+私が弱い点と、優位に立てるポイントを明確に示してください。</p>
+<h3 class="article-h2">⑤ Googleビジネスプロフィール（GBP）投稿最適化</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">Chromeで以下の競合のGoogleビジネスプロフィール投稿を確認してください：
 
 {{競合1}}
 {{競合2}}
@@ -158,10 +181,10 @@ Chromeで以下の競合のGoogleビジネスプロフィール投稿を確認�
 
 キーワードギャップを特定し、
 [地域名] のランドマークを含めた
-「今すぐ電話」CTA付きの投稿を10本作成してください。
-⑥ 勝ちパターンから投稿戦略を設計する
-プロンプト：
-競合のGoogleビジネスプロフィール投稿分析をもとに、
+「今すぐ電話」CTA付きの投稿を10本作成してください。</p>
+<h3 class="article-h2">⑥ 勝ちパターンから投稿戦略を設計する</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">競合のGoogleビジネスプロフィール投稿分析をもとに、
 
 ・上位表示と相関がありそうな投稿パターン
 ・エンゲージメントが高い投稿の特徴
@@ -176,10 +199,10 @@ Chromeで以下の競合のGoogleビジネスプロフィール投稿を確認�
 ・CTAの書き方
 
 抽象論は禁止。
-すぐ実行できる内容にしてください。
-⑦ キーワードリサーチの高速化
-プロンプト：
-Chromeで {{競合サイトURL}} を分析してください。
+すぐ実行できる内容にしてください。</p>
+<h3 class="article-h2">⑦ キーワードリサーチの高速化</h3>
+<p class="article-paragraph">プロンプト：</p>
+<p class="article-paragraph">Chromeで {{競合サイトURL}} を分析してください。
 
 上位表示されている20ページを特定し、
 
@@ -189,15 +212,14 @@ Chromeで {{競合サイトURL}} を分析してください。
 
 を抽出してください。
 
-優先順位をつけてテーブル形式で出力してください。
-SEO対策はAIを活用して効率よく行うべき
-SEO戦略は、人間が考えるものです。
-でも、作業の大半は「やろうと思えばできるけど、時間が足りない」部分。
-Claudeはそこを補ってくれます。
-この投稿が役に立ったなら
-・えいと(@7_eito_7)をフォロー。
-・いいねとリポストもお願いします</div>
-  
+優先順位をつけてテーブル形式で出力してください。</p>
+<h2 class="article-h1">SEO対策はAIを活用して効率よく行うべき</h2>
+<p class="article-paragraph">SEO戦略は、人間が考えるものです。</p>
+<p class="article-paragraph">でも、作業の大半は「やろうと思えばできるけど、時間が足りない」部分。</p>
+<p class="article-paragraph">Claudeはそこを補ってくれます。</p>
+<p class="article-paragraph">この投稿が役に立ったなら</p>
+<p class="article-paragraph">・えいと(@7_eito_7)をフォロー。</p>
+<p class="article-paragraph">・いいねとリポストもお願いします</p>
   
 
   <div class="back-link">

@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@gagarotai200 の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/19 15:33</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/19 15:33</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -53,7 +76,7 @@
 
   <div class="engagement">
     <span>❤️ 521</span>
-    <span>🔄 28</span>
+    <span>🔄 29</span>
     <span>💬 4</span>
   </div>
 
@@ -61,266 +84,266 @@
 
   <h2 class="article-title">OpenClaw完全ガイド【AIに働かせる時代が来た】</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">AIが自律的に動く時代が来た
-オラはこのシステムで完全自動で800万再生を獲得した
-今回紹介するのは、OpenClawというAIエージェントに
-「ミッションコントロール」という管理画面を作らせるシステムだ。
-OpenClaw単体だと、普通のAIエージェントとあまり変わらない。
-でも、ミッションコントロールという管理画面を作ってやると、完全に別次元の存在になる。
-何がすごいって、AIが自分で考えてタスクをこなし、仕事を自律的に終わらせてくれること。しかも、その過程が全部可視化されているから、今何をやっているか一目でわかる。
-今回は、このOpenClawミッションコントロールの全貌を解説していく。
-OpenClawって何？なんでミッションコントロールが必要なの？
-まず基本から説明する。
-OpenClawは高性能なAIエージェントだが、単体だと「ただのチャットボット」的な使い方になりがち。
-でも、ミッションコントロール（Mission Control）という専用の管理画面を作ると、一気に「自律型AIワーカー」に変わる。
-ミッションコントロールの役割
-ミッションコントロールは、簡単に言うと：
-AIが何をやっているか可視化する
-AIのメモリを強化する
-カスタムツールを追加する
-複数のAIエージェントを管理する
-この機能を持った「AIの司令塔」だ。
-AIエージェントたちが独自にメインのAIに質問しながら、実際のタスクを遂行してくれる。ミッションコントロールがあるからこそ実現できることだ。
-技術スタック：NextJS + Convex
-使う技術は：
-フロントエンド：NextJS
-データベース：Convex
-この組み合わせがかなり優秀で、リアルタイムでデータが更新されるし、UIも軽快に動く。
-そして重要なのが、自分でコードを書く必要がないという点。OpenClawに「これ作って」と指示するだけで、勝手にコードを書いて実装してくれる。
-ツール①：タスクボード - AIの仕事を完全可視化
-最初に紹介するのがタスクボードだ。これが一番重要な機能になる。
-なぜタスクボードが必要なのか
-AIエージェントを放置していると「今何やってるの？」という状態になりがちだ。
-タスクボードがあれば：
-AIが今何のタスクをやっているか一目瞭然
-自分が何をやっているかもAIに共有できる
-AIが朝の間に勝手にタスクを終わらせてくれる
-実際に、タスクボードを導入した翌朝に起きたら、AIが複数のタスクを自動で完了させていたという事例がある。タスクボードがあるからこそAIが主体的に動けるということだ。
-タスクボードの構成
-基本的な構成はシンプルだ：
-カラム 説明     Todo これからやるタスク   In Progress 今やっているタスク   Done 終わったタスク   担当者 自分 or AI
-シンプルだが、これがあるだけで、AIは「これは自分がやるタスクだ」と理解して動いてくれるようになる。
-実装プロンプト
-実際にOpenClawに作らせる際はこう指示する：
-タスクボードを作ってください。
+  <h2>記事本文</h2>
+  <p class="article-paragraph">AIが自律的に動く時代が来た
+オラはこのシステムで完全自動で800万再生を獲得した</p>
+<p class="article-paragraph">今回紹介するのは、OpenClawというAIエージェントに
+「ミッションコントロール」という管理画面を作らせるシステムだ。</p>
+<div class="embedded-tweet"><a href="https://x.com/i/status/2024332586001322187" target="_blank">埋め込みツイートを見る ↗</a></div>
+<p class="article-paragraph">OpenClaw単体だと、普通のAIエージェントとあまり変わらない。</p>
+<p class="article-paragraph">でも、ミッションコントロールという管理画面を作ってやると、完全に別次元の存在になる。</p>
+<p class="article-paragraph">何がすごいって、AIが自分で考えてタスクをこなし、仕事を自律的に終わらせてくれること。しかも、その過程が全部可視化されているから、今何をやっているか一目でわかる。</p>
+<p class="article-paragraph">今回は、このOpenClawミッションコントロールの全貌を解説していく。</p>
+<h3 class="article-h2">OpenClawって何？なんでミッションコントロールが必要なの？</h3>
+<p class="article-paragraph">まず基本から説明する。</p>
+<p class="article-paragraph">OpenClawは高性能なAIエージェントだが、単体だと「ただのチャットボット」的な使い方になりがち。</p>
+<p class="article-paragraph">でも、ミッションコントロール（Mission Control）という専用の管理画面を作ると、一気に「自律型AIワーカー」に変わる。</p>
+<p class="article-paragraph">ミッションコントロールの役割</p>
+<p class="article-paragraph">ミッションコントロールは、簡単に言うと：</p>
+<li>AIが何をやっているか可視化する</li>
+<li>AIのメモリを強化する</li>
+<li>カスタムツールを追加する</li>
+<li>複数のAIエージェントを管理する</li>
+<p class="article-paragraph">この機能を持った「AIの司令塔」だ。</p>
+<p class="article-paragraph">AIエージェントたちが独自にメインのAIに質問しながら、実際のタスクを遂行してくれる。ミッションコントロールがあるからこそ実現できることだ。</p>
+<p class="article-paragraph">技術スタック：NextJS + Convex</p>
+<p class="article-paragraph">使う技術は：</p>
+<li>フロントエンド：NextJS</li>
+<li>データベース：Convex</li>
+<p class="article-paragraph">この組み合わせがかなり優秀で、リアルタイムでデータが更新されるし、UIも軽快に動く。</p>
+<p class="article-paragraph">そして重要なのが、自分でコードを書く必要がないという点。OpenClawに「これ作って」と指示するだけで、勝手にコードを書いて実装してくれる。</p>
+<h3 class="article-h2">ツール①：タスクボード - AIの仕事を完全可視化</h3>
+<p class="article-paragraph">最初に紹介するのがタスクボードだ。これが一番重要な機能になる。</p>
+<p class="article-paragraph">なぜタスクボードが必要なのか</p>
+<p class="article-paragraph">AIエージェントを放置していると「今何やってるの？」という状態になりがちだ。</p>
+<p class="article-paragraph">タスクボードがあれば：</p>
+<li>AIが今何のタスクをやっているか一目瞭然</li>
+<li>自分が何をやっているかもAIに共有できる</li>
+<li>AIが朝の間に勝手にタスクを終わらせてくれる</li>
+<p class="article-paragraph">実際に、タスクボードを導入した翌朝に起きたら、AIが複数のタスクを自動で完了させていたという事例がある。タスクボードがあるからこそAIが主体的に動けるということだ。</p>
+<p class="article-paragraph">タスクボードの構成</p>
+<p class="article-paragraph">基本的な構成はシンプルだ：</p>
+<p class="article-paragraph">カラム 説明     Todo これからやるタスク   In Progress 今やっているタスク   Done 終わったタスク   担当者 自分 or AI</p>
+<p class="article-paragraph">シンプルだが、これがあるだけで、AIは「これは自分がやるタスクだ」と理解して動いてくれるようになる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">実際にOpenClawに作らせる際はこう指示する：</p>
+<p class="article-paragraph">タスクボードを作ってください。
 すべてのタスクのステータスと担当者（私 or あなた）を
 表示できるようにしてください。
 今後、あなたが取り組むタスクは全てこのボードに登録し、
-リアルタイムで更新してください。
-これだけで、OpenClawがNextJSでタスクボードのUIを実装してくれる。
-ツール②：コンテンツパイプライン - 自動でコンテンツ量産
-次はコンテンツパイプラインだ。コンテンツクリエイターには特に重要な機能。
-コンテンツ制作の自動化フロー
-コンテンツ制作は工程が多い：
-アイデア出し
-スクリプト作成
-サムネイル制作
-撮影/編集
-投稿
-この全工程を手動でやっていると、時間がいくらあっても足りない。コンテンツパイプラインを作ると、AIが自動で各工程を進めてくれる。
-コンテンツパイプラインの運用例
-実際の使い方はこうだ：
-アイデアを「Idea」カラムに入力する
-1日1回、AIがスクリプトを自動生成
-ローカルの画像生成AIがサムネイルを自動作成
-「Filming」カラムに移動して、撮影待ち状態になる
-アイデアさえ投入すれば、あとはAIが各ステージを自動で進めてくれる。
-コンテンツパイプラインのカラム構成
-カラム 役割     Ideas アイデアのストック   Script スクリプト作成中   Thumbnail サムネイル生成中   Filming 撮影待ち   Editing 編集中   Published 公開済み
-パイプライン化することで、どの段階で詰まっているかも一目でわかる。ボトルネックの発見と解消が楽になる。
-実装プロンプト
-コンテンツパイプラインツールを作ってください。
+リアルタイムで更新してください。</p>
+<p class="article-paragraph">これだけで、OpenClawがNextJSでタスクボードのUIを実装してくれる。</p>
+<h3 class="article-h2">ツール②：コンテンツパイプライン - 自動でコンテンツ量産</h3>
+<p class="article-paragraph">次はコンテンツパイプラインだ。コンテンツクリエイターには特に重要な機能。</p>
+<p class="article-paragraph">コンテンツ制作の自動化フロー</p>
+<p class="article-paragraph">コンテンツ制作は工程が多い：</p>
+<li>アイデア出し</li>
+<li>スクリプト作成</li>
+<li>サムネイル制作</li>
+<li>撮影/編集</li>
+<li>投稿</li>
+<p class="article-paragraph">この全工程を手動でやっていると、時間がいくらあっても足りない。コンテンツパイプラインを作ると、AIが自動で各工程を進めてくれる。</p>
+<p class="article-paragraph">コンテンツパイプラインの運用例</p>
+<p class="article-paragraph">実際の使い方はこうだ：</p>
+<li>アイデアを「Idea」カラムに入力する</li>
+<li>1日1回、AIがスクリプトを自動生成</li>
+<li>ローカルの画像生成AIがサムネイルを自動作成</li>
+<li>「Filming」カラムに移動して、撮影待ち状態になる</li>
+<p class="article-paragraph">アイデアさえ投入すれば、あとはAIが各ステージを自動で進めてくれる。</p>
+<p class="article-paragraph">コンテンツパイプラインのカラム構成</p>
+<p class="article-paragraph">カラム 役割     Ideas アイデアのストック   Script スクリプト作成中   Thumbnail サムネイル生成中   Filming 撮影待ち   Editing 編集中   Published 公開済み</p>
+<p class="article-paragraph">パイプライン化することで、どの段階で詰まっているかも一目でわかる。ボトルネックの発見と解消が楽になる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">コンテンツパイプラインツールを作ってください。
 コンテンツ制作の全ステージを管理できるようにしてください。
 アイデアの編集、フルスクリプトの記入、画像の添付ができるようにしてください。
-このパイプラインを私と一緒に管理し、可能な限り追加作業をしてください。
-ツール③：カレンダー - AIのスケジュール管理
-3つ目はカレンダー機能だ。これが最も重要なコンポーネントと言っても過言ではない。
-なぜカレンダーが最重要なのか
-AIを使っていると、こういった問題が発生しがちだ：
-「明日やって」と言ったのに忘れられる
-定期タスクが実行されているか確認できない
-スケジュールされたタスクが本当に動いているか不安
-これは全て、カレンダーがないことが原因だ。
-OpenClawにはメモリ機能はあるが、スケジュール管理が弱い。だから「あとでやっておいて」と言っても、忘れられることがある。
-カレンダー機能を追加すると、AIのスケジュールタスクが全て可視化される。ちゃんと実行されているかどうかが一目でわかるようになる。
-カレンダーに表示される情報
-スケジュールされたタスク
-Cronジョブ（定期実行タスク）
-締め切り
-イベント
-これらが全てカレンダー上に表示され、AIが「何をいつやるか」が明確になる。
-実装プロンプト
-ミッションコントロールにカレンダーを作ってください。
+このパイプラインを私と一緒に管理し、可能な限り追加作業をしてください。</p>
+<h3 class="article-h2">ツール③：カレンダー - AIのスケジュール管理</h3>
+<p class="article-paragraph">3つ目はカレンダー機能だ。これが最も重要なコンポーネントと言っても過言ではない。</p>
+<p class="article-paragraph">なぜカレンダーが最重要なのか</p>
+<p class="article-paragraph">AIを使っていると、こういった問題が発生しがちだ：</p>
+<li>「明日やって」と言ったのに忘れられる</li>
+<li>定期タスクが実行されているか確認できない</li>
+<li>スケジュールされたタスクが本当に動いているか不安</li>
+<p class="article-paragraph">これは全て、カレンダーがないことが原因だ。</p>
+<p class="article-paragraph">OpenClawにはメモリ機能はあるが、スケジュール管理が弱い。だから「あとでやっておいて」と言っても、忘れられることがある。</p>
+<p class="article-paragraph">カレンダー機能を追加すると、AIのスケジュールタスクが全て可視化される。ちゃんと実行されているかどうかが一目でわかるようになる。</p>
+<p class="article-paragraph">カレンダーに表示される情報</p>
+<li>スケジュールされたタスク</li>
+<li>Cronジョブ（定期実行タスク）</li>
+<li>締め切り</li>
+<li>イベント</li>
+<p class="article-paragraph">これらが全てカレンダー上に表示され、AIが「何をいつやるか」が明確になる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">ミッションコントロールにカレンダーを作ってください。
 あなたのスケジュールされたタスクとCronジョブが全て表示されるようにしてください。
 私がタスクをスケジュールするたびに、カレンダーに登録して、
-正しく実行されているか確認できるようにしてください。
-カレンダーがあると、AIが「明日の10時にこれを実行します」とカレンダーに登録してくれるので、管理が格段に楽になる。
-ツール④：メモリ画面 - デジタルライフの完全ログ
-4つ目はメモリ画面だ。これを追加することで、OpenClawの価値が大幅に上がる。
-OpenClawのメモリ問題
-OpenClawは会話の内容を「メモリ」として保存してくれるが、問題はどこに保存されているか分かりにくいという点だ。
-通常、メモリはMarkdownファイルとしてPC内に保存されるが、それだと：
-どこに保存されたか分からない
-過去のメモリを探すのが大変
-メモリの全体像が見えない
-こういった問題が出てくる。
-メモリ画面で解決できること
-メモリ画面を作ると：
-全てのメモリが整理されたUIで表示される
-グローバル検索で過去のメモリを瞬時に検索
-デジタルライフの完全ログとして機能する
-「あの時AIに何を指示したっけ？」という場面で、キーワード検索をすればすぐに見つかる。
-メモリ画面のUI構成
-メモリのリスト表示（日付順、カテゴリ別など）
-検索バー（キーワード検索）
-フィルター機能（日付、タグ、重要度など）
-詳細表示（クリックで全文表示）
-これだけで、デジタルライフのセカンドブレインとして機能するようになる。
-実装プロンプト
-ミッションコントロールにメモリ画面を作ってください。
+正しく実行されているか確認できるようにしてください。</p>
+<p class="article-paragraph">カレンダーがあると、AIが「明日の10時にこれを実行します」とカレンダーに登録してくれるので、管理が格段に楽になる。</p>
+<h3 class="article-h2">ツール④：メモリ画面 - デジタルライフの完全ログ</h3>
+<p class="article-paragraph">4つ目はメモリ画面だ。これを追加することで、OpenClawの価値が大幅に上がる。</p>
+<p class="article-paragraph">OpenClawのメモリ問題</p>
+<p class="article-paragraph">OpenClawは会話の内容を「メモリ」として保存してくれるが、問題はどこに保存されているか分かりにくいという点だ。</p>
+<p class="article-paragraph">通常、メモリはMarkdownファイルとしてPC内に保存されるが、それだと：</p>
+<li>どこに保存されたか分からない</li>
+<li>過去のメモリを探すのが大変</li>
+<li>メモリの全体像が見えない</li>
+<p class="article-paragraph">こういった問題が出てくる。</p>
+<p class="article-paragraph">メモリ画面で解決できること</p>
+<p class="article-paragraph">メモリ画面を作ると：</p>
+<li>全てのメモリが整理されたUIで表示される</li>
+<li>グローバル検索で過去のメモリを瞬時に検索</li>
+<li>デジタルライフの完全ログとして機能する</li>
+<p class="article-paragraph">「あの時AIに何を指示したっけ？」という場面で、キーワード検索をすればすぐに見つかる。</p>
+<p class="article-paragraph">メモリ画面のUI構成</p>
+<li>メモリのリスト表示（日付順、カテゴリ別など）</li>
+<li>検索バー（キーワード検索）</li>
+<li>フィルター機能（日付、タグ、重要度など）</li>
+<li>詳細表示（クリックで全文表示）</li>
+<p class="article-paragraph">これだけで、デジタルライフのセカンドブレインとして機能するようになる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">ミッションコントロールにメモリ画面を作ってください。
 全てのメモリを美しいドキュメントとしてリスト表示してください。
-また、全てのメモリを素早く検索できる検索コンポーネントも実装してください。
-ツール⑤：チーム画面 - デジタル組織の構築
-5つ目はチーム画面だ。AIを「組織」として管理するという考え方が重要になる。
-OpenClawを「会社」として扱う
-OpenClawを最大限活用する方法は、それを実際の会社として扱い、エージェントを従業員として扱うことだ。
-AIエージェントをただのツールとして使うと「単発の作業をこなすだけ」になる。しかし、組織として構築すると役割分担ができ、効率が大幅に向上する。
-サブエージェントの役割分担
-チーム構成の例：
-エージェント名 役割     メインAI（ボス役） 全体の統括、タスクの割り振り   Developer コード開発   Writer ライティング   Designer デザイン制作   Researcher リサーチ・情報収集
-それぞれのエージェントに専門性を持たせることで、タスクの品質と効率が上がる。AIエージェントを「部署」として分けると、仕事の進み方が変わる。
-チーム画面のUI
-チーム画面には：
-各エージェントのプロフィール
-担当領域
-現在の作業ステータス
-過去の実績
-これらが表示される。「このタスクはDesignerに任せよう」という形で、明確に指示できるようになる。
-実装プロンプト
-チーム構造画面を作ってください。
+また、全てのメモリを素早く検索できる検索コンポーネントも実装してください。</p>
+<h3 class="article-h2">ツール⑤：チーム画面 - デジタル組織の構築</h3>
+<p class="article-paragraph">5つ目はチーム画面だ。AIを「組織」として管理するという考え方が重要になる。</p>
+<p class="article-paragraph">OpenClawを「会社」として扱う</p>
+<p class="article-paragraph">OpenClawを最大限活用する方法は、それを実際の会社として扱い、エージェントを従業員として扱うことだ。</p>
+<p class="article-paragraph">AIエージェントをただのツールとして使うと「単発の作業をこなすだけ」になる。しかし、組織として構築すると役割分担ができ、効率が大幅に向上する。</p>
+<p class="article-paragraph">サブエージェントの役割分担</p>
+<p class="article-paragraph">チーム構成の例：</p>
+<p class="article-paragraph">エージェント名 役割     メインAI（ボス役） 全体の統括、タスクの割り振り   Developer コード開発   Writer ライティング   Designer デザイン制作   Researcher リサーチ・情報収集</p>
+<p class="article-paragraph">それぞれのエージェントに専門性を持たせることで、タスクの品質と効率が上がる。AIエージェントを「部署」として分けると、仕事の進み方が変わる。</p>
+<p class="article-paragraph">チーム画面のUI</p>
+<p class="article-paragraph">チーム画面には：</p>
+<li>各エージェントのプロフィール</li>
+<li>担当領域</li>
+<li>現在の作業ステータス</li>
+<li>過去の実績</li>
+<p class="article-paragraph">これらが表示される。「このタスクはDesignerに任せよう」という形で、明確に指示できるようになる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">チーム構造画面を作ってください。
 あなた（メインエージェント）と、定期的に起動するサブエージェントを全て表示してください。
 まだサブエージェントを考えていない場合は、作成して役割と責任で整理してください。
-例として、開発者、ライター、デザイナーなどを含めてください。
-ツール⑥：オフィス画面 - AIの動きを可視化
-最後はオフィス画面だ。実用性と視認性を兼ね備えた機能。
-オフィス画面のコンセプト
-オフィス画面は、各エージェントを「アバター」で表示して、誰が何をやっているか可視化する機能だ。
-AIエージェントが仮想オフィスで働いている状態を視覚的に確認できる。
-なぜ可視化が重要か
-AIが動いている様子を可視化することで、「今AIが何をやっているか分からない」という不安がなくなる。動きが止まっていると気づいたら、すぐに指示を出せる。
-オフィス画面の機能
-各エージェントのアバター表示
-作業中は「PCに向かっている」状態
-待機中は「アイドル」状態
-クリックで詳細ステータス確認
-誰が何をやっているか、一目で把握できる。
-実装プロンプト
-デジタルオフィス画面を作ってください。
+例として、開発者、ライター、デザイナーなどを含めてください。</p>
+<h3 class="article-h2">ツール⑥：オフィス画面 - AIの動きを可視化</h3>
+<p class="article-paragraph">最後はオフィス画面だ。実用性と視認性を兼ね備えた機能。</p>
+<p class="article-paragraph">オフィス画面のコンセプト</p>
+<p class="article-paragraph">オフィス画面は、各エージェントを「アバター」で表示して、誰が何をやっているか可視化する機能だ。</p>
+<p class="article-paragraph">AIエージェントが仮想オフィスで働いている状態を視覚的に確認できる。</p>
+<p class="article-paragraph">なぜ可視化が重要か</p>
+<p class="article-paragraph">AIが動いている様子を可視化することで、「今AIが何をやっているか分からない」という不安がなくなる。動きが止まっていると気づいたら、すぐに指示を出せる。</p>
+<p class="article-paragraph">オフィス画面の機能</p>
+<li>各エージェントのアバター表示</li>
+<li>作業中は「PCに向かっている」状態</li>
+<li>待機中は「アイドル」状態</li>
+<li>クリックで詳細ステータス確認</li>
+<p class="article-paragraph">誰が何をやっているか、一目で把握できる。</p>
+<p class="article-paragraph">実装プロンプト</p>
+<p class="article-paragraph">デジタルオフィス画面を作ってください。
 各エージェントが働いている様子を確認できるようにしてください。
 エージェントは個別のアバターで表現され、それぞれの作業エリアとコンピューターを持っています。
 作業中はコンピューターの前にいる状態にしてください。
-全てのチームメンバーのステータスを素早く確認できるようにしてください。
-実装の流れ：ゼロから作る手順
-実際にどうやって作るのか、手順を解説する。
-ステップ1：OpenClawのセットアップ
-まず、OpenClawをインストールして起動する。公式サイトからダウンロードして、通常のセットアップをすればOKだ。
-ステップ2：ミッションコントロールの初期設定
-OpenClawを起動したら、こう指示する：
-私のために「Mission Control」という名前のNextJSアプリを作ってください。
+全てのチームメンバーのステータスを素早く確認できるようにしてください。</p>
+<h3 class="article-h2">実装の流れ：ゼロから作る手順</h3>
+<p class="article-paragraph">実際にどうやって作るのか、手順を解説する。</p>
+<p class="article-paragraph">ステップ1：OpenClawのセットアップ</p>
+<p class="article-paragraph">まず、OpenClawをインストールして起動する。公式サイトからダウンロードして、通常のセットアップをすればOKだ。</p>
+<p class="article-paragraph">ステップ2：ミッションコントロールの初期設定</p>
+<p class="article-paragraph">OpenClawを起動したら、こう指示する：</p>
+<p class="article-paragraph">私のために「Mission Control」という名前のNextJSアプリを作ってください。
 データベースはConvexを使用してください。
 これから、タスク管理、コンテンツパイプライン、カレンダー、メモリ管理、
-チーム管理、オフィス画面の6つの機能を追加していきます。
-これで、基本的なNextJSプロジェクトが生成される。
-ステップ3：各ツールを順番に追加
-6つのツールを1つずつ追加していく。推奨順序は：
-タスクボード（最優先）
-カレンダー（2番目に重要）
-メモリ画面（3番目）
-チーム画面
-コンテンツパイプライン（必要に応じて）
-オフィス画面
-この順番で作ると、段階的に機能が充実していく。
-ステップ4：カスタマイズ
-全部作り終わったら、自分の用途に合わせてカスタマイズする。例えば：
-タスクボードに「優先度」カラムを追加
-メモリ画面に「タグ機能」を追加
-チーム画面に「パフォーマンス指標」を追加
-こういった改良を重ねていけばいい。
-実際の効果：AIが自律的に動く環境の価値
-このシステムを実際に構築した場合、以下のような変化が起きる。
-AIが勝手に稼ぐ瞬間の可視化
-タスクボードとカレンダーを連携させると、AIが自動でタスクをこなして成果を上げる様子が可視化される。
-朝起きたら、AIがライティングのタスクを複数終わらせていた、という状況が実現できる。
-AIエージェント間の連携
-複数のAIエージェントが「メインAI」に質問しながら
+チーム管理、オフィス画面の6つの機能を追加していきます。</p>
+<p class="article-paragraph">これで、基本的なNextJSプロジェクトが生成される。</p>
+<p class="article-paragraph">ステップ3：各ツールを順番に追加</p>
+<p class="article-paragraph">6つのツールを1つずつ追加していく。推奨順序は：</p>
+<li>タスクボード（最優先）</li>
+<li>カレンダー（2番目に重要）</li>
+<li>メモリ画面（3番目）</li>
+<li>チーム画面</li>
+<li>コンテンツパイプライン（必要に応じて）</li>
+<li>オフィス画面</li>
+<p class="article-paragraph">この順番で作ると、段階的に機能が充実していく。</p>
+<p class="article-paragraph">ステップ4：カスタマイズ</p>
+<p class="article-paragraph">全部作り終わったら、自分の用途に合わせてカスタマイズする。例えば：</p>
+<li>タスクボードに「優先度」カラムを追加</li>
+<li>メモリ画面に「タグ機能」を追加</li>
+<li>チーム画面に「パフォーマンス指標」を追加</li>
+<p class="article-paragraph">こういった改良を重ねていけばいい。</p>
+<h3 class="article-h2">実際の効果：AIが自律的に動く環境の価値</h3>
+<p class="article-paragraph">このシステムを実際に構築した場合、以下のような変化が起きる。</p>
+<p class="article-paragraph">AIが勝手に稼ぐ瞬間の可視化</p>
+<p class="article-paragraph">タスクボードとカレンダーを連携させると、AIが自動でタスクをこなして成果を上げる様子が可視化される。</p>
+<p class="article-paragraph">朝起きたら、AIがライティングのタスクを複数終わらせていた、という状況が実現できる。</p>
+<p class="article-paragraph">AIエージェント間の連携</p>
+<p class="article-paragraph">複数のAIエージェントが「メインAI」に質問しながら
 それぞれのタスクを遂行するシステムを作ると、
-以下のような連携が生まれる：
-WriterエージェントがメインAIに「このトピックで記事を書いていいか？」と確認
-DeveloperエージェントがメインAIに「このバグ修正の優先度は？」と質問
-メインAIが全体を見渡して指示を出す
-この流れで、完全に自律的に動くシステムが実現できる。
-人間とAIの役割分担
-正直なところ、単純作業に関してはAIで完全に自動化できる。品質も実用レベルだ。
-ただし、戦略的な判断やクリエイティブな発想はまだ人間の方が強い部分がある。
-理想的な役割分担は：
-人間：戦略、アイデア、最終判断
-AI：実行、データ収集、単純作業
-応用編：自分だけのカスタムツールを追加
-自分のワークフローに合わせてカスタムツールを追加することが、このシステムの真価を発揮するポイントだ。
-追加できるツールの例
-収益ダッシュボード（収益の可視化）
-SNS投稿スケジューラー（自動投稿）
-プロジェクト管理（複数プロジェクトの管理）
-顧客管理（CRM機能）
-分析ダッシュボード（データ分析）
-これらを追加していけば、完全に自分専用のAI作業環境が出来上がる。
-カスタムツールの追加方法
-OpenClawに対してこう指示すればいい：
-ミッションコントロールに「収益ダッシュボード」を追加してください。
+以下のような連携が生まれる：</p>
+<li>WriterエージェントがメインAIに「このトピックで記事を書いていいか？」と確認</li>
+<li>DeveloperエージェントがメインAIに「このバグ修正の優先度は？」と質問</li>
+<li>メインAIが全体を見渡して指示を出す</li>
+<p class="article-paragraph">この流れで、完全に自律的に動くシステムが実現できる。</p>
+<p class="article-paragraph">人間とAIの役割分担</p>
+<p class="article-paragraph">正直なところ、単純作業に関してはAIで完全に自動化できる。品質も実用レベルだ。</p>
+<p class="article-paragraph">ただし、戦略的な判断やクリエイティブな発想はまだ人間の方が強い部分がある。</p>
+<p class="article-paragraph">理想的な役割分担は：</p>
+<li>人間：戦略、アイデア、最終判断</li>
+<li>AI：実行、データ収集、単純作業</li>
+<h3 class="article-h2">応用編：自分だけのカスタムツールを追加</h3>
+<p class="article-paragraph">自分のワークフローに合わせてカスタムツールを追加することが、このシステムの真価を発揮するポイントだ。</p>
+<p class="article-paragraph">追加できるツールの例</p>
+<li>収益ダッシュボード（収益の可視化）</li>
+<li>SNS投稿スケジューラー（自動投稿）</li>
+<li>プロジェクト管理（複数プロジェクトの管理）</li>
+<li>顧客管理（CRM機能）</li>
+<li>分析ダッシュボード（データ分析）</li>
+<p class="article-paragraph">これらを追加していけば、完全に自分専用のAI作業環境が出来上がる。</p>
+<p class="article-paragraph">カスタムツールの追加方法</p>
+<p class="article-paragraph">OpenClawに対してこう指示すればいい：</p>
+<p class="article-paragraph">ミッションコントロールに「収益ダッシュボード」を追加してください。
 日別、週別、月別の収益をグラフで可視化し、
-収益源ごとの内訳も表示してください。
-これだけで、OpenClawが実装してくれる。
-注意点とトラブルシューティング
-実際に使う際の注意点をまとめておく。
-注意点①：最初は指示が必要
-AIエージェントは最初「何をやればいいか分からない」状態だ。最初はしっかり指示を出す必要がある。タスクを繰り返していくうちに、AIが学習して自律的に動くようになる。
-注意点②：定期的なメンテナンス
-データが溜まりすぎると処理が重くなる。週に1回程度、古いタスクの削除やメモリの整理をするといい。
-注意点③：Convexのプラン
-Convexは無料プランだと制限があるため、本格的に使うなら有料プラン（月$25程度）が必要になる。ただし、最初は無料プランで十分試せるため、まずは無料で始めることを推奨する。
-トラブルシューティング一覧
-問題 解決法     AIが指示を忘れる カレンダーに登録させる   タスクが進まない タスクボードで進捗確認   メモリが見つからない メモリ画面で検索   エージェントが動かない チーム画面でステータス確認
-ミッションコントロールがあれば、トラブルシューティングも効率的に行える。
-OpenClawとClaude Codeの比較
-OpenClawとClaude Codeの違いを簡単にまとめる。
-OpenClaw
-専用のAIエージェント
-ローカルで動く
-カスタマイズ性が高い
-セットアップに少し手間がかかる
-Claude Code
-Anthropic製のAI
-ブラウザでもローカルでも動く
-セットアップが簡単
-Claudeのエコシステムと連携
-個人的にはClaude Codeの方が手軽に始めやすい。ただし、ミッションコントロールの考え方はどちらでも適用できる。自分の環境に合った方を選べばいい。
-まとめ：AIに働かせる環境を今すぐ作る
-この記事のポイントをまとめる：
-OpenClawはミッションコントロールがないと真価を発揮しない
-6つの基本ツール（タスクボード、パイプライン、カレンダー、メモリ、チーム、オフィス）が重要
-AIを「会社」として扱うと効率が大幅に向上する
-自分のワークフローに合わせてカスタマイズすることが最重要
-可視化することで、AIの動きが把握できる
-AIに働かせる時代は、もう来ている。
-AIが単純作業を自動化してくれることで、人間はより戦略的でクリエイティブな仕事に集中できるようになる。
-これからの時代に強くなるための条件は：
-AIを使いこなせること
-自分専用のAI環境を構築できること
-AIに実行を任せ、自分は戦略に集中できること
-「ミッションコントロールを作りたい」と思ったなら、今すぐ始めるべきだ。まずはタスクボードから作ってみるところから始めよう。AIが自律的にタスクをこなしてくれる様子を一度見れば、その価値はすぐに実感できる。
-文字数：約14,500字</div>
-  
+収益源ごとの内訳も表示してください。</p>
+<p class="article-paragraph">これだけで、OpenClawが実装してくれる。</p>
+<h3 class="article-h2">注意点とトラブルシューティング</h3>
+<p class="article-paragraph">実際に使う際の注意点をまとめておく。</p>
+<p class="article-paragraph">注意点①：最初は指示が必要</p>
+<p class="article-paragraph">AIエージェントは最初「何をやればいいか分からない」状態だ。最初はしっかり指示を出す必要がある。タスクを繰り返していくうちに、AIが学習して自律的に動くようになる。</p>
+<p class="article-paragraph">注意点②：定期的なメンテナンス</p>
+<p class="article-paragraph">データが溜まりすぎると処理が重くなる。週に1回程度、古いタスクの削除やメモリの整理をするといい。</p>
+<p class="article-paragraph">注意点③：Convexのプラン</p>
+<p class="article-paragraph">Convexは無料プランだと制限があるため、本格的に使うなら有料プラン（月$25程度）が必要になる。ただし、最初は無料プランで十分試せるため、まずは無料で始めることを推奨する。</p>
+<p class="article-paragraph">トラブルシューティング一覧</p>
+<p class="article-paragraph">問題 解決法     AIが指示を忘れる カレンダーに登録させる   タスクが進まない タスクボードで進捗確認   メモリが見つからない メモリ画面で検索   エージェントが動かない チーム画面でステータス確認</p>
+<p class="article-paragraph">ミッションコントロールがあれば、トラブルシューティングも効率的に行える。</p>
+<h3 class="article-h2">OpenClawとClaude Codeの比較</h3>
+<p class="article-paragraph">OpenClawとClaude Codeの違いを簡単にまとめる。</p>
+<p class="article-paragraph">OpenClaw</p>
+<li>専用のAIエージェント</li>
+<li>ローカルで動く</li>
+<li>カスタマイズ性が高い</li>
+<li>セットアップに少し手間がかかる</li>
+<p class="article-paragraph">Claude Code</p>
+<li>Anthropic製のAI</li>
+<li>ブラウザでもローカルでも動く</li>
+<li>セットアップが簡単</li>
+<li>Claudeのエコシステムと連携</li>
+<p class="article-paragraph">個人的にはClaude Codeの方が手軽に始めやすい。ただし、ミッションコントロールの考え方はどちらでも適用できる。自分の環境に合った方を選べばいい。</p>
+<h3 class="article-h2">まとめ：AIに働かせる環境を今すぐ作る</h3>
+<p class="article-paragraph">この記事のポイントをまとめる：</p>
+<li>OpenClawはミッションコントロールがないと真価を発揮しない</li>
+<li>6つの基本ツール（タスクボード、パイプライン、カレンダー、メモリ、チーム、オフィス）が重要</li>
+<li>AIを「会社」として扱うと効率が大幅に向上する</li>
+<li>自分のワークフローに合わせてカスタマイズすることが最重要</li>
+<li>可視化することで、AIの動きが把握できる</li>
+<p class="article-paragraph">AIに働かせる時代は、もう来ている。</p>
+<p class="article-paragraph">AIが単純作業を自動化してくれることで、人間はより戦略的でクリエイティブな仕事に集中できるようになる。</p>
+<p class="article-paragraph">これからの時代に強くなるための条件は：</p>
+<li>AIを使いこなせること</li>
+<li>自分専用のAI環境を構築できること</li>
+<li>AIに実行を任せ、自分は戦略に集中できること</li>
+<p class="article-paragraph">「ミッションコントロールを作りたい」と思ったなら、今すぐ始めるべきだ。まずはタスクボードから作ってみるところから始めよう。AIが自律的にタスクをこなしてくれる様子を一度見れば、その価値はすぐに実感できる。</p>
+<p class="article-paragraph">文字数：約14,500字</p>
   
 
   <div class="back-link">

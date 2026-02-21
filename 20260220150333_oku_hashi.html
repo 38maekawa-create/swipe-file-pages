@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@oku_hashi の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/14 20:41</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/14 20:41</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,17 +84,19 @@
 
   <h2 class="article-title">ClaudeCodeでバズリール自動作成ツール開発‼️</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">まずはこちらをご覧ください！
-こちらは僕が知識０から初めてClaudeCode（クロード コード）で作ったインスタツールです。
+  <h2>記事本文</h2>
+  <h3 class="article-h2">まずはこちらをご覧ください！</h3>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2022633183230201860/img/GFO4uQV4J5al93Cn.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2022633183230201860/vid/avc1/1920x1020/_Lz3zFC26w_SyUKG.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">こちらは僕が知識０から初めてClaudeCode（クロード コード）で作ったインスタツールです。</h3>
+<p class="article-paragraph">
 これ、開始１５分くらいで完成しました！
 
 
-最近、Xで話題のClaudeCodeですが、
-一体何ができるの？
+最近、Xで話題のClaudeCodeですが、</p>
+<p class="article-paragraph">一体何ができるの？
 
-どうやってはじめたらいいかわからない！！
-なんか難しそう....パソコン得意じゃないし....
+どうやってはじめたらいいかわからない！！</p>
+<p class="article-paragraph">なんか難しそう....パソコン得意じゃないし....
 
 こんなの出来ても役に立たないでしょ
 
@@ -79,158 +104,202 @@
 めちゃめちゃわかります！笑
 最初は僕もそう思っていました。
 
-そういった方のために僕がこの記事で分かりやすく解説していきます！
-この記事で学べる事
-・ClaudeCodeのセットアップ
-・ツール開発の仕方。
-・作り方のコツ
-それではClaudeCodeを始めるための
-準備をしていきましょう！
-WindowsとMacでセットアップ方法が異なるので注意してください。
-両方まとめますね！
-◆Windows編（Macの方は飛ばしてください）
-事前に必要なもの
-Windows 10 以降 / Windows 11
-メモリ4GB以上ストレージ4GB以上の空き容量インターネット接続必須AnthropicアカウントClaude Pro/Max プラン、またはAPIキー
-ステップ1　アカウント作成！
-まずは、ブラウザで以下のURLからClaudeのアカウントを作ります。   
+そういった方のために僕がこの記事で分かりやすく解説していきます！</p>
+<h3 class="article-h2">この記事で学べる事</h3>
+<p class="article-paragraph">・ClaudeCodeのセットアップ</p>
+<p class="article-paragraph">・ツール開発の仕方。</p>
+<p class="article-paragraph">・作り方のコツ</p>
+<p class="article-paragraph">それではClaudeCodeを始めるための</p>
+<p class="article-paragraph">準備をしていきましょう！</p>
+<p class="article-paragraph">WindowsとMacでセットアップ方法が異なるので注意してください。</p>
+<p class="article-paragraph">両方まとめますね！</p>
+<h3 class="article-h2">◆Windows編（Macの方は飛ばしてください）</h3>
+<p class="article-paragraph">事前に必要なもの</p>
+<p class="article-paragraph">Windows 10 以降 / Windows 11
+メモリ4GB以上ストレージ4GB以上の空き容量インターネット接続必須AnthropicアカウントClaude Pro/Max プラン、またはAPIキー</p>
+<h3 class="article-h2">ステップ1　アカウント作成！</h3>
+<p class="article-paragraph">まずは、ブラウザで以下のURLからClaudeのアカウントを作ります。   
 
-https://claude.ai
-アカウントを作成したらClaude Proにアップグレード（必須）してください。月額20＄（約3,000～）ほどで利用可能です。
-左下のユーザー名をクリック
-「Upgrade to Pro」を選択
-支払い情報を入力
-「Subscribe」をクリック
-月額20ドルで課金開始
+https://claude.ai</p>
+<p class="article-paragraph">
+アカウントを作成したらClaude Proにアップグレード（必須）してください。月額20＄（約3,000～）ほどで利用可能です。</p>
+<p class="article-paragraph">左下のユーザー名をクリック</p>
+<p class="article-paragraph">「Upgrade to Pro」を選択</p>
+<p class="article-paragraph">支払い情報を入力</p>
+<p class="article-paragraph">「Subscribe」をクリック</p>
+<p class="article-paragraph">月額20ドルで課金開始
 
 画面上部に「Claude Pro」と表示されればOK！
-いつでもキャンセル可能です。
+</p>
+<p class="article-paragraph">いつでもキャンセル可能です。
 忘れないうちに月額課金したらすぐにサブスクキャンセルしておくのが
-おすすめです！
-ステップ2　インストール
-PowerShellを開く
-Windowsキーを押す
-「PowerShell」と入力
-「Windows PowerShell」を右クリック
-「管理者として実行」を選択黒い背景の画面が開きます
-インストールコマンド実行
-PowerShellに上記のコマンドをコピペしてEnter！
-このような表示がでたら完了です！！
+おすすめです！</p>
+<h3 class="article-h2">ステップ2　インストール</h3>
+<p class="article-paragraph">PowerShellを開く</p>
+<li>Windowsキーを押す</li>
+<li>「PowerShell」と入力</li>
+<li>「Windows PowerShell」を右クリック</li>
+<li>「管理者として実行」を選択黒い背景の画面が開きます
+</li>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBGwPmHa4AAs06J.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">インストールコマンド実行</p>
+<p class="article-paragraph">PowerShellに上記のコマンドをコピペしてEnter！
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBGw8lAagAAx0v9.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">このような表示がでたら完了です！！
 
 
-PowerShellを再起動
-重要：設定を反映するため、PowerShellを必ず閉じて開き直してください。
-現在のPowerShellウィンドウを閉じる
-新しいPowerShellを開く（管理者権限は不要です）
-新しいPowerShellで以下のコマンドを実行してください。
-ステップ３　作業用フォルダを作ります！
-Claude Codeは今から作るフォルダ内でファイルを作成・編集したりします。
-PowerShellで下記をコピペしてEnterを押してください。
+PowerShellを再起動</p>
+<p class="article-paragraph">重要：設定を反映するため、PowerShellを必ず閉じて開き直してください。</p>
+<li>現在のPowerShellウィンドウを閉じる</li>
+<li>新しいPowerShellを開く（管理者権限は不要です）
+
+</li>
+<p class="article-paragraph">新しいPowerShellで以下のコマンドを実行してください。
+</p>
+<h3 class="article-h2">ステップ３　作業用フォルダを作ります！</h3>
+<p class="article-paragraph">
+
+Claude Codeは今から作るフォルダ内でファイルを作成・編集したりします。</p>
+<p class="article-paragraph">PowerShellで下記をコピペしてEnterを押してください。
+</p>
+<p class="article-paragraph">
 次にこちらをコピペしてEnter
-これで作業用フォルダの完成です！
-ステップ４　ClaudeCodeを起動！
+</p>
+<h3 class="article-h2">これで作業用フォルダの完成です！</h3>
+<h3 class="article-h2">ステップ４　ClaudeCodeを起動！</h3>
+<p class="article-paragraph">
 PowerShellに下記をコピペするとClaudeCodeが起動します！
-この「claude」というのがClaudeCodeの起動コマンドです！
-このような画面が出てきたらOKです！
+この「claude」というのがClaudeCodeの起動コマンドです！</p>
+<p class="article-paragraph">このような画面が出てきたらOKです！</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBG4h1haQAAByZw.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">
 最初にダークモードやライトモードの選択ができるので、
 好きなものを指定してEnterを押してください。
-次に、Claudeにログインするよう言われるので、１を選択してEnter。 ブラウザが開くので課金したアカウントでログインすればOKです！
-この画面が表示されれば準備完了です！！！お疲れ様でした！！
+
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBG6KxzakAAV8Fe.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">次に、Claudeにログインするよう言われるので、１を選択してEnter。 ブラウザが開くので課金したアカウントでログインすればOKです！
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBG64ddbkAAHefv.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">この画面が表示されれば準備完了です！！！お疲れ様でした！！
 
 ※もしこのやり方でうまくいかなかったり、エラーが出る場合は、
 Claudeにエラー内容をそのままコピペすると改善策を出してくれるので指示通りに進めてみてください！
-◆Mac編
-事前に必要なもの
-・MacmacOS 10.15（Catalina）以降
+</p>
+<h3 class="article-h2">◆Mac編</h3>
+<h3 class="article-h2">事前に必要なもの</h3>
+<p class="article-paragraph">・MacmacOS 10.15（Catalina）以降
 ・メモリ4GB以上
 ・インターネット接続必須
-・AnthropicアカウントClaude Pro/Max プラン、またはAPIキー
-ステップ 1　ターミナルを開く
-ターミナルはMacに最初から入っているアプリです。
-Spotlight検索を開く → Command ⌘ + Space を同時押し
-ターミナルと入力して Enter
-黒い（または白い）ウィンドウが開けばOK！
-ターミナルは「Macにテキストで指示を出すためのアプリ」です。
-怖がらなくて大丈夫です！
-ステップ 2 Claude Codeをインストールする
-2つの方法があります。お好きな方を選んでください。
-方法1：ワンライナーでインストール（おすすめ・最も簡単）
-ターミナルに以下をコピー＆ペーストして Enter を押します!
-bash
-curl -fsSL https://claude.ai/install.sh | bash
-これだけで自動的にダウンロード＆インストールされます。
+・AnthropicアカウントClaude Pro/Max プラン、またはAPIキー</p>
+<h3 class="article-h2">ステップ 1　ターミナルを開く</h3>
+<p class="article-paragraph">ターミナルはMacに最初から入っているアプリです。</p>
+<li>Spotlight検索を開く → Command ⌘ + Space を同時押し</li>
+<li>ターミナルと入力して Enter</li>
+<li>黒い（または白い）ウィンドウが開けばOK！</li>
+<p class="article-paragraph">ターミナルは「Macにテキストで指示を出すためのアプリ」です。
+怖がらなくて大丈夫です！</p>
+<h3 class="article-h2">ステップ 2 Claude Codeをインストールする</h3>
+<p class="article-paragraph">2つの方法があります。お好きな方を選んでください。</p>
+<p class="article-paragraph">方法1：ワンライナーでインストール（おすすめ・最も簡単）</p>
+<p class="article-paragraph">ターミナルに以下をコピー＆ペーストして Enter を押します!</p>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">curl -fsSL https://claude.ai/install.sh | bash</p>
+<p class="article-paragraph">これだけで自動的にダウンロード＆インストールされます。
 
-Node.jsは不要です。
-方法2 Homebrewでインストール
-すでにHomebrewを使っている方はこちらでもOKです！
-bash
-brew install --cask claude-c Homebrew版は自動アップデートされないため、定期的に brew upgrade claude-code を実行してください。
-ステップ 3　インストールを確認する
-ターミナルで以下を入力して Enter
-bash
-claude --version
-バージョン番号（例：2.1.41）が表示されれば、インストール成功です ！！
-もしエラーが出た場合は、ターミナルを一度閉じて開き直してから再度試してください。
-ステップ 4　認証（ログイン）する
-ターミナルで以下を入力して Enter
-bash
-claude
-初回起動時、ブラウザが自動的に開きますもし自動で開かない場合は、ターミナルに表示されるURLを Command ⌘ + クリック で開いてください
-ブラウザでClaudeのアカウントにログインします
-認証が完了するとターミナルに戻り、使えるようになります
-認証方法の選択肢
-方法対象者Claude Pro / Max プラン月額サブスクリプションで利用したい方（おすすめ）Claude Console（APIキー）従量課金で利用したい方
-ステップ 5：プロジェクトで使ってみる
-実際にプロジェクトフォルダに移動して使ってみましょう：
-bash
-cd ~/Desktop/my-project
-claude
-&gt; マークが表示されたら、Claude Codeが入力待ちの状態です。試しに話しかけてみましょう！
-&gt; このプロジェクトの構成を説明して
-&gt; README.mdを作成して
-&gt; このファイルのバグを修正して
-Claude Codeは変更を提案し、あなたが承認するまで実際のファイルは変更されません。安心して使えます。
-よくあるトラブルと対処法
-「command not found」と出る
-ターミナルを一度閉じて開き直してください。それでもダメな場合は再インストールを試してください。
-ブラウザが自動で開かない
-ターミナルに表示される長いURLをコピーして、ブラウザに手動で貼り付けてください。
-インストール後の診断
-bash
-claude doctor
-を実行すると、環境の問題を自動で検出して対処法を教えてくれます。
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-ここからは実際に僕が作ったツールの
-制作手順を公開していきます！
-最初に、ClaudeCodeを起動してターミナルの入力欄にこのように指示しました！
+Node.jsは不要です。</p>
+<p class="article-paragraph">方法2 Homebrewでインストール</p>
+<p class="article-paragraph">すでにHomebrewを使っている方はこちらでもOKです！</p>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">brew install --cask claude-c Homebrew版は自動アップデートされないため、定期的に brew upgrade claude-code を実行してください。</p>
+<h3 class="article-h2">ステップ 3　インストールを確認する</h3>
+<p class="article-paragraph">ターミナルで以下を入力して Enter</p>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">claude --version</p>
+<p class="article-paragraph">バージョン番号（例：2.1.41）が表示されれば、インストール成功です ！！</p>
+<p class="article-paragraph">もしエラーが出た場合は、ターミナルを一度閉じて開き直してから再度試してください。</p>
+<h3 class="article-h2">ステップ 4　認証（ログイン）する</h3>
+<li>ターミナルで以下を入力して Enter</li>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">claude</p>
+<li>初回起動時、ブラウザが自動的に開きますもし自動で開かない場合は、ターミナルに表示されるURLを Command ⌘ + クリック で開いてください
+</li>
+<li>ブラウザでClaudeのアカウントにログインします</li>
+<li>認証が完了するとターミナルに戻り、使えるようになります</li>
+<p class="article-paragraph">認証方法の選択肢</p>
+<p class="article-paragraph">方法対象者Claude Pro / Max プラン月額サブスクリプションで利用したい方（おすすめ）Claude Console（APIキー）従量課金で利用したい方</p>
+<h3 class="article-h2">ステップ 5：プロジェクトで使ってみる</h3>
+<p class="article-paragraph">実際にプロジェクトフォルダに移動して使ってみましょう：</p>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">cd ~/Desktop/my-project
+claude</p>
+<p class="article-paragraph">&gt; マークが表示されたら、Claude Codeが入力待ちの状態です。試しに話しかけてみましょう！</p>
+<p class="article-paragraph">&gt; このプロジェクトの構成を説明して</p>
+<p class="article-paragraph">&gt; README.mdを作成して</p>
+<p class="article-paragraph">&gt; このファイルのバグを修正して</p>
+<p class="article-paragraph">Claude Codeは変更を提案し、あなたが承認するまで実際のファイルは変更されません。安心して使えます。</p>
+<h3 class="article-h2">よくあるトラブルと対処法</h3>
+<p class="article-paragraph">「command not found」と出る</p>
+<p class="article-paragraph">ターミナルを一度閉じて開き直してください。それでもダメな場合は再インストールを試してください。</p>
+<p class="article-paragraph">ブラウザが自動で開かない</p>
+<p class="article-paragraph">ターミナルに表示される長いURLをコピーして、ブラウザに手動で貼り付けてください。</p>
+<p class="article-paragraph">インストール後の診断</p>
+<p class="article-paragraph">bash</p>
+<p class="article-paragraph">claude doctor</p>
+<p class="article-paragraph">を実行すると、環境の問題を自動で検出して対処法を教えてくれます。</p>
+<h3 class="article-h2">＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</h3>
+<h3 class="article-h2">ここからは実際に僕が作ったツールの
+制作手順を公開していきます！</h3>
+<p class="article-paragraph">最初に、ClaudeCodeを起動してターミナルの入力欄にこのように指示しました！
 
 
-「&gt; インスタのリール動画用の素材画像を、台本に添った内容で一括で生成できるツールを作りたい。」
-すると、AIが次々とどういう内容で作っていくかを聞いてきてくれるので、
-作りたいイメージに添った回答をしていきます！
-今回はGeminiの画像生成機能をつかって、リール動画の背景用画像を生成してくれるツールを作ってみたいと思います！
-AIが考えてくれた質問に簡単に答えたり、軽く自分のイメージをつたえるだけで、開始数分ですぐにこのようなツールができました！
+「&gt; インスタのリール動画用の素材画像を、台本に添った内容で一括で生成できるツールを作りたい。」</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHEJTvbkAAMiQD.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">すると、AIが次々とどういう内容で作っていくかを聞いてきてくれるので、</p>
+<p class="article-paragraph">作りたいイメージに添った回答をしていきます！</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHFlcLasAAL8i6.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHGHbMa0AAaIfo.png?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">今回はGeminiの画像生成機能をつかって、リール動画の背景用画像を生成してくれるツールを作ってみたいと思います！</p>
+<p class="article-paragraph">AIが考えてくれた質問に簡単に答えたり、軽く自分のイメージをつたえるだけで、開始数分ですぐにこのようなツールができました！
 
 途中何回かエラーがでました、AIが勝手に修正してくれます笑
-ツールの背景や、ロゴ、デザインなども作りたいイメージに添って、ClaudeCodeにチャットで伝えてあげれば自由自在に作ってくれます！
+
+
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHGzJwa0AAyDL2.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">ツールの背景や、ロゴ、デザインなども作りたいイメージに添って、ClaudeCodeにチャットで伝えてあげれば自由自在に作ってくれます！
 
 完成したツールを実際に使ってみます！
 
 
 
 用意したリール動画の台本をコピペしてAIで解析をポチっ！
-台本を自動でカット割りして、画像生成用のプロンプトをカットごとに出力してくれました！
-そして画像を一括生成！
-そして出力されたのが....
-おおおおお！！今回は投資に関する台本だったので、シーンに添った内容の画像を一括で生成してくれました！！！
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHH-O9aEAI-Wdd.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHITVRakAMkjvA.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">台本を自動でカット割りして、画像生成用のプロンプトをカットごとに出力してくれました！</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHItJ2bMAEx9yz.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHJEeMasAAgAYz.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">そして画像を一括生成！
+
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHJb0Ia4AAXMqb.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">そして出力されたのが....</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHJ1A6akAI4Au5.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">おおおおお！！今回は投資に関する台本だったので、シーンに添った内容の画像を一括で生成してくれました！！！
 
 ３０カットとかの素材をいちいち生成していくのは大変なので、
-これなら一瞬で素材画像が揃えられますね！！
-気に入らない画像は、カットごとに再生成できるように、チャットで指示して
+これなら一瞬で素材画像が揃えられますね！！</p>
+<p class="article-paragraph">気に入らない画像は、カットごとに再生成できるように、チャットで指示して
 作ってもらいました！
-このようにチャットの指示だけで、自分が使いやすいように何でも作ってくれます！！
 
-※一度に大量の指示を出すとうまく処理されない場合が多いので、少しずつ指示を出しながら作っていくのがバイブコーディングのコツです！
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHK5VObAAEcQ-U.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">このようにチャットの指示だけで、自分が使いやすいように何でも作ってくれます！！
+
+※一度に大量の指示を出すとうまく処理されない場合が多いので、少しずつ指示を出しながら作っていくのがバイブコーディングのコツです！</p>
+<p class="article-paragraph">
 難しいプログラミングも一切不要です笑
 
 ClaudeCodeを使えば、いままで月額を払っていた色んなツールや、
@@ -252,6 +321,10 @@ Claude Codeは実際に手足を動かして部屋の掃除や片付けをして
 「ロボット」です！！
 
 あなたの家にドラえもんがやってきたようなものです！！
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HBHRPIsb0AICBLX.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">
+
 まだ誰もClaudeCodeなんて使っていなので、
 使うだけで上位0.2％くらいになれます！
 
@@ -259,11 +332,13 @@ Claude Codeは実際に手足を動かして部屋の掃除や片付けをして
 
 
 ここまで読んでいただいてありがとうございました！
-🎁 ～おまけ～
-100万再生を連発するノウハウや、フォロワー0から1投稿目でバズらせる手法、初心者がたった3投稿で120万を稼いだ極秘ノウハウをこちらで
-近日公開予定です！！
-さらに実際にショート動画を活用して億を稼いだ限定7大特典もプレゼントしています。ぜひ受け取ってください↓</div>
-  
+</p>
+<h3 class="article-h2">🎁 ～おまけ～</h3>
+<p class="article-paragraph">100万再生を連発するノウハウや、フォロワー0から1投稿目でバズらせる手法、初心者がたった3投稿で120万を稼いだ極秘ノウハウをこちらで</p>
+<p class="article-paragraph">近日公開予定です！！</p>
+<p class="article-paragraph">さらに実際にショート動画を活用して億を稼いだ限定7大特典もプレゼントしています。ぜひ受け取ってください↓
+</p>
+<div class="embedded-tweet"><a href="https://x.com/i/status/2017498307053170912" target="_blank">埋め込みツイートを見る ↗</a></div>
   
 
   <div class="back-link">

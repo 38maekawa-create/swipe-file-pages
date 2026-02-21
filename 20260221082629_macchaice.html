@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@macchaice の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/08 13:56</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/08 13:56</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,63 +84,62 @@
 
   <h2 class="article-title">ひとりで10人のAIチームを回してみた </h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">あるデスクリサーチ業務を、収集・分析・レビューまで全部AIに分業させたら、普通にプロジェクトが成立した。人間がやっていたのは作業そのものではなく、何をやりたいかを決めて、AIに任せられない部分だけを引き受けることだった。
-昨日から今日にかけて、Claude CodeのAgent Teamsをずっと触っていた。きっかけはシンプルで、「AIがチームで仕事するとどうなるのか」をちゃんと体感してみたかったから。単体のAIが賢いのはもう分かっている。でも、人間の世界では複数人になると急に難しくなる。分業、引き継ぎ、レビュー、ボトルネック、責任の所在。あの“組織の面倒くささ”がAIでも起きるのかどうか、それを自分の目で確かめたかった。
-遊び半分というより、ほぼ研究。
-いきなり本番に行かず、チュートリアルから始めた
-当然いきなり10人チームを組んでも回らない。なのでClaudeにチュートリアルを作ってもらい、段階的に練習した。RPGみたいにレベル上げするイメージ。
-実際の順番はこんな感じ。
-Tutorial1：並列調査（2エージェント同時実行）
-Tutorial2：依存関係付きタスク（直列制御）
-Tutorial3：引き継ぎ設計・ドキュメント化
-Tutorial4：3人チームでのWebアプリ作成
-Tutorial5：HITL（人間承認）の設計
-Tutorial6：10人規模プロジェクト
-Tutorial7：Slack常駐Bot化
-遊びというより完全に訓練だった。
-序盤で分かったこと：性能より設計
-早い段階で気づいたのは、エージェントの賢さよりタスク設計の方が効くということ。
-優秀な1人に全部やらせるより、普通の2人を正しく分業させた方が速い。結局やっていることはAI活用というより、ただのマネジメントだった。
-人間がボトルネックになる
-チームを増やすと、今度は自分が詰まる。レビューを全部自分で確認していると普通に止まる。そこでSlack通知システム開発をTutorial5に入れ、判断が分かれるポイントだけ人間が見る設計に変えた。
-ここで学んだのは、「念のため確認」はだいたい害だということ。HITL(Human in the Loop)は多いほど安心ではなく、最小限のほうが速い。このあたりは完全にオペレーション設計の話だった。
-Tutorial6：10人編成にしたら普通につよつよチームになった
-Tutorial6では、日本の広告費をテーマに10人編成を組んだ。
-data-collector ×2（収集）
-analyst（分析）
-fact-checker（常駐検証）
-strategist（示唆出し）
-virtual-client ×2（疑似クライアントレビュー）
-formatter / writer（整形）
-team-lead（進行管理）
-自分（問い設計・最終判断）
-役割を書き出してみると、もう普通に“ちゃんとしたチーム”。小さな部署が一つできた、くらいの感覚。
-しかもこれ、人間は自分ひとり。一人＋AI9体で回している。ここが一番インパクトがあった。「一人で回せるプロジェクトの規模」が明らかに変わる。
-プロセスを変えたのは、全部「問い」だった
-面白かったのは、改善のきっかけが全部「問い」だったこと。
-「ファクトチェック最後にまとめてやるの遅くない？」 → 常駐 fact-checker 追加
-「仮想クライアント視点あった方がよくない？」 → CEO視点／現場視点レビュー導入
-「途中で落ちたらゼロからやり直しは無駄では？」 → checkpoint / draft保存導入
-「進捗見えないの怖くない？」 → 2分おきログ＋Slack通知
-AIが勝手に賢くなったわけではなく、人間が問いを投げるたびにチーム構造が変わっていった。あとから振り返ると、自分がやっていたのは分析ではなく、問いの設計だった。
-監査チームまで作ったら統制の世界に入った
-さらに作業とは別に監査専用チームも走らせた。成果物だけチェックしてレポートを出す役。
-すると、自分で決めたHITLルールを自分で破っているのを普通に指摘される。技術的に正しいからOK、と進めた部分が「プロセス違反です」と返ってくる。外部監査ってやっぱり意味あるんだなと実感した。
-Slack常駐化でツールからインフラへ
-Tutorial7ではClaudeをSlack常駐Botにした。Slackで話しかけると即レスが返る。Claudeを「開く」のではなく「話しかける」になる。この瞬間、ツール感が消えてインフラというか同僚になる。体験が一段変わった。
-一番の気づき
-ここまでやって分かったのは、人間の仕事はもう分析そのものではないということ。
-収集、集計、レポート生成はAIがやる。人間に残るのは、何を問いにするか、どうチームを組むか、どこで判断するか。つまり「問いの設計」と「組織設計」。
-よくこういう話になると、人間はプロジェクトリード役になると言われるが、それは違うと思った。プロジェクトリード・ディレクションはAIのほうがよっぽど優秀だ。それよりも、AIとの共創における人間の役割はこんなところだと理解した。
-AIに要求を投げる
-AIがアプローチできない領域（物理的・法的・倫理的・情報セキュリティ・プライバシー的・権限的）を人間が対応する
-最後のチェックや、出来上がったものを見たら、もっとこうだといいねを提案する
-軽い好奇心で始めたのに、気づいたらAIの部長みたいなことをしていた。Claude Code Agent Teams、かなり面白い。しばらく沼りそうです。
-執筆：西
+  <h2>記事本文</h2>
+  <p class="article-paragraph">あるデスクリサーチ業務を、収集・分析・レビューまで全部AIに分業させたら、普通にプロジェクトが成立した。人間がやっていたのは作業そのものではなく、何をやりたいかを決めて、AIに任せられない部分だけを引き受けることだった。</p>
+<p class="article-paragraph">昨日から今日にかけて、Claude CodeのAgent Teamsをずっと触っていた。きっかけはシンプルで、「AIがチームで仕事するとどうなるのか」をちゃんと体感してみたかったから。単体のAIが賢いのはもう分かっている。でも、人間の世界では複数人になると急に難しくなる。分業、引き継ぎ、レビュー、ボトルネック、責任の所在。あの“組織の面倒くささ”がAIでも起きるのかどうか、それを自分の目で確かめたかった。
+遊び半分というより、ほぼ研究。</p>
+<h3 class="article-h2">いきなり本番に行かず、チュートリアルから始めた</h3>
+<p class="article-paragraph">当然いきなり10人チームを組んでも回らない。なのでClaudeにチュートリアルを作ってもらい、段階的に練習した。RPGみたいにレベル上げするイメージ。</p>
+<p class="article-paragraph">実際の順番はこんな感じ。</p>
+<li>Tutorial1：並列調査（2エージェント同時実行）</li>
+<li>Tutorial2：依存関係付きタスク（直列制御）</li>
+<li>Tutorial3：引き継ぎ設計・ドキュメント化</li>
+<li>Tutorial4：3人チームでのWebアプリ作成</li>
+<li>Tutorial5：HITL（人間承認）の設計</li>
+<li>Tutorial6：10人規模プロジェクト</li>
+<li>Tutorial7：Slack常駐Bot化</li>
+<p class="article-paragraph">遊びというより完全に訓練だった。</p>
+<h3 class="article-h2">序盤で分かったこと：性能より設計</h3>
+<p class="article-paragraph">早い段階で気づいたのは、エージェントの賢さよりタスク設計の方が効くということ。</p>
+<p class="article-paragraph">優秀な1人に全部やらせるより、普通の2人を正しく分業させた方が速い。結局やっていることはAI活用というより、ただのマネジメントだった。</p>
+<h3 class="article-h2">人間がボトルネックになる</h3>
+<p class="article-paragraph">チームを増やすと、今度は自分が詰まる。レビューを全部自分で確認していると普通に止まる。そこでSlack通知システム開発をTutorial5に入れ、判断が分かれるポイントだけ人間が見る設計に変えた。</p>
+<p class="article-paragraph">ここで学んだのは、「念のため確認」はだいたい害だということ。HITL(Human in the Loop)は多いほど安心ではなく、最小限のほうが速い。このあたりは完全にオペレーション設計の話だった。</p>
+<h3 class="article-h2">Tutorial6：10人編成にしたら普通につよつよチームになった</h3>
+<p class="article-paragraph">Tutorial6では、日本の広告費をテーマに10人編成を組んだ。</p>
+<li>data-collector ×2（収集）</li>
+<li>analyst（分析）</li>
+<li>fact-checker（常駐検証）</li>
+<li>strategist（示唆出し）</li>
+<li>virtual-client ×2（疑似クライアントレビュー）</li>
+<li>formatter / writer（整形）</li>
+<li>team-lead（進行管理）</li>
+<li>自分（問い設計・最終判断）</li>
+<p class="article-paragraph">役割を書き出してみると、もう普通に“ちゃんとしたチーム”。小さな部署が一つできた、くらいの感覚。</p>
+<p class="article-paragraph">しかもこれ、人間は自分ひとり。一人＋AI9体で回している。ここが一番インパクトがあった。「一人で回せるプロジェクトの規模」が明らかに変わる。</p>
+<h3 class="article-h2">プロセスを変えたのは、全部「問い」だった</h3>
+<p class="article-paragraph">面白かったのは、改善のきっかけが全部「問い」だったこと。</p>
+<li>「ファクトチェック最後にまとめてやるの遅くない？」 → 常駐 fact-checker 追加</li>
+<li>「仮想クライアント視点あった方がよくない？」 → CEO視点／現場視点レビュー導入</li>
+<li>「途中で落ちたらゼロからやり直しは無駄では？」 → checkpoint / draft保存導入</li>
+<li>「進捗見えないの怖くない？」 → 2分おきログ＋Slack通知</li>
+<p class="article-paragraph">AIが勝手に賢くなったわけではなく、人間が問いを投げるたびにチーム構造が変わっていった。あとから振り返ると、自分がやっていたのは分析ではなく、問いの設計だった。</p>
+<h3 class="article-h2">監査チームまで作ったら統制の世界に入った</h3>
+<p class="article-paragraph">さらに作業とは別に監査専用チームも走らせた。成果物だけチェックしてレポートを出す役。</p>
+<p class="article-paragraph">すると、自分で決めたHITLルールを自分で破っているのを普通に指摘される。技術的に正しいからOK、と進めた部分が「プロセス違反です」と返ってくる。外部監査ってやっぱり意味あるんだなと実感した。</p>
+<h3 class="article-h2">Slack常駐化でツールからインフラへ</h3>
+<p class="article-paragraph">Tutorial7ではClaudeをSlack常駐Botにした。Slackで話しかけると即レスが返る。Claudeを「開く」のではなく「話しかける」になる。この瞬間、ツール感が消えてインフラというか同僚になる。体験が一段変わった。</p>
+<h3 class="article-h2">一番の気づき</h3>
+<p class="article-paragraph">ここまでやって分かったのは、人間の仕事はもう分析そのものではないということ。</p>
+<p class="article-paragraph">収集、集計、レポート生成はAIがやる。人間に残るのは、何を問いにするか、どうチームを組むか、どこで判断するか。つまり「問いの設計」と「組織設計」。</p>
+<p class="article-paragraph">よくこういう話になると、人間はプロジェクトリード役になると言われるが、それは違うと思った。プロジェクトリード・ディレクションはAIのほうがよっぽど優秀だ。それよりも、AIとの共創における人間の役割はこんなところだと理解した。</p>
+<li>AIに要求を投げる</li>
+<li>AIがアプローチできない領域（物理的・法的・倫理的・情報セキュリティ・プライバシー的・権限的）を人間が対応する</li>
+<li>最後のチェックや、出来上がったものを見たら、もっとこうだといいねを提案する</li>
+<p class="article-paragraph">軽い好奇心で始めたのに、気づいたらAIの部長みたいなことをしていた。Claude Code Agent Teams、かなり面白い。しばらく沼りそうです。</p>
+<p class="article-paragraph">執筆：西
 共著：Claude Code Agent Teams
-編集協力：ChatGPT</div>
-  
+編集協力：ChatGPT</p>
   
 
   <div class="back-link">

@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@OnebookofMAG の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/18 20:42</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/18 20:42</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -52,8 +75,8 @@
   </div>
 
   <div class="engagement">
-    <span>❤️ 13898</span>
-    <span>🔄 1587</span>
+    <span>❤️ 13902</span>
+    <span>🔄 1590</span>
     <span>💬 35</span>
   </div>
 
@@ -61,108 +84,107 @@
 
   <h2 class="article-title">文章で一番好きなマジックはこれです</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">私が死ぬほど大好きな文章マジックの1つに
-「形容詞を動詞に変える」
-があるのですが…これ好き過ぎて、よく擦り倒して投稿しています。
-ほぼ毎回1万いいねをいただけます。
-私だけじゃなく、みんな好きなマジックかもです。
-ちなみにたとえると、
-「悲しい」を&quot;涙が溢れた&quot;に。
-「嬉しい」を&quot;小さくガッツポーズした&quot;に。
-こんな感じ。たったこれだけで、文章に映像が宿ってくる。
-感情が色づくというか、読んだ人の脳内に情景が再生される感覚。わかりますかね。
-もう少し雑に言うと「あ、映像が見えた」って感じです。料理で言うと塩みたいなもので、入れすぎると台無しだけど、入れないと味がしないイメージ。
-余談ですが、世の中には「形容詞を使うな」系の文章術が溢れていて、書籍もnoteもYouTubeもゴロゴロ出てくるのだけど…大半が&quot;文章を書く人向け&quot;で止まってるじゃないですか。
-「ライターじゃないし関係ないわ」
-で閉じられて終わり。これがもったいなさすぎるなと思っています。
-というのも、この技術の本当のヤバさは文章の外にあるからです。
-━━━━━━━━━━━━━━
+  <h2>記事本文</h2>
+  <p class="article-paragraph">私が死ぬほど大好きな文章マジックの1つに</p>
+<h2 class="article-h1">「形容詞を動詞に変える」</h2>
+<p class="article-paragraph">があるのですが…これ好き過ぎて、よく擦り倒して投稿しています。</p>
+<p class="article-paragraph">ほぼ毎回1万いいねをいただけます。</p>
+<p class="article-paragraph">私だけじゃなく、みんな好きなマジックかもです。</p>
+<p class="article-paragraph">ちなみにたとえると、</p>
+<p class="article-paragraph">「悲しい」を&quot;涙が溢れた&quot;に。
+「嬉しい」を&quot;小さくガッツポーズした&quot;に。</p>
+<p class="article-paragraph">こんな感じ。たったこれだけで、文章に映像が宿ってくる。</p>
+<p class="article-paragraph">感情が色づくというか、読んだ人の脳内に情景が再生される感覚。わかりますかね。</p>
+<p class="article-paragraph">もう少し雑に言うと「あ、映像が見えた」って感じです。料理で言うと塩みたいなもので、入れすぎると台無しだけど、入れないと味がしないイメージ。</p>
+<p class="article-paragraph">余談ですが、世の中には「形容詞を使うな」系の文章術が溢れていて、書籍もnoteもYouTubeもゴロゴロ出てくるのだけど…大半が&quot;文章を書く人向け&quot;で止まってるじゃないですか。</p>
+<h2 class="article-h1">「ライターじゃないし関係ないわ」</h2>
+<p class="article-paragraph">で閉じられて終わり。これがもったいなさすぎるなと思っています。</p>
+<p class="article-paragraph">というのも、この技術の本当のヤバさは文章の外にあるからです。</p>
+<h3 class="article-h2">━━━━━━━━━━━━━━
 じつは、仕事でも全く同じことが起きている
-━━━━━━━━━━━━━━
-形容詞で止めずに動詞にする。
-すると、具体的な映像になる…このメリットは逆説的にいえば、
-形容詞で話す人は具体が伝わらないので、抽象ばかり言っている抽象野郎だ…というデメリットでもあると思っています。
-たとえば、仕事の現場。
-「チームの雰囲気が悪い」
+━━━━━━━━━━━━━━</h3>
+<p class="article-paragraph">形容詞で止めずに動詞にする。</p>
+<p class="article-paragraph">すると、具体的な映像になる…このメリットは逆説的にいえば、</p>
+<p class="article-paragraph">形容詞で話す人は具体が伝わらないので、抽象ばかり言っている抽象野郎だ…というデメリットでもあると思っています。</p>
+<p class="article-paragraph">たとえば、仕事の現場。</p>
+<p class="article-paragraph">「チームの雰囲気が悪い」
 「いい感じでお願いします」
-「なんか違うんだよなぁ」
-これ全部、形容詞で止まってますよね。
-「悪い」は評価であって事実じゃないし、だから聞いた側は動けないし…処方箋を出さずに「体調悪いね」とだけ言ってくるヤブ医者と同じでしょ。
-いや、だから何をすればいいんだよと。
-お前が医者なら診断しろよと。
-これを動詞に変えた瞬間、映像が宿ります。
-「メンバー間の会話が減って、それぞれが自分の作業に閉じこもっている」
-同じ状態を指しているのに、後者は&quot;カメラで撮れる&quot;んですよね。
-人はラベルでは動かないです。映像で動きます。
-「いい感じで」も同じで、相手にエスパー能力を要求しているだけ。
-「冒頭にデータを入れて、結論から書いて」まで変換して初めて、相手が動ける。（ちょう当たり前）
-エスパーじゃねえんだよこっちは…
-とよく言いたくなります笑
-ちなみに私も昔これでした…。「もうちょっとこう…」で3時間手戻りさせた黒歴史があります。
-全部、自分の頭の中の映像を言葉に変換するのをサボっていただけ。
-あの頃の部下には土下座したい。マジで。
-━━━━━━━━━━━━━━
+「なんか違うんだよなぁ」</p>
+<p class="article-paragraph">これ全部、形容詞で止まってますよね。</p>
+<p class="article-paragraph">「悪い」は評価であって事実じゃないし、だから聞いた側は動けないし…処方箋を出さずに「体調悪いね」とだけ言ってくるヤブ医者と同じでしょ。</p>
+<p class="article-paragraph">いや、だから何をすればいいんだよと。</p>
+<h2 class="article-h1">お前が医者なら診断しろよと。</h2>
+<p class="article-paragraph">これを動詞に変えた瞬間、映像が宿ります。</p>
+<p class="article-paragraph">「メンバー間の会話が減って、それぞれが自分の作業に閉じこもっている」</p>
+<p class="article-paragraph">同じ状態を指しているのに、後者は&quot;カメラで撮れる&quot;んですよね。</p>
+<p class="article-paragraph">人はラベルでは動かないです。映像で動きます。</p>
+<p class="article-paragraph">「いい感じで」も同じで、相手にエスパー能力を要求しているだけ。</p>
+<p class="article-paragraph">「冒頭にデータを入れて、結論から書いて」まで変換して初めて、相手が動ける。（ちょう当たり前）</p>
+<h2 class="article-h1">エスパーじゃねえんだよこっちは…</h2>
+<p class="article-paragraph">とよく言いたくなります笑</p>
+<p class="article-paragraph">ちなみに私も昔これでした…。「もうちょっとこう…」で3時間手戻りさせた黒歴史があります。</p>
+<p class="article-paragraph">全部、自分の頭の中の映像を言葉に変換するのをサボっていただけ。</p>
+<p class="article-paragraph">あの頃の部下には土下座したい。マジで。</p>
+<h3 class="article-h2">━━━━━━━━━━━━━━
 「形容詞→動詞」変換の3パターン
-━━━━━━━━━━━━━━
-じゃあどうやって変換するか。パターンは3つあります。
-① 身体動作に変換する
-感情を「カメラで撮れる動き」に置き換える。いちばんシンプルで、いちばん効きます。
-・悲しい → 涙が溢れた
+━━━━━━━━━━━━━━</h3>
+<p class="article-paragraph">じゃあどうやって変換するか。パターンは3つあります。</p>
+<p class="article-paragraph">① 身体動作に変換する</p>
+<p class="article-paragraph">感情を「カメラで撮れる動き」に置き換える。いちばんシンプルで、いちばん効きます。</p>
+<p class="article-paragraph">・悲しい → 涙が溢れた
 ・嬉しい → 小さくガッツポーズした
-・怒っている → 腕を組んで、瞬きを数秒しなかった
-LINEでもSlackでも使えます。「嬉しいです！」より「思わず二度見しました」の方が、100倍伝わる。
-嘘じゃなくて、体感で100倍です。
-「嬉しいです」は読んだ瞬間に消えるけど、
-「二度見しました」は映像として残る。
-この差が、マジでデカすぎる。
-② 事実動詞に変換する
-評価を「実際に起きていること」に置き換える。これ、仕事で一番使います。
-たとえば、
-・雰囲気が悪い → 会話が減り、各自が閉じこもっている
+・怒っている → 腕を組んで、瞬きを数秒しなかった</p>
+<p class="article-paragraph">LINEでもSlackでも使えます。「嬉しいです！」より「思わず二度見しました」の方が、100倍伝わる。</p>
+<p class="article-paragraph">嘘じゃなくて、体感で100倍です。</p>
+<p class="article-paragraph">「嬉しいです」は読んだ瞬間に消えるけど、</p>
+<p class="article-paragraph">「二度見しました」は映像として残る。</p>
+<h2 class="article-h1">この差が、マジでデカすぎる。</h2>
+<p class="article-paragraph">② 事実動詞に変換する</p>
+<p class="article-paragraph">評価を「実際に起きていること」に置き換える。これ、仕事で一番使います。</p>
+<p class="article-paragraph">たとえば、</p>
+<p class="article-paragraph">・雰囲気が悪い → 会話が減り、各自が閉じこもっている
 ・あの人はすごい → 3時間の会議で一度も時計を見なかった
-・プレゼンがよかった → 全員が前のめりになっていた
-会議でこれができる人はマジで少ないです。
-「プレゼンよかったです！」って…それ
-小学生の感想文でしょ…と。
-「よかった」で終わるフィードバック、もらった側は1ミリも成長できないですよ。
-何がよかったのかを動詞で言えた瞬間に、
-初めてフィードバックになると思っています。
-③ 指示動詞に変換する
-要望を「相手が動ける行動」に置き換える。マネジメントする人は全員覚えてほしいです。
-・いい感じで → 冒頭にデータを入れて、結論から書いて
+・プレゼンがよかった → 全員が前のめりになっていた</p>
+<p class="article-paragraph">会議でこれができる人はマジで少ないです。</p>
+<p class="article-paragraph">「プレゼンよかったです！」って…それ</p>
+<h2 class="article-h1">小学生の感想文でしょ…と。</h2>
+<p class="article-paragraph">「よかった」で終わるフィードバック、もらった側は1ミリも成長できないですよ。</p>
+<p class="article-paragraph">何がよかったのかを動詞で言えた瞬間に、</p>
+<p class="article-paragraph">初めてフィードバックになると思っています。</p>
+<p class="article-paragraph">③ 指示動詞に変換する</p>
+<p class="article-paragraph">要望を「相手が動ける行動」に置き換える。マネジメントする人は全員覚えてほしいです。</p>
+<p class="article-paragraph">・いい感じで → 冒頭にデータを入れて、結論から書いて
 ・なんか違う → 冒頭の結論と最後の提案がつながっていない
-・もうちょっとこう… → 見出しの文字を2pt大きくして
-部下に「いい感じで」と5回言うくらいなら、1回「結論から書いて」と言った方がお互い幸せですよね。
-「なんか違う」って、フィードバックじゃなくて
-&quot;言語化の責任の押し付け&quot;。
-せめて何が違うかくらいは言語化してから口を開いてくれ…と心の底から思います。
-━━━━━━━━━━━━━━
+・もうちょっとこう… → 見出しの文字を2pt大きくして</p>
+<p class="article-paragraph">部下に「いい感じで」と5回言うくらいなら、1回「結論から書いて」と言った方がお互い幸せですよね。</p>
+<p class="article-paragraph">「なんか違う」って、フィードバックじゃなくて</p>
+<h2 class="article-h1">&quot;言語化の責任の押し付け&quot;。</h2>
+<p class="article-paragraph">せめて何が違うかくらいは言語化してから口を開いてくれ…と心の底から思います。</p>
+<h3 class="article-h2">━━━━━━━━━━━━━━
 形容詞を手放した先の景色
-━━━━━━━━━━━━━━
-私がこれを意識しはじめてから、言葉の解像度が明らかに変わりました。
-文章を書けば「刺さる」と言われることが増えたし、打ち合わせで「わかりやすい」と言われることが増えた。
-変えたことはシンプルで、「今日1日、形容詞を禁止する」を試しただけ。
-「すごい」を封印した瞬間、脳が勝手に&quot;具体的な動詞&quot;を探しはじめるんですよ。
-「やばい」を封印した瞬間、何がやばいのかを考えはじめる。これがたぶん、
-言語化力の正体
-だと思っています。
-形容詞は便利です。でも便利すぎて、思考を止めます。コンビニ弁当みたいなもので、手軽だけど毎日食べてたら確実に体を壊すでしょ。
-言葉に映像を宿らせたいなら、まず形容詞を手放すこと。
-…ちなみに私、今日この記事を書きながら「すごい」を3回使いそうになって全部消しました。
-でも、やばいは使います。えぐいも使います。えもいはもっと使います。
-封印、地味にキツいです笑
-…FIN
-本を出しています。
-速く読む技術についての本で、私が最後に出すと決めていた、速読術です。ぜひこちらも読んでみてください。
-https://note.com/onebookof_mag/n/nd6d0d5895771
-━━━━━━━━━━━━━━
-普段長文はnoteの記事で投稿しています。
-特にXについての考察等を週に2回更新しているので、ぜひこちらも読んでいただけると幸いです。
-https://note.com/onebookof_mag
-Xのフォロー、記事の感想も引用投稿でぜひお願いいたします。
-https://x.com/OnebookofMAG</div>
-  
+━━━━━━━━━━━━━━</h3>
+<p class="article-paragraph">私がこれを意識しはじめてから、言葉の解像度が明らかに変わりました。</p>
+<p class="article-paragraph">文章を書けば「刺さる」と言われることが増えたし、打ち合わせで「わかりやすい」と言われることが増えた。</p>
+<p class="article-paragraph">変えたことはシンプルで、「今日1日、形容詞を禁止する」を試しただけ。</p>
+<p class="article-paragraph">「すごい」を封印した瞬間、脳が勝手に&quot;具体的な動詞&quot;を探しはじめるんですよ。</p>
+<p class="article-paragraph">「やばい」を封印した瞬間、何がやばいのかを考えはじめる。これがたぶん、</p>
+<h2 class="article-h1">言語化力の正体</h2>
+<p class="article-paragraph">だと思っています。</p>
+<p class="article-paragraph">形容詞は便利です。でも便利すぎて、思考を止めます。コンビニ弁当みたいなもので、手軽だけど毎日食べてたら確実に体を壊すでしょ。</p>
+<p class="article-paragraph">言葉に映像を宿らせたいなら、まず形容詞を手放すこと。</p>
+<p class="article-paragraph">…ちなみに私、今日この記事を書きながら「すごい」を3回使いそうになって全部消しました。</p>
+<p class="article-paragraph">でも、やばいは使います。えぐいも使います。えもいはもっと使います。</p>
+<h2 class="article-h1">封印、地味にキツいです笑</h2>
+<p class="article-paragraph">…FIN</p>
+<p class="article-paragraph">本を出しています。</p>
+<p class="article-paragraph">速く読む技術についての本で、私が最後に出すと決めていた、速読術です。ぜひこちらも読んでみてください。
+https://note.com/onebookof_mag/n/nd6d0d5895771</p>
+<p class="article-paragraph">━━━━━━━━━━━━━━</p>
+<p class="article-paragraph">普段長文はnoteの記事で投稿しています。</p>
+<p class="article-paragraph">特にXについての考察等を週に2回更新しているので、ぜひこちらも読んでいただけると幸いです。
+https://note.com/onebookof_mag</p>
+<p class="article-paragraph">Xのフォロー、記事の感想も引用投稿でぜひお願いいたします。
+https://x.com/OnebookofMAG</p>
   
 
   <div class="back-link">

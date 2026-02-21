@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@ryo_y0521 の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/14 12:00</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/14 12:00</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,313 +84,322 @@
 
   <h2 class="article-title">Instagram1投稿で1万フォロワー超えた事例10選</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">私は現在Instagramインフルエンサー200人以上、総フォロワー1000万人の統括をしています。
-そしてそのインフルエンサーを講師として運営しているインスタスクールでは
-平均49投稿でフォロワー1万人を達成していて、
-業界では類を見ないスピード感と再現性を実現しています。
-ちなみに先週は20アカウントがフォロワー1万人達成しており、
-これは、毎日平均2.8アカウントがフォロワー1万人を達成している計算になります。
-そんな私はこれまで1000投稿以上のバズ動画を分析してきました。
-その中でも
-1投稿で1万フォロワー超えの“バズる投稿“の裏には
-誰でも再現できるノウハウがあります。
-なので今回は、
-Instagram1投稿で1万フォロワー超えた事例10選とその裏側にある再現する方法まで
-包み隠さず全て公開します。
-事例1：1投稿目で3000万再生→フォロワー20万人獲得
-こちらは、100日企画などで有名なプロセスエコノミーの方式とDIYを掛け合わせたアカウントの1投稿目で、インスタ史上でもトップクラスの伝説級なバズ投稿になります。
-※プロセスエコノミーとは、完成したキラキラした投稿（完成品）だけでなく、「目標に向かって試行錯誤している過程（プロセス）」そのものをコンテンツにしてファンを作る手法のことです。
-この動画については正直、ここでは語りきれないほどのノウハウが詰まっているので改めて別の記事で徹底解説します。
-事例2：128万再生でフォロワー2万人増加
-こちらは、ワンプレートで作れる料理を投稿している方の「フライパン1つで15分、4品同時調理」をテーマにした時短レシピ系動画です。
-実はこの動画、「フライパン1つで同時調理」という強い有益性に、「仕事終わりの夫への感謝と裏切り（時短）」というストーリー性を掛け合わせた構成になっています。
-なぜバズったのか？
-①強烈な「ベネフィット」の提示
-「15分で4品同時調理」という、忙しいターゲット層（主婦・共働き層）にとって「これ全部同時？」「どうやってるの？」という意外性と「めちゃくちゃ助かる」「自分もやってみたい」と思わせる有益性で視聴者の期待値を冒頭で最大化させています。
-そしてこの動画における「冒頭3秒の2段階フック」を解説しておきます。
-・指を止める1秒（インパクト）
-子供と夫の「いただきます」という温かい食卓風景に、「残業帰りの夫が一言」というテロップを配置。これにより、「何を言ったの？」という興味と好奇心でスクロールを止めさせます。
-・引き込む2秒（ベネフィットの開示）
-夫の感謝の言葉の直後に、フライパンに具材を詰め込む「同時調理」の衝撃映像をぶつけます。ここで「15分で4品同時調理」というタイトル（ゴール）を提示し、動画の期待値を最大化しています。
-②ストーリーテリングと心理的フック
-冒頭で「手間かけてくれてありがとう」と言う夫に対し、「実は同時調理で楽をしていた」という「予想を良い意味で裏切る」ギャップを作っています。
-そして「マイナス（手間をかけられない罪悪感や忙しさ）から理想（褒められる食卓）」への物語が、夫や子供の登場という「リアル感」によって強化されています。
-③「保存ポイント」の宝庫
-クッキングシートを使った仕切り術や、具体的なメニュー（厚揚げ肉巻き、かぼちゃの煮物等）の工程が紹介されており、「後で見返して真似しよう」と思わせる高い保存率（保存数）を狙った設計になっています。
-再現するポイント
-1. 冒頭3秒で期待値を最大化する（2段階フック）
-・1秒目で「何が起きた？」と思わせる未回収の疑問を置く
-・2秒目で数字付きベネフィットを提示して「見たい」に変える
-2. ギャップで感情を動かす（ストーリー設計）
-・忙しさや罪悪感などのマイナスを具体化する
-・「実はラクだった」などの良い裏切りで理想へ転換させる
-3. 保存される価値を入れる（設計）
-・時間や個数など再現可能な具体性を入れる
-・真似できる工程を見せて「後で見返す理由」を作る
-事例3：240万再生でフォロワー2万人増加
-こちらは、オーブン料理に特化した方の「パイ生地不要のじゃがいもで作る絶品キッシュ」をテーマにしたレシピ系動画です。
-この動画のポイントは、「パイ生地不要」という強烈な簡便性と、じゃがいもをダイレクトに潰す「視覚的インパクト」、そしてユーザーの声を反映させた「企画の最適化」が組み合わさっているところになります。
-なぜバズったのか？
-①「常識の破壊」による期待値の最大化
-キッシュ＝パイ生地という常識を「不要」と言い切り、じゃがいもをコップで潰して土台にするという「その手があったか！」と思わせる新発想を提示しています。
-②ターゲットの「不満」と「憧れ」を同時に解決
-平日帰宅後の「忙しさ（不満）」を解決しつつ、デパ地下のような「映え料理（憧れ）」が簡単に作れるという理想の未来を提示しています。
-③検証済みの「伸びる要素」を擦りまくる
-以前投稿して反応が良かった「マフィン型（ミニ）」の企画を、よりインパクトの強い「ケーキ型（大）」にアップデート。これは「伸びた投稿は、見せ方を変えたりしながらバズらなくなるまで擦り続ける」というインスタのバズらせる鉄則を完璧に実行しています。
-④ASMR的要素を取り入れた「音」のこだわり
-じゃがいもが潰れる音や、卵を混ぜる音など、心地よい作業音（環境音）を意識的に入れることで、**視聴の「心地よさ」**を作り出し、リプレイ率を高めます。
-⑤ コメント欄を「相談所」にしてエンゲージメントを上げる
-「DMをいただいたので」という枕詞を入れることで「自分もコメントしたら採用されるかも」とコメントが集まることで動画自体のエンゲージメントが上がり、さらに多くの人にリーチするようになる。
-また「型が見つからないという声をいただいたので、誰でもできる方法で」というエピソードは、「フォロワーの意見を大切にしている」という信頼（ファン化）に直結します。
-再現するポイント
-1. 常識を壊して「その手があったか」を作る（発想の転換）
-・当たり前と思われている前提を否定する（例：パイ生地不要）
-・代替アイデアを提示して“新発見体験”を与える
-2. 不満と憧れを同時に解決する（ベネフィット設計）
-・忙しさや面倒さなどの不満を解消する
-・映え・特別感などの理想像を同時に提示する
-3. 伸びた型をアップデートして擦る（再現戦略）
-・過去に反応が良かった企画要素を再利用する
-・サイズや見せ方を強化してインパクトを上げる
-4. 音でリプレイ率を上げる（体験設計）
-・作業音や環境音を意識的に入れる
-・視覚だけでなく聴覚でも“心地よさ”を作る
-5. コメントが集まる構造を作る（エンゲージメント設計）
-・「DMをいただいたので」など参加余地を示す
-・フォロワーの声を反映して信頼とファン化を促進する
-事例4：110万再生でフォロワー1万人増加
-こちらは、家族向けの料理を紹介する方の「大根を丸ごと使った激うま鍋」をテーマにしたレシピ系動画です。
-この動画は徹底的な競合分析とトレンドの掛け合わせによって、狙い通りにバズを引き起こした非常に戦略的な構成になっています。
-なぜバズったのか？
-①動画冒頭とアカウントコンセプトを一致をさせてフォロー率UP
-「家族が喜ぶレシピ」という軸に沿い、冒頭で夫婦＋子ども2人が楽しそうに料理する姿を映すことで、動画単体とアカウント全体の世界観の一貫性を表現している。
-これにより視聴者は“どんな発信か”“フォローすると何が得られるか”を瞬時に理解でき、期待値調整が完了した状態で視聴が進む設計に。
-結果としてフォロー率・転換率を高水準で叩き出す、導線まで計算された動画構成になっています。
-②トレンド×定番バズ要素を掛け合わせ、再現性の高いバズ設計を実現
-レシピ系ジャンルで今期流行している「大根のミルフィーユ」と、元々バズりやすい要素である「丸ごと野菜を使う」という2つのトレンドを掛け合わせた構成を採用。
-旬の話題性と、視覚的インパクトのある定番バズ要素を融合させることで、単発の偶発バズではなく、意図的にバズ確率を高めにいく設計となっている。
-再現するポイント
-1. 動画とアカウントの世界観を一致させる（フォロー転換設計）
-・冒頭でコンセプトを体現するシーンを見せる
-・「このアカウントをフォローすると何が得られるか」を瞬時に理解させる
-・動画単体ではなく“アカウント全体の期待値”を提示する
-2. トレンド×定番バズ要素を掛け合わせる（確率設計）
-・今流行しているテーマを取り入れる
-・元々バズりやすい視覚インパクト要素を組み合わせる
-・偶発ではなく、伸びる型を掛け算してバズ確率を高める
-事例5：300万再生越え3連発でフォロワー4.9万人増加
-こちらはお弁当作りの定番メニューである「卵焼き」を、フライパンを使わず電子レンジのみで簡単に作るライフハックを紹介する動画になります。
-この動画が大きな再生数を獲得している本質的な理由は、「時短・簡便性という需要」に、「意外性のある調理法」と「親近感のあるストーリー性」を掛け合わせたことにあります。
-なぜ伸びたのか？
-① 「権威性」×「常識破壊」の強力なフック
-「お弁当歴20年」という言葉が、視聴者に「ベテランが言うなら間違いない」という信頼感を与えています。
-そこからの「卵焼きは焼きません」という一言で、視聴者の常識を真っ向から否定することで「え、どういうこと？」と手を止めさせ、続きを見ずにはいられない状態を作っています。
-これは“マジで⁉︎”“その手があったか！”という感情を意図的に引き出す設計で視聴維持率を最大化するための、極めて強力な冒頭フックです。
-② 忙しい人に刺さる“超具体アクション”設計
-タッパーとレンジだけで完結し、「白だし大さじ2」「水大さじ2」といった具体的な分量まで提示しています。
-抽象論ではなく“今すぐ真似できる手順”に落とし込んでいるため、「自分にもできる」という再現性のイメージが明確に湧きます。
-結果として、保存して後で見返したくなる構造になり、保存率アップに直結する有益コンテンツへ昇華しています。
-③ 日常を切り取る“人感（属人性）”の演出
-冒頭のお弁当詰めシーンや卵を割る手元の映像によって、発信者の体温や生活感が自然に伝わる構成になっています。
-カメラ目線ではなく、あえて“覗き見”のような撮影にすることでリアリティを演出し、視聴者との心理的距離を縮めています。
-これによりノウハウだけでなく「人」が見えることで、共感と信頼を同時に獲得できます。
-④コメント論争で“滞在時間”を最大化
-「フライパン派 vs レンチン派」という構図が自然発生的な論争を生み、コメント欄が第二のコンテンツに進化。
-ユーザーは意見を読み、書き、共感や反論を繰り返すため、その間も動画は再生され続け、総視聴時間が大幅に伸長します。
-滞在時間の増加はアルゴリズム上“質の高い投稿”のシグナルとなり、非フォロワー層への追加拡散を誘発します。
-結果として、議論→滞在→評価向上→さらなる拡散という好循環を生む構造になっています。
-再現するポイント
-1. 権威性×常識破壊で一気に止める（強フック設計）
-・実績や経験年数で信頼を先に作る
-・その直後に常識を否定して「え？」を生む
-・信頼→裏切りの順番で視聴維持率を最大化する
-2. 今すぐ真似できる超具体アクションを入れる（保存設計）
-・分量や手順を具体的に提示する
-・道具を最小化して再現ハードルを下げる
-・「自分にもできる」と思わせて保存率を上げる
-3. 人感（属人性）を出して共感を作る（信頼設計）
-・日常の手元や生活感を自然に見せる
-・覗き見視点でリアリティを演出する
-・ノウハウだけでなく“人”を伝えてファン化につなげる
-4. 論争構造で滞在時間を伸ばす（拡散設計）
-・賛否が分かれる構図を自然に作る
-・コメント欄を第二のコンテンツにする
-・議論→滞在時間増加→アルゴリズム評価向上の循環を作る
-事例6：600万再生でフォロワー2万人増加
-この動画は、「フィットネス大会優勝」という高い目標を掲げるアラサー女性が、現状の体型では大会用のビキニが全く着られないという衝撃的な「マイナスの現状」をさらけ出し、目標達成に向けた決意を表明するドキュメンタリー形式の動画になります。
-なぜ伸びたのか？
-①あえて“未完成”を見せるマイナススタート戦略
-大会優勝を目指すにもかかわらず、「ビキニが着られない」という大きなマイナス状態から物語を開始しています。
-これにより完璧な姿ではなく、“お肉が乗っている現実”を隠さず見せることで、一気に心理的距離を縮めています。
-このギャップが「親近感」と「応援したい」という感情を生み、ただのボディメイク動画ではなく“感情移入型コンテンツ”へと昇華しています。
-② 視聴維持率を高める「衝撃的な冒頭」
-「大会用ビキニを着てみた結果」というコピーとともに、履こうとする途中までの映像を最初に配置。「え、どうなったの？」という未完の緊張感を作ることで、強制的に続きを見たくなる構造にしています。
-結末を先送りにすることで視聴維持率を引き上げ、“最後まで見ないと気持ち悪い”導線を完成させています。
-③ 結末を追わせる“応援型ストーリー設計”
-過去のぽっちゃり時代の写真や「一度もビキニを着たことがない」という背景を提示することで、単なる減量企画に物語性を付与しています。
-さらに「100日後に50kg」といった期限付き目標を設定することで、視聴者に“過程を追わせる理由”を作っています。
-これで1投稿で終わらず、シリーズとして継続視聴・フォローを促すストーリーテリングを設計しています。
-再現するポイント
-1. 未完成から始めて感情を掴む（マイナススタート戦略）
-・あえて理想ではない現状を見せる
-・欠点や弱さを隠さず出して心理的距離を縮める
-・ギャップで「応援したい」という感情を生む
-2. 結末を先送りにして維持率を上げる（未完フック設計）
-・結果の途中までを冒頭に置く
-・「どうなったの？」という未回収の緊張感を作る
-・最後まで見ないと気持ち悪い構造にする
-3. 期限付き目標で追わせる（応援型ストーリー設計）
-・過去の背景を提示して物語性を持たせる
-・具体的な期限と数字を設定する
-・単発で終わらせずシリーズ化してフォロー動機を作る
-事例7：144万再生でフォロワー2.1万人増加
-この動画は、「休日ワンオペ」で疲弊しているママに向けて、オーブンを活用して手間をかけずに2品のメインおかずを同時に作る時短レシピを紹介する動画です。
-この動画が伸びている本質的な理由は、「強力なターゲット共感」と「圧倒的な時短・利便性の提示」を、テンポ良く映像で表現している点にあります。
-なぜ伸びたのか？
-① 冒頭3秒で“当事者化”させるフック設計
-「休日ワンオペ」「省エネ」という強烈な共感ワードを冒頭に配置し、赤ちゃんを抱っこしたまま料理を始める映像で視覚的インパクトを付与。さらに「ほったらかしオーブン2品」という結論を先出しすることで、“これは助かるかも”という期待値を一気に最大化。感情・視覚・ベネフィットの三方向から、最初の3秒で心を掴む設計になっています。
-② 常識を壊し、課題を言語化する構造
-「料理はコンロ前で頑張るもの」という固定観念を壊し、HPゲージが赤という比喩で“疲弊した現実”を明確化。マイナス状態を提示した上で、オーブンに頼るという新選択肢を示すことで、「その手があったか」と「めちゃくちゃ助かる」を同時に成立させています。課題認識→解決策提示の流れが非常に明確です。
-③ 離脱を防ぐ“飽きないテンポ”の徹底
-1〜1.5秒単位のカット割りで、2秒以上同じ視点を続けない構成。動作前後の無駄な間を削ぎ落とし、常に映像が動き続ける状態を作ることで脳に退屈を与えません。
-さらに主観（手元）と客観（髪を縛るなど）の視点を交互に入れ、レシピ動画にストーリー性を付加し視聴維持率を最大化しています。
-④ “完璧すぎないリアル”で信頼を獲得
-抱っこ紐や乱れた髪など、あえて整いすぎない日常を見せることで信用貯金を積み上げています。
-また構成面ではPREP法を自然に内包し、「今日は省エネ料理→ワンオペで限界→具体実演→ラクを広めたい」という論理的流れを形成しています。
-これにより短尺でも納得感が高く、情報のファンだけでなく“人のファン”を作る設計ができています。
-⑤ 保存を生む“超具体アクション設計”
-「厚揚げ1/4カット」「にんじんスライス」など、小学生でも再現できる具体性でハードルを極限まで下げています。
-抽象論ではなく即実践レベルまで落とし込むことで保存行動を促進し、最後に美味しそうな完成形を見せ、“手抜き感ゼロ”のベネフィットを視覚的に証明することで満足度を決定づけています。
-再現するポイント
-1. 冒頭3秒で当事者化させる（多方向フック設計）
-・強い共感ワードでターゲットを即特定する
-・視覚的に“リアルな状況”を見せて没入させる
-・結論（ベネフィット）を先出しして期待値を最大化する
-2. 常識を壊して課題→解決を明確化する（問題解決設計）
-・当たり前の固定観念を否定する
-・比喩や言語化でマイナス状態を明確にする
-・新しい選択肢を提示して「助かる未来」を見せる
-3. テンポで離脱を防ぐ（維持率設計）
-・1〜1.5秒単位でカットを切り替える
-・無駄な間を削ぎ落とす
-・主観と客観を交互に入れて物語性を持たせる
-4. 完璧すぎないリアルで信頼を作る（ファン化設計）
-・整いすぎない日常をあえて見せる
-・論理構造（結論→理由→実演→想い）を自然に入れる
-・ノウハウだけでなく“人”を伝える
-5. 超具体アクションで保存を生む（再現設計）
-・分量や切り方まで具体的に示す
-・再現ハードルを極限まで下げる
-・完成形でベネフィットを視覚的に証明する
-事例8：425万再生でフォロワー6万人増加
-この動画は、「50代の再々婚夫婦」という珍しい属性を持つ発信者が、
-洗練された日常風景を通じて「人生の再出発」と「日々の食卓の尊さ」を語る、感情訴求型の自己紹介系の動画です。
-なぜ伸びたのか？
-① “50代で再々婚”という強烈な印象付け
-最初の1〜3秒に「50代で再々婚」という強烈ワードを配置し、固定観念を揺さぶる導入になっています。
-あえてネガティブにも捉えられかねない過去を先出しすることで、「どういう人生？」「今はどうなってるの？」という強い興味を喚起しており、冒頭で期待値を最大化し、離脱を防ぐ設計になっています。
-② “マイナス→理想”で魅せる人生ギャップ
-波乱万丈な過去を起点に、「なんでもないごはんが幸せ」という現在の穏やかな日常を提示することで落差を最大化させて、単なるライフスタイル紹介ではなく“物語”として成立させています。
-この「何歳でもやり直せる」というメッセージが同世代の共感を強く掴み、深いファン化へと繋げています。
-③ 情報を超えて“人に惚れさせる”属人設計
-料理、ピアノ、夕暮れの散歩など、多角的に生活の質や価値観を見せることで、発信者の人間性そのものを表現しています。
-また綺麗な部屋や仲睦まじい夫婦の姿は、普遍的な理想像として機能し、「自分もこうなりたい」という感情を自然に喚起します。
-これにより情報のファンではなく“人生観のファン”を作る構造になっています。
-④ 余白を作り、応援させる導線設計
-ラストに「応援してくださると嬉しいです」と添えることで、視聴者に発言の許可を与え、コメント参加の心理的ハードルを下げています。
-夫婦の日常を共有する構図が、視聴者を“見守る仲間”へと変化させ、中長期的なエンゲージメントを生む空気感づくりに成功しています。
-再現するポイント
-1. 強烈ワードで一瞬で止める（印象付け設計）
-・年齢や回数など固定観念を揺さぶるワードを冒頭に置く
-・あえてネガティブに見える過去を先出しする
-・「どういう人生？」と続きを見たくさせる
-2. マイナス→理想の落差で物語化する（ギャップ設計）
-・波乱の過去を提示する
-・穏やかな現在との対比で落差を最大化する
-・「何歳でもやり直せる」という希望を示す
-3. 人に惚れさせる属人設計（ファン化戦略）
-・日常の趣味や価値観を多面的に見せる
-・理想的な生活シーンで未来像を提示する
-・情報ではなく“人生観”に共感させる
-4. 余白で応援を生む（参加導線設計）
-・応援を促す一言でコメントの許可を出す
-・視聴者を“見守る仲間”に位置付ける
-・中長期的なエンゲージメントを育てる
-事例9：121万再生でフォロワー2万人増加
-この動画は、「元パン屋」という権威性を持つ発信者が、小麦粉を使わず生米から作る「グルテンフリーの塩バターベーグル」のレシピを紹介する動画です。
-なぜ伸びたのか？
-① 五感を直撃する“食欲フック”
-冒頭1〜3秒で、焼きたてベーグルを割る「パリッ、じゅわっ」というASMR音と「こんな塩バターベーグル食べたかった！」という感情テロップで、“食べたい”欲求を一瞬で最大化。音・視覚・言語の三方向から刺激を与え、スクロールを止める設計になっています。
-② 「元パン屋×生米」で作る圧倒的独自性
-「元パン屋」という肩書きが専門性と信頼性を担保し、視聴者からの信用を確保しています。
-その上で「パン＝小麦粉」、「発酵は長時間」という常識を、「生米」で「発酵1回30分」という要素で壊しつつ、パン作りのハードルを下げる独自の簡易性と有益性を生み出しています。
-権威性と独自性を掛け合わせることで、“この人から学びたい”と思わせる強い差別化を実現しています。
-③ キーワード指定でコメントを量産
-ラストに「『しお』とコメントしてね」と具体ワードを提示し、行動ハードルを極限まで下げています。
-自由記述ではなく単語指定にすることで即行動を促進することで、コメント数増加→エンゲージメント上昇→外部露出拡大というアルゴリズム好循環を生む、計算された設計になっています。
-再現するポイント
-1. 五感を刺激して一瞬で止める
-・音（ASMR）で欲求を直撃させる
-・割る・伸びるなど視覚的快感を冒頭に置く
-・感情テロップで「食べたい」を言語化する
-2. 権威性×常識破壊で差別化する（独自性設計）
-・肩書きで専門性と信頼を先に作る
-・業界の当たり前を否定して新提案を出す
-・簡易性を加えて「自分にもできる」に落とす
-3. 単語指定でコメントを量産する（行動設計）
-・具体キーワードを指定して迷わせない
-・自由回答ではなく“コピペ行動”にする
-・コメント増加→エンゲージメント向上→拡散の循環を作る
-事例10：350万再生でフォロワー3万人増加
-こちらは「夫婦で楽しむ晩酌おつまみ」をテーマに発信している方の「ワンパン（フライパン一つ）で作れる、甘じょっぱいさつまいもガレット」のレシピ紹介動画です。
-この動画は、完成シーンの「引き（シズル感）」から始まり、調理工程、実食、最後はアカウントのフォロー誘導へと繋がる王道のバズリール構成になっています。
-なぜ伸びたのか？
-① 音×映像で“シズル感”を最大化する冒頭設計
-包丁を入れた瞬間の「ザクッ」という乾いた音を冒頭0秒に配置し、外カリ中ホクとろ〜の断面を同時に露出。聴覚的シズル感（ASMR）と、焼き色・黄・赤・緑の色対比による視覚的シズル感を掛け合わせ、“完成の快感”を最初の1秒で提示しています。結果を先に見せることで“続きを見たい”心理（ツァイガルニク効果）を発動させ、スクロールを止める設計になっています。
-② 13文字以内で刺す“瞬間メリット訴求”
-「ハマりすぎ注意」「ワンパンで作れる」など、13文字以内で“自分ごとメリット”を即提示。
-人が一瞬で処理できる文字量に抑えることで、読むのではなく“瞬間理解”させます。リールは自動再生ゆえ、最初の1秒で関係性を感じられなければ即スワイプ。
-視聴者が何気なく見ても処理できる短文設計が、離脱を防ぐ鍵になっています。
-③ 保存・コメントを自然発火させる心理設計
-■ 圧倒的再現性＝行動ハードルの破壊
-「ワンパン」「スライスして焼くだけ」という極限まで削ぎ落とした工程設計により、“疲れていてもできそう”という安心感を付与。難易度の低さはそのまま保存率に直結し、「後でやろう」という行動を自然に生み出します。
-■ 感情を代弁するコメントワード
-「甘じょっぱくてワインにぴったり」「何枚でもいける」など、視聴者が思わず言いたくなる感情を先回りして言語化している。これにより共感コメントを誘発し、コメント欄自体が第二のコンテンツとして機能します。
-④ フォロー増を生む“シリーズ導線”設計
-動画の最後に「他にもワンパンレシピ紹介してます」と提示し、単発で終わらせない設計に。ベネフィットを横展開できる構造を示すことで、“このアカウントを追う理由”を明確化。
-結果、動画視聴→保存→フォローという流れを自然に完成させています。
-再現するポイント
-1. 音×映像で一瞬で止めるシズルの演出
-・切る瞬間のASMR音を0秒目に置く
-・断面や焼き色で“完成の快感”を先に見せる
-・結果先出しで「続きが見たい」心理を発動させる
-2. 13文字以内で瞬間メリットを刺す（短文設計）
-・一瞬で処理できる文字量に抑える
-・「自分に関係ある」と思わせるベネフィットを提示する
-・読ませず“瞬間理解”させて離脱を防ぐ
-3. 再現性と感情代弁で保存・コメントを生む（心理設計）
-・工程を極限まで削ぎ落とし行動ハードルを下げる
-・「疲れててもできそう」と思わせる安心感を作る
-・視聴者が言いたくなる感情ワードを先回りして言語化する
-4. シリーズ導線でフォローに転換する（継続設計）
-・横展開できるテーマを示す
-・「他にもある」と伝えて追う理由を作る
-・視聴→保存→フォローの流れを自然に完成させる
-ここまで読んでくれた方限定で
-本日から毎月60アカウントもの1万フォロワーを達成させている
-弊社のInstagramノウハウをプレゼントします。
-「完全未経験から月7桁達成するためのInstagram攻略本」に加えて
-・【2026年最新版】今、バズるInstagram ジャンル30選
-・フォロワー1万人までのやることリスト
-・ストーリーズの台本作成シート
-など『ゼロからInstagramを伸ばす為の&quot;20大特典』を配布します。
-更に今なら通常2000円のInstagram勉強会に無料で参加できます。
-先月は5000人が参加していて
-1日程あたり先着500名様なので埋まる前に
-ご予約ください。
-20大特典受け取りと無料勉強会参加はプロフリンクからご覧ください。</div>
-  
+  <h2>記事本文</h2>
+  <p class="article-paragraph">私は現在Instagramインフルエンサー200人以上、総フォロワー1000万人の統括をしています。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</p>
+<p class="article-paragraph">そしてそのインフルエンサーを講師として運営しているインスタスクールでは</p>
+<p class="article-paragraph">平均49投稿でフォロワー1万人を達成していて、</p>
+<p class="article-paragraph">業界では類を見ないスピード感と再現性を実現しています。</p>
+<p class="article-paragraph">ちなみに先週は20アカウントがフォロワー1万人達成しており、</p>
+<p class="article-paragraph">これは、毎日平均2.8アカウントがフォロワー1万人を達成している計算になります。</p>
+<p class="article-paragraph">そんな私はこれまで1000投稿以上のバズ動画を分析してきました。</p>
+<p class="article-paragraph">その中でも</p>
+<p class="article-paragraph">1投稿で1万フォロワー超えの“バズる投稿“の裏には</p>
+<p class="article-paragraph">誰でも再現できるノウハウがあります。</p>
+<p class="article-paragraph">なので今回は、</p>
+<p class="article-paragraph">Instagram1投稿で1万フォロワー超えた事例10選とその裏側にある再現する方法まで</p>
+<p class="article-paragraph">包み隠さず全て公開します。</p>
+<h3 class="article-h2">事例1：1投稿目で3000万再生→フォロワー20万人獲得</h3>
+<p class="article-paragraph">こちらは、100日企画などで有名なプロセスエコノミーの方式とDIYを掛け合わせたアカウントの1投稿目で、インスタ史上でもトップクラスの伝説級なバズ投稿になります。</p>
+<p class="article-paragraph">※プロセスエコノミーとは、完成したキラキラした投稿（完成品）だけでなく、「目標に向かって試行錯誤している過程（プロセス）」そのものをコンテンツにしてファンを作る手法のことです。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021985349611008004/img/yIs-9zB59ilV0WPm.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021985349611008004/vid/avc1/720x1280/vDFL6T13k64nSnbX.mp4?tag=21" type="video/mp4"></video></div>
+<p class="article-paragraph">この動画については正直、ここでは語りきれないほどのノウハウが詰まっているので改めて別の記事で徹底解説します。</p>
+<h2 class="article-h1">事例2：128万再生でフォロワー2万人増加</h2>
+<p class="article-paragraph">こちらは、ワンプレートで作れる料理を投稿している方の「フライパン1つで15分、4品同時調理」をテーマにした時短レシピ系動画です。</p>
+<p class="article-paragraph">実はこの動画、「フライパン1つで同時調理」という強い有益性に、「仕事終わりの夫への感謝と裏切り（時短）」というストーリー性を掛け合わせた構成になっています。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021985713353564160/img/WIUbEk5RPFEymLMD.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021985713353564160/vid/avc1/720x1280/C-wBRmCDlTMvidUC.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜバズったのか？</h3>
+<p class="article-paragraph">①強烈な「ベネフィット」の提示</p>
+<p class="article-paragraph">「15分で4品同時調理」という、忙しいターゲット層（主婦・共働き層）にとって「これ全部同時？」「どうやってるの？」という意外性と「めちゃくちゃ助かる」「自分もやってみたい」と思わせる有益性で視聴者の期待値を冒頭で最大化させています。</p>
+<p class="article-paragraph">そしてこの動画における「冒頭3秒の2段階フック」を解説しておきます。</p>
+<p class="article-paragraph">・指を止める1秒（インパクト）</p>
+<p class="article-paragraph">子供と夫の「いただきます」という温かい食卓風景に、「残業帰りの夫が一言」というテロップを配置。これにより、「何を言ったの？」という興味と好奇心でスクロールを止めさせます。</p>
+<p class="article-paragraph">・引き込む2秒（ベネフィットの開示）</p>
+<p class="article-paragraph">夫の感謝の言葉の直後に、フライパンに具材を詰め込む「同時調理」の衝撃映像をぶつけます。ここで「15分で4品同時調理」というタイトル（ゴール）を提示し、動画の期待値を最大化しています。</p>
+<p class="article-paragraph">②ストーリーテリングと心理的フック</p>
+<p class="article-paragraph">冒頭で「手間かけてくれてありがとう」と言う夫に対し、「実は同時調理で楽をしていた」という「予想を良い意味で裏切る」ギャップを作っています。</p>
+<p class="article-paragraph">そして「マイナス（手間をかけられない罪悪感や忙しさ）から理想（褒められる食卓）」への物語が、夫や子供の登場という「リアル感」によって強化されています。</p>
+<p class="article-paragraph">③「保存ポイント」の宝庫</p>
+<p class="article-paragraph">クッキングシートを使った仕切り術や、具体的なメニュー（厚揚げ肉巻き、かぼちゃの煮物等）の工程が紹介されており、「後で見返して真似しよう」と思わせる高い保存率（保存数）を狙った設計になっています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 冒頭3秒で期待値を最大化する（2段階フック）</p>
+<p class="article-paragraph">・1秒目で「何が起きた？」と思わせる未回収の疑問を置く</p>
+<p class="article-paragraph">・2秒目で数字付きベネフィットを提示して「見たい」に変える</p>
+<p class="article-paragraph">2. ギャップで感情を動かす（ストーリー設計）</p>
+<p class="article-paragraph">・忙しさや罪悪感などのマイナスを具体化する</p>
+<p class="article-paragraph">・「実はラクだった」などの良い裏切りで理想へ転換させる</p>
+<p class="article-paragraph">3. 保存される価値を入れる（設計）</p>
+<p class="article-paragraph">・時間や個数など再現可能な具体性を入れる</p>
+<p class="article-paragraph">・真似できる工程を見せて「後で見返す理由」を作る</p>
+<h2 class="article-h1">事例3：240万再生でフォロワー2万人増加</h2>
+<p class="article-paragraph">こちらは、オーブン料理に特化した方の「パイ生地不要のじゃがいもで作る絶品キッシュ」をテーマにしたレシピ系動画です。</p>
+<p class="article-paragraph">この動画のポイントは、「パイ生地不要」という強烈な簡便性と、じゃがいもをダイレクトに潰す「視覚的インパクト」、そしてユーザーの声を反映させた「企画の最適化」が組み合わさっているところになります。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021986280431923204/img/NSrvt0tTMB0FO6Dz.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021986280431923204/vid/avc1/720x1280/eTaFUHkhi5X0nSCc.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜバズったのか？</h3>
+<p class="article-paragraph">①「常識の破壊」による期待値の最大化</p>
+<p class="article-paragraph">キッシュ＝パイ生地という常識を「不要」と言い切り、じゃがいもをコップで潰して土台にするという「その手があったか！」と思わせる新発想を提示しています。</p>
+<p class="article-paragraph">②ターゲットの「不満」と「憧れ」を同時に解決</p>
+<p class="article-paragraph">平日帰宅後の「忙しさ（不満）」を解決しつつ、デパ地下のような「映え料理（憧れ）」が簡単に作れるという理想の未来を提示しています。</p>
+<p class="article-paragraph">③検証済みの「伸びる要素」を擦りまくる</p>
+<p class="article-paragraph">以前投稿して反応が良かった「マフィン型（ミニ）」の企画を、よりインパクトの強い「ケーキ型（大）」にアップデート。これは「伸びた投稿は、見せ方を変えたりしながらバズらなくなるまで擦り続ける」というインスタのバズらせる鉄則を完璧に実行しています。</p>
+<p class="article-paragraph">④ASMR的要素を取り入れた「音」のこだわり</p>
+<p class="article-paragraph">じゃがいもが潰れる音や、卵を混ぜる音など、心地よい作業音（環境音）を意識的に入れることで、**視聴の「心地よさ」**を作り出し、リプレイ率を高めます。</p>
+<p class="article-paragraph">⑤ コメント欄を「相談所」にしてエンゲージメントを上げる</p>
+<p class="article-paragraph">「DMをいただいたので」という枕詞を入れることで「自分もコメントしたら採用されるかも」とコメントが集まることで動画自体のエンゲージメントが上がり、さらに多くの人にリーチするようになる。</p>
+<p class="article-paragraph">また「型が見つからないという声をいただいたので、誰でもできる方法で」というエピソードは、「フォロワーの意見を大切にしている」という信頼（ファン化）に直結します。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 常識を壊して「その手があったか」を作る（発想の転換）</p>
+<p class="article-paragraph">・当たり前と思われている前提を否定する（例：パイ生地不要）</p>
+<p class="article-paragraph">・代替アイデアを提示して“新発見体験”を与える</p>
+<p class="article-paragraph">2. 不満と憧れを同時に解決する（ベネフィット設計）</p>
+<p class="article-paragraph">・忙しさや面倒さなどの不満を解消する</p>
+<p class="article-paragraph">・映え・特別感などの理想像を同時に提示する</p>
+<p class="article-paragraph">3. 伸びた型をアップデートして擦る（再現戦略）</p>
+<p class="article-paragraph">・過去に反応が良かった企画要素を再利用する</p>
+<p class="article-paragraph">・サイズや見せ方を強化してインパクトを上げる</p>
+<p class="article-paragraph">4. 音でリプレイ率を上げる（体験設計）</p>
+<p class="article-paragraph">・作業音や環境音を意識的に入れる</p>
+<p class="article-paragraph">・視覚だけでなく聴覚でも“心地よさ”を作る</p>
+<p class="article-paragraph">5. コメントが集まる構造を作る（エンゲージメント設計）</p>
+<p class="article-paragraph">・「DMをいただいたので」など参加余地を示す</p>
+<p class="article-paragraph">・フォロワーの声を反映して信頼とファン化を促進する</p>
+<h2 class="article-h1">事例4：110万再生でフォロワー1万人増加</h2>
+<p class="article-paragraph">こちらは、家族向けの料理を紹介する方の「大根を丸ごと使った激うま鍋」をテーマにしたレシピ系動画です。</p>
+<p class="article-paragraph">この動画は徹底的な競合分析とトレンドの掛け合わせによって、狙い通りにバズを引き起こした非常に戦略的な構成になっています。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021986707990884363/img/YiXgwT_pE98vSg7U.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021986707990884363/vid/avc1/720x1280/0Gv1bZnkTfLDNMQB.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜバズったのか？</h3>
+<p class="article-paragraph">①動画冒頭とアカウントコンセプトを一致をさせてフォロー率UP</p>
+<p class="article-paragraph">「家族が喜ぶレシピ」という軸に沿い、冒頭で夫婦＋子ども2人が楽しそうに料理する姿を映すことで、動画単体とアカウント全体の世界観の一貫性を表現している。</p>
+<p class="article-paragraph">これにより視聴者は“どんな発信か”“フォローすると何が得られるか”を瞬時に理解でき、期待値調整が完了した状態で視聴が進む設計に。</p>
+<p class="article-paragraph">結果としてフォロー率・転換率を高水準で叩き出す、導線まで計算された動画構成になっています。</p>
+<p class="article-paragraph">②トレンド×定番バズ要素を掛け合わせ、再現性の高いバズ設計を実現</p>
+<p class="article-paragraph">レシピ系ジャンルで今期流行している「大根のミルフィーユ」と、元々バズりやすい要素である「丸ごと野菜を使う」という2つのトレンドを掛け合わせた構成を採用。</p>
+<p class="article-paragraph">旬の話題性と、視覚的インパクトのある定番バズ要素を融合させることで、単発の偶発バズではなく、意図的にバズ確率を高めにいく設計となっている。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 動画とアカウントの世界観を一致させる（フォロー転換設計）</p>
+<p class="article-paragraph">・冒頭でコンセプトを体現するシーンを見せる</p>
+<p class="article-paragraph">・「このアカウントをフォローすると何が得られるか」を瞬時に理解させる</p>
+<p class="article-paragraph">・動画単体ではなく“アカウント全体の期待値”を提示する</p>
+<p class="article-paragraph">2. トレンド×定番バズ要素を掛け合わせる（確率設計）</p>
+<p class="article-paragraph">・今流行しているテーマを取り入れる</p>
+<p class="article-paragraph">・元々バズりやすい視覚インパクト要素を組み合わせる</p>
+<p class="article-paragraph">・偶発ではなく、伸びる型を掛け算してバズ確率を高める</p>
+<h2 class="article-h1">事例5：300万再生越え3連発でフォロワー4.9万人増加</h2>
+<p class="article-paragraph">こちらはお弁当作りの定番メニューである「卵焼き」を、フライパンを使わず電子レンジのみで簡単に作るライフハックを紹介する動画になります。</p>
+<p class="article-paragraph">この動画が大きな再生数を獲得している本質的な理由は、「時短・簡便性という需要」に、「意外性のある調理法」と「親近感のあるストーリー性」を掛け合わせたことにあります。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021987523061579776/img/Y3bTHjapDR16Z0ZC.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021987523061579776/vid/avc1/720x1280/l9rHIt5WRSWlN5Yz.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">① 「権威性」×「常識破壊」の強力なフック</p>
+<p class="article-paragraph">「お弁当歴20年」という言葉が、視聴者に「ベテランが言うなら間違いない」という信頼感を与えています。</p>
+<p class="article-paragraph">そこからの「卵焼きは焼きません」という一言で、視聴者の常識を真っ向から否定することで「え、どういうこと？」と手を止めさせ、続きを見ずにはいられない状態を作っています。</p>
+<p class="article-paragraph">これは“マジで⁉︎”“その手があったか！”という感情を意図的に引き出す設計で視聴維持率を最大化するための、極めて強力な冒頭フックです。</p>
+<p class="article-paragraph">② 忙しい人に刺さる“超具体アクション”設計</p>
+<p class="article-paragraph">タッパーとレンジだけで完結し、「白だし大さじ2」「水大さじ2」といった具体的な分量まで提示しています。</p>
+<p class="article-paragraph">抽象論ではなく“今すぐ真似できる手順”に落とし込んでいるため、「自分にもできる」という再現性のイメージが明確に湧きます。</p>
+<p class="article-paragraph">結果として、保存して後で見返したくなる構造になり、保存率アップに直結する有益コンテンツへ昇華しています。</p>
+<p class="article-paragraph">③ 日常を切り取る“人感（属人性）”の演出</p>
+<p class="article-paragraph">冒頭のお弁当詰めシーンや卵を割る手元の映像によって、発信者の体温や生活感が自然に伝わる構成になっています。</p>
+<p class="article-paragraph">カメラ目線ではなく、あえて“覗き見”のような撮影にすることでリアリティを演出し、視聴者との心理的距離を縮めています。</p>
+<p class="article-paragraph">これによりノウハウだけでなく「人」が見えることで、共感と信頼を同時に獲得できます。</p>
+<p class="article-paragraph">④コメント論争で“滞在時間”を最大化</p>
+<p class="article-paragraph">「フライパン派 vs レンチン派」という構図が自然発生的な論争を生み、コメント欄が第二のコンテンツに進化。</p>
+<p class="article-paragraph">ユーザーは意見を読み、書き、共感や反論を繰り返すため、その間も動画は再生され続け、総視聴時間が大幅に伸長します。</p>
+<p class="article-paragraph">滞在時間の増加はアルゴリズム上“質の高い投稿”のシグナルとなり、非フォロワー層への追加拡散を誘発します。</p>
+<p class="article-paragraph">結果として、議論→滞在→評価向上→さらなる拡散という好循環を生む構造になっています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 権威性×常識破壊で一気に止める（強フック設計）</p>
+<p class="article-paragraph">・実績や経験年数で信頼を先に作る</p>
+<p class="article-paragraph">・その直後に常識を否定して「え？」を生む</p>
+<p class="article-paragraph">・信頼→裏切りの順番で視聴維持率を最大化する</p>
+<p class="article-paragraph">2. 今すぐ真似できる超具体アクションを入れる（保存設計）</p>
+<p class="article-paragraph">・分量や手順を具体的に提示する</p>
+<p class="article-paragraph">・道具を最小化して再現ハードルを下げる</p>
+<p class="article-paragraph">・「自分にもできる」と思わせて保存率を上げる</p>
+<p class="article-paragraph">3. 人感（属人性）を出して共感を作る（信頼設計）</p>
+<p class="article-paragraph">・日常の手元や生活感を自然に見せる</p>
+<p class="article-paragraph">・覗き見視点でリアリティを演出する</p>
+<p class="article-paragraph">・ノウハウだけでなく“人”を伝えてファン化につなげる</p>
+<p class="article-paragraph">4. 論争構造で滞在時間を伸ばす（拡散設計）</p>
+<p class="article-paragraph">・賛否が分かれる構図を自然に作る</p>
+<p class="article-paragraph">・コメント欄を第二のコンテンツにする</p>
+<p class="article-paragraph">・議論→滞在時間増加→アルゴリズム評価向上の循環を作る</p>
+<h2 class="article-h1">事例6：600万再生でフォロワー2万人増加</h2>
+<p class="article-paragraph">この動画は、「フィットネス大会優勝」という高い目標を掲げるアラサー女性が、現状の体型では大会用のビキニが全く着られないという衝撃的な「マイナスの現状」をさらけ出し、目標達成に向けた決意を表明するドキュメンタリー形式の動画になります。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021988018303991808/img/V5QvlEbYk1ulZ4Ar.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021988018303991808/vid/avc1/720x1280/dxSD0giumQQwG9lw.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">①あえて“未完成”を見せるマイナススタート戦略</p>
+<p class="article-paragraph">大会優勝を目指すにもかかわらず、「ビキニが着られない」という大きなマイナス状態から物語を開始しています。</p>
+<p class="article-paragraph">これにより完璧な姿ではなく、“お肉が乗っている現実”を隠さず見せることで、一気に心理的距離を縮めています。</p>
+<p class="article-paragraph">このギャップが「親近感」と「応援したい」という感情を生み、ただのボディメイク動画ではなく“感情移入型コンテンツ”へと昇華しています。</p>
+<p class="article-paragraph">② 視聴維持率を高める「衝撃的な冒頭」</p>
+<p class="article-paragraph">「大会用ビキニを着てみた結果」というコピーとともに、履こうとする途中までの映像を最初に配置。「え、どうなったの？」という未完の緊張感を作ることで、強制的に続きを見たくなる構造にしています。</p>
+<p class="article-paragraph">結末を先送りにすることで視聴維持率を引き上げ、“最後まで見ないと気持ち悪い”導線を完成させています。</p>
+<p class="article-paragraph">③ 結末を追わせる“応援型ストーリー設計”</p>
+<p class="article-paragraph">過去のぽっちゃり時代の写真や「一度もビキニを着たことがない」という背景を提示することで、単なる減量企画に物語性を付与しています。</p>
+<p class="article-paragraph">さらに「100日後に50kg」といった期限付き目標を設定することで、視聴者に“過程を追わせる理由”を作っています。</p>
+<p class="article-paragraph">これで1投稿で終わらず、シリーズとして継続視聴・フォローを促すストーリーテリングを設計しています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 未完成から始めて感情を掴む（マイナススタート戦略）</p>
+<p class="article-paragraph">・あえて理想ではない現状を見せる</p>
+<p class="article-paragraph">・欠点や弱さを隠さず出して心理的距離を縮める</p>
+<p class="article-paragraph">・ギャップで「応援したい」という感情を生む</p>
+<p class="article-paragraph">2. 結末を先送りにして維持率を上げる（未完フック設計）</p>
+<p class="article-paragraph">・結果の途中までを冒頭に置く</p>
+<p class="article-paragraph">・「どうなったの？」という未回収の緊張感を作る</p>
+<p class="article-paragraph">・最後まで見ないと気持ち悪い構造にする</p>
+<p class="article-paragraph">3. 期限付き目標で追わせる（応援型ストーリー設計）</p>
+<p class="article-paragraph">・過去の背景を提示して物語性を持たせる</p>
+<p class="article-paragraph">・具体的な期限と数字を設定する</p>
+<p class="article-paragraph">・単発で終わらせずシリーズ化してフォロー動機を作る</p>
+<h2 class="article-h1">事例7：144万再生でフォロワー2.1万人増加</h2>
+<p class="article-paragraph">この動画は、「休日ワンオペ」で疲弊しているママに向けて、オーブンを活用して手間をかけずに2品のメインおかずを同時に作る時短レシピを紹介する動画です。</p>
+<p class="article-paragraph">この動画が伸びている本質的な理由は、「強力なターゲット共感」と「圧倒的な時短・利便性の提示」を、テンポ良く映像で表現している点にあります。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021988491375316992/img/JN-Vf06avKtE5H9J.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021988491375316992/vid/avc1/720x1280/U9yyFfGHhIAZQ_9e.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">① 冒頭3秒で“当事者化”させるフック設計</p>
+<p class="article-paragraph">「休日ワンオペ」「省エネ」という強烈な共感ワードを冒頭に配置し、赤ちゃんを抱っこしたまま料理を始める映像で視覚的インパクトを付与。さらに「ほったらかしオーブン2品」という結論を先出しすることで、“これは助かるかも”という期待値を一気に最大化。感情・視覚・ベネフィットの三方向から、最初の3秒で心を掴む設計になっています。</p>
+<p class="article-paragraph">② 常識を壊し、課題を言語化する構造</p>
+<p class="article-paragraph">「料理はコンロ前で頑張るもの」という固定観念を壊し、HPゲージが赤という比喩で“疲弊した現実”を明確化。マイナス状態を提示した上で、オーブンに頼るという新選択肢を示すことで、「その手があったか」と「めちゃくちゃ助かる」を同時に成立させています。課題認識→解決策提示の流れが非常に明確です。</p>
+<p class="article-paragraph">③ 離脱を防ぐ“飽きないテンポ”の徹底</p>
+<p class="article-paragraph">1〜1.5秒単位のカット割りで、2秒以上同じ視点を続けない構成。動作前後の無駄な間を削ぎ落とし、常に映像が動き続ける状態を作ることで脳に退屈を与えません。</p>
+<p class="article-paragraph">さらに主観（手元）と客観（髪を縛るなど）の視点を交互に入れ、レシピ動画にストーリー性を付加し視聴維持率を最大化しています。</p>
+<p class="article-paragraph">④ “完璧すぎないリアル”で信頼を獲得</p>
+<p class="article-paragraph">抱っこ紐や乱れた髪など、あえて整いすぎない日常を見せることで信用貯金を積み上げています。</p>
+<p class="article-paragraph">また構成面ではPREP法を自然に内包し、「今日は省エネ料理→ワンオペで限界→具体実演→ラクを広めたい」という論理的流れを形成しています。</p>
+<p class="article-paragraph">これにより短尺でも納得感が高く、情報のファンだけでなく“人のファン”を作る設計ができています。</p>
+<p class="article-paragraph">⑤ 保存を生む“超具体アクション設計”</p>
+<p class="article-paragraph">「厚揚げ1/4カット」「にんじんスライス」など、小学生でも再現できる具体性でハードルを極限まで下げています。</p>
+<p class="article-paragraph">抽象論ではなく即実践レベルまで落とし込むことで保存行動を促進し、最後に美味しそうな完成形を見せ、“手抜き感ゼロ”のベネフィットを視覚的に証明することで満足度を決定づけています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 冒頭3秒で当事者化させる（多方向フック設計）</p>
+<p class="article-paragraph">・強い共感ワードでターゲットを即特定する</p>
+<p class="article-paragraph">・視覚的に“リアルな状況”を見せて没入させる</p>
+<p class="article-paragraph">・結論（ベネフィット）を先出しして期待値を最大化する</p>
+<p class="article-paragraph">2. 常識を壊して課題→解決を明確化する（問題解決設計）</p>
+<p class="article-paragraph">・当たり前の固定観念を否定する</p>
+<p class="article-paragraph">・比喩や言語化でマイナス状態を明確にする</p>
+<p class="article-paragraph">・新しい選択肢を提示して「助かる未来」を見せる</p>
+<p class="article-paragraph">3. テンポで離脱を防ぐ（維持率設計）</p>
+<p class="article-paragraph">・1〜1.5秒単位でカットを切り替える</p>
+<p class="article-paragraph">・無駄な間を削ぎ落とす</p>
+<p class="article-paragraph">・主観と客観を交互に入れて物語性を持たせる</p>
+<p class="article-paragraph">4. 完璧すぎないリアルで信頼を作る（ファン化設計）</p>
+<p class="article-paragraph">・整いすぎない日常をあえて見せる</p>
+<p class="article-paragraph">・論理構造（結論→理由→実演→想い）を自然に入れる</p>
+<p class="article-paragraph">・ノウハウだけでなく“人”を伝える</p>
+<p class="article-paragraph">5. 超具体アクションで保存を生む（再現設計）</p>
+<p class="article-paragraph">・分量や切り方まで具体的に示す</p>
+<p class="article-paragraph">・再現ハードルを極限まで下げる</p>
+<p class="article-paragraph">・完成形でベネフィットを視覚的に証明する</p>
+<h2 class="article-h1">事例8：425万再生でフォロワー6万人増加</h2>
+<p class="article-paragraph">この動画は、「50代の再々婚夫婦」という珍しい属性を持つ発信者が、</p>
+<p class="article-paragraph">洗練された日常風景を通じて「人生の再出発」と「日々の食卓の尊さ」を語る、感情訴求型の自己紹介系の動画です。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021988917575397377/img/-wA9U7__EDn9v9_R.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021988917575397377/vid/avc1/720x1280/-mM9xEt7u0JzJnTC.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">① “50代で再々婚”という強烈な印象付け</p>
+<p class="article-paragraph">最初の1〜3秒に「50代で再々婚」という強烈ワードを配置し、固定観念を揺さぶる導入になっています。</p>
+<p class="article-paragraph">あえてネガティブにも捉えられかねない過去を先出しすることで、「どういう人生？」「今はどうなってるの？」という強い興味を喚起しており、冒頭で期待値を最大化し、離脱を防ぐ設計になっています。</p>
+<p class="article-paragraph">② “マイナス→理想”で魅せる人生ギャップ</p>
+<p class="article-paragraph">波乱万丈な過去を起点に、「なんでもないごはんが幸せ」という現在の穏やかな日常を提示することで落差を最大化させて、単なるライフスタイル紹介ではなく“物語”として成立させています。</p>
+<p class="article-paragraph">この「何歳でもやり直せる」というメッセージが同世代の共感を強く掴み、深いファン化へと繋げています。</p>
+<p class="article-paragraph">③ 情報を超えて“人に惚れさせる”属人設計</p>
+<p class="article-paragraph">料理、ピアノ、夕暮れの散歩など、多角的に生活の質や価値観を見せることで、発信者の人間性そのものを表現しています。</p>
+<p class="article-paragraph">また綺麗な部屋や仲睦まじい夫婦の姿は、普遍的な理想像として機能し、「自分もこうなりたい」という感情を自然に喚起します。</p>
+<p class="article-paragraph">これにより情報のファンではなく“人生観のファン”を作る構造になっています。</p>
+<p class="article-paragraph">④ 余白を作り、応援させる導線設計</p>
+<p class="article-paragraph">ラストに「応援してくださると嬉しいです」と添えることで、視聴者に発言の許可を与え、コメント参加の心理的ハードルを下げています。</p>
+<p class="article-paragraph">夫婦の日常を共有する構図が、視聴者を“見守る仲間”へと変化させ、中長期的なエンゲージメントを生む空気感づくりに成功しています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 強烈ワードで一瞬で止める（印象付け設計）</p>
+<p class="article-paragraph">・年齢や回数など固定観念を揺さぶるワードを冒頭に置く</p>
+<p class="article-paragraph">・あえてネガティブに見える過去を先出しする</p>
+<p class="article-paragraph">・「どういう人生？」と続きを見たくさせる</p>
+<p class="article-paragraph">2. マイナス→理想の落差で物語化する（ギャップ設計）</p>
+<p class="article-paragraph">・波乱の過去を提示する</p>
+<p class="article-paragraph">・穏やかな現在との対比で落差を最大化する</p>
+<p class="article-paragraph">・「何歳でもやり直せる」という希望を示す</p>
+<p class="article-paragraph">3. 人に惚れさせる属人設計（ファン化戦略）</p>
+<p class="article-paragraph">・日常の趣味や価値観を多面的に見せる</p>
+<p class="article-paragraph">・理想的な生活シーンで未来像を提示する</p>
+<p class="article-paragraph">・情報ではなく“人生観”に共感させる</p>
+<p class="article-paragraph">4. 余白で応援を生む（参加導線設計）</p>
+<p class="article-paragraph">・応援を促す一言でコメントの許可を出す</p>
+<p class="article-paragraph">・視聴者を“見守る仲間”に位置付ける</p>
+<p class="article-paragraph">・中長期的なエンゲージメントを育てる</p>
+<h2 class="article-h1">事例9：121万再生でフォロワー2万人増加</h2>
+<p class="article-paragraph">この動画は、「元パン屋」という権威性を持つ発信者が、小麦粉を使わず生米から作る「グルテンフリーの塩バターベーグル」のレシピを紹介する動画です。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021989710126800898/img/jgu_Pc2pikRcjxOG.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021989710126800898/vid/avc1/720x1280/PtEj04dSwELgrYDc.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">① 五感を直撃する“食欲フック”</p>
+<p class="article-paragraph">冒頭1〜3秒で、焼きたてベーグルを割る「パリッ、じゅわっ」というASMR音と「こんな塩バターベーグル食べたかった！」という感情テロップで、“食べたい”欲求を一瞬で最大化。音・視覚・言語の三方向から刺激を与え、スクロールを止める設計になっています。</p>
+<p class="article-paragraph">② 「元パン屋×生米」で作る圧倒的独自性</p>
+<p class="article-paragraph">「元パン屋」という肩書きが専門性と信頼性を担保し、視聴者からの信用を確保しています。</p>
+<p class="article-paragraph">その上で「パン＝小麦粉」、「発酵は長時間」という常識を、「生米」で「発酵1回30分」という要素で壊しつつ、パン作りのハードルを下げる独自の簡易性と有益性を生み出しています。</p>
+<p class="article-paragraph">権威性と独自性を掛け合わせることで、“この人から学びたい”と思わせる強い差別化を実現しています。</p>
+<p class="article-paragraph">③ キーワード指定でコメントを量産</p>
+<p class="article-paragraph">ラストに「『しお』とコメントしてね」と具体ワードを提示し、行動ハードルを極限まで下げています。</p>
+<p class="article-paragraph">自由記述ではなく単語指定にすることで即行動を促進することで、コメント数増加→エンゲージメント上昇→外部露出拡大というアルゴリズム好循環を生む、計算された設計になっています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 五感を刺激して一瞬で止める</p>
+<p class="article-paragraph">・音（ASMR）で欲求を直撃させる</p>
+<p class="article-paragraph">・割る・伸びるなど視覚的快感を冒頭に置く</p>
+<p class="article-paragraph">・感情テロップで「食べたい」を言語化する</p>
+<p class="article-paragraph">2. 権威性×常識破壊で差別化する（独自性設計）</p>
+<p class="article-paragraph">・肩書きで専門性と信頼を先に作る</p>
+<p class="article-paragraph">・業界の当たり前を否定して新提案を出す</p>
+<p class="article-paragraph">・簡易性を加えて「自分にもできる」に落とす</p>
+<p class="article-paragraph">3. 単語指定でコメントを量産する（行動設計）</p>
+<p class="article-paragraph">・具体キーワードを指定して迷わせない</p>
+<p class="article-paragraph">・自由回答ではなく“コピペ行動”にする</p>
+<p class="article-paragraph">・コメント増加→エンゲージメント向上→拡散の循環を作る</p>
+<h2 class="article-h1">事例10：350万再生でフォロワー3万人増加</h2>
+<p class="article-paragraph">こちらは「夫婦で楽しむ晩酌おつまみ」をテーマに発信している方の「ワンパン（フライパン一つ）で作れる、甘じょっぱいさつまいもガレット」のレシピ紹介動画です。</p>
+<p class="article-paragraph">この動画は、完成シーンの「引き（シズル感）」から始まり、調理工程、実食、最後はアカウントのフォロー誘導へと繋がる王道のバズリール構成になっています。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2021990129406291978/img/2mHhArETbbJxiYg1.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2021990129406291978/vid/avc1/720x1280/A_7viJNheyr56dxp.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">なぜ伸びたのか？</h3>
+<p class="article-paragraph">① 音×映像で“シズル感”を最大化する冒頭設計</p>
+<p class="article-paragraph">包丁を入れた瞬間の「ザクッ」という乾いた音を冒頭0秒に配置し、外カリ中ホクとろ〜の断面を同時に露出。聴覚的シズル感（ASMR）と、焼き色・黄・赤・緑の色対比による視覚的シズル感を掛け合わせ、“完成の快感”を最初の1秒で提示しています。結果を先に見せることで“続きを見たい”心理（ツァイガルニク効果）を発動させ、スクロールを止める設計になっています。</p>
+<p class="article-paragraph">② 13文字以内で刺す“瞬間メリット訴求”</p>
+<p class="article-paragraph">「ハマりすぎ注意」「ワンパンで作れる」など、13文字以内で“自分ごとメリット”を即提示。</p>
+<p class="article-paragraph">人が一瞬で処理できる文字量に抑えることで、読むのではなく“瞬間理解”させます。リールは自動再生ゆえ、最初の1秒で関係性を感じられなければ即スワイプ。</p>
+<p class="article-paragraph">視聴者が何気なく見ても処理できる短文設計が、離脱を防ぐ鍵になっています。</p>
+<p class="article-paragraph">③ 保存・コメントを自然発火させる心理設計</p>
+<p class="article-paragraph">■ 圧倒的再現性＝行動ハードルの破壊</p>
+<p class="article-paragraph">「ワンパン」「スライスして焼くだけ」という極限まで削ぎ落とした工程設計により、“疲れていてもできそう”という安心感を付与。難易度の低さはそのまま保存率に直結し、「後でやろう」という行動を自然に生み出します。</p>
+<p class="article-paragraph">■ 感情を代弁するコメントワード</p>
+<p class="article-paragraph">「甘じょっぱくてワインにぴったり」「何枚でもいける」など、視聴者が思わず言いたくなる感情を先回りして言語化している。これにより共感コメントを誘発し、コメント欄自体が第二のコンテンツとして機能します。</p>
+<p class="article-paragraph">④ フォロー増を生む“シリーズ導線”設計</p>
+<p class="article-paragraph">動画の最後に「他にもワンパンレシピ紹介してます」と提示し、単発で終わらせない設計に。ベネフィットを横展開できる構造を示すことで、“このアカウントを追う理由”を明確化。</p>
+<p class="article-paragraph">結果、動画視聴→保存→フォローという流れを自然に完成させています。</p>
+<h3 class="article-h2">再現するポイント</h3>
+<p class="article-paragraph">1. 音×映像で一瞬で止めるシズルの演出</p>
+<p class="article-paragraph">・切る瞬間のASMR音を0秒目に置く</p>
+<p class="article-paragraph">・断面や焼き色で“完成の快感”を先に見せる</p>
+<p class="article-paragraph">・結果先出しで「続きが見たい」心理を発動させる</p>
+<p class="article-paragraph">2. 13文字以内で瞬間メリットを刺す（短文設計）</p>
+<p class="article-paragraph">・一瞬で処理できる文字量に抑える</p>
+<p class="article-paragraph">・「自分に関係ある」と思わせるベネフィットを提示する</p>
+<p class="article-paragraph">・読ませず“瞬間理解”させて離脱を防ぐ</p>
+<p class="article-paragraph">3. 再現性と感情代弁で保存・コメントを生む（心理設計）</p>
+<p class="article-paragraph">・工程を極限まで削ぎ落とし行動ハードルを下げる</p>
+<p class="article-paragraph">・「疲れててもできそう」と思わせる安心感を作る</p>
+<p class="article-paragraph">・視聴者が言いたくなる感情ワードを先回りして言語化する</p>
+<p class="article-paragraph">4. シリーズ導線でフォローに転換する（継続設計）</p>
+<p class="article-paragraph">・横展開できるテーマを示す</p>
+<p class="article-paragraph">・「他にもある」と伝えて追う理由を作る</p>
+<p class="article-paragraph">・視聴→保存→フォローの流れを自然に完成させる</p>
+<p class="article-paragraph">ここまで読んでくれた方限定で</p>
+<p class="article-paragraph">本日から毎月60アカウントもの1万フォロワーを達成させている</p>
+<p class="article-paragraph">弊社のInstagramノウハウをプレゼントします。</p>
+<p class="article-paragraph">「完全未経験から月7桁達成するためのInstagram攻略本」に加えて</p>
+<p class="article-paragraph">・【2026年最新版】今、バズるInstagram ジャンル30選</p>
+<p class="article-paragraph">・フォロワー1万人までのやることリスト</p>
+<p class="article-paragraph">・ストーリーズの台本作成シート</p>
+<p class="article-paragraph">など『ゼロからInstagramを伸ばす為の&quot;20大特典』を配布します。</p>
+<p class="article-paragraph">更に今なら通常2000円のInstagram勉強会に無料で参加できます。</p>
+<p class="article-paragraph">先月は5000人が参加していて</p>
+<p class="article-paragraph">1日程あたり先着500名様なので埋まる前に</p>
+<p class="article-paragraph">ご予約ください。</p>
+<p class="article-paragraph">20大特典受け取りと無料勉強会参加はプロフリンクからご覧ください。</p>
   
 
   <div class="back-link">

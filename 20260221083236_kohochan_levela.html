@@ -5,28 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@kohochan_levela の投稿 - スワイプファイル</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
-    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
-    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
-    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
-    .meta span { display: inline-block; margin-right: 16px; }
-    .tags { margin: 10px 0; }
-    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
-    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
-    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
-    .tweet-video { margin: 12px 0; }
-    .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
-    a { color: #1a73e8; text-decoration: none; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; color: #1d1d1f; background: #fff; line-height: 1.8; }
+    h1 { font-size: 1.4em; border-bottom: 3px solid #1d9bf0; padding-bottom: 10px; margin-bottom: 16px; line-height: 1.4; }
+    h2 { font-size: 1.15em; margin: 28px 0 12px; color: #1d9bf0; }
+    .meta { color: #536471; font-size: 0.85em; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .tags { margin: 8px 0 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #e8f5fd; color: #1d9bf0; padding: 3px 10px; border-radius: 12px; font-size: 0.82em; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.9; margin: 16px 0 20px; font-size: 1em; }
+    .tweet-images { margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 12px; display: block; }
+    .tweet-video { margin: 16px 0; }
+    .tweet-video video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-media { margin: 20px 0; }
+    .article-media img { max-width: 100%; border-radius: 12px; display: block; }
+    .article-media video { max-width: 100%; border-radius: 12px; display: block; background: #000; }
+    .article-paragraph { line-height: 2.0; margin: 14px 0; font-size: 1em; }
+    .article-h1 { font-size: 1.3em; margin: 32px 0 12px; color: #1d1d1f; border-bottom: 1px solid #e1e4e8; padding-bottom: 6px; }
+    .article-h2 { font-size: 1.15em; margin: 28px 0 10px; color: #1d1d1f; }
+    .article-h3 { font-size: 1.05em; margin: 24px 0 8px; color: #333; }
+    .embedded-tweet { margin: 16px 0; padding: 12px 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .embedded-tweet a { color: #1d9bf0; font-weight: 500; }
+    .engagement { display: flex; gap: 20px; color: #536471; font-size: 0.9em; margin: 12px 0 16px; }
+    a { color: #1d9bf0; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
-    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
-    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
-    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
-    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
-    .author-name { font-weight: bold; }
-    .author-id { color: #666; font-size: 0.9em; }
+    .back-link { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e1e4e8; font-size: 0.95em; }
+    .article-title { color: #1d9bf0; font-size: 1.25em; margin: 20px 0 12px; line-height: 1.5; }
+    .summary-box { background: #f7f9fa; border-left: 4px solid #1d9bf0; padding: 14px 18px; margin: 16px 0; border-radius: 0 12px 12px 0; }
+    .summary-box h3 { font-size: 0.85em; color: #1d9bf0; margin: 0 0 8px; font-weight: 600; }
+    .summary-box p { margin: 0; line-height: 1.7; font-size: 0.95em; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0; }
+    .author-name { font-weight: 600; font-size: 1em; }
+    .author-id { color: #536471; font-size: 0.9em; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-article-title { font-weight: 600; font-size: 1em; margin-bottom: 8px; color: #1d9bf0; }
+    .quote-text { white-space: pre-wrap; line-height: 1.7; font-size: 0.95em; color: #1d1d1f; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 12px; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    li { line-height: 1.8; margin: 4px 0; }
+    @media (max-width: 600px) {
+      body { padding: 16px; }
+      h1 { font-size: 1.2em; }
+    }
   </style>
 </head>
 <body>
@@ -41,8 +64,8 @@
   </div>
 
   <div class="meta">
-    <span>📅 投稿日時: 2026/02/03 12:03</span>
-    <span>💾 保存日時: 2026/02/21</span>
+    <span>📅 2026/02/03 12:03</span>
+    <span>💾 2026/02/21</span>
     <span>単体投稿</span>
   </div>
 
@@ -61,210 +84,218 @@
 
   <h2 class="article-title">元凡人アラサー専業主婦がゼロから開始2ヶ月でInstagramフォロワー8万人を達成した話</h2>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text">私は、Instagram運用のプロでもなければ、
-発信が得意だったわけでもありません。
-それなのに、
- インスタ4投稿で万垢を達成しました。
-SNS運用の経験はゼロ。
+  <h2>記事本文</h2>
+  <p class="article-paragraph">私は、Instagram運用のプロでもなければ、
+発信が得意だったわけでもありません。</p>
+<p class="article-paragraph">それなのに、
+ インスタ4投稿で万垢を達成しました。</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HAJ804ZbsAAyNex.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">SNS運用の経験はゼロ。
 Instagramも完全に未経験。
 
 むしろ、最初はやり方を間違えていて、
-まったく伸びない時期もありました。
-だからこそこの記事では
+まったく伸びない時期もありました。</p>
+<p class="article-paragraph">だからこそこの記事では
 「なぜ伸びなかったのか」
 そして
 「私がゼロから開始2ヶ月でInstagramフォロワー8万人を達成できたか」
 
-この過程を振り返っていきます。
-そもそも私がInstagramを始めたきっかけは、
+この過程を振り返っていきます。</p>
+<p class="article-paragraph">そもそも私がInstagramを始めたきっかけは、
 Levelaで広報として働き始めたことです。
-※Levelaのインスタグラムスクールでは毎月50もの万垢が生まれています。
-広報という立場上、
+※Levelaのインスタグラムスクールでは毎月50もの万垢が生まれています。</p>
+<p class="article-paragraph">広報という立場上、
 「何かしら運用しているアカウントがあったほうがいいよね」
 という流れになり、Instagramを始めることになりました。
 
 続けられそうなことを考えた結果、
-レシピジャンルで運用することにしました。
-とはいえ、
-何を発信すればいいか分からない
-投稿の作り方も分からない
-そもそも伸ばした経験もない
-そんな「何が分からないのかも分からない」状態でした。
-そこで、
-実際にSnsClubに入会し、基礎から学ぶ環境に身を置きました。
-最初のコンセプトは、
+レシピジャンルで運用することにしました。</p>
+<p class="article-paragraph">とはいえ、</p>
+<li>何を発信すればいいか分からない</li>
+<li>投稿の作り方も分からない</li>
+<li>そもそも伸ばした経験もない</li>
+<p class="article-paragraph">そんな「何が分からないのかも分からない」状態でした。</p>
+<p class="article-paragraph">そこで、
+実際にSnsClubに入会し、基礎から学ぶ環境に身を置きました。</p>
+<p class="article-paragraph">最初のコンセプトは、
 お酒に合う、ちょっとおしゃれなご飯やおつまみレシピ。
 
 方向性は悪くなかったと思います。
-それでも、投稿は全く伸びませんでした。
-そして何よりがんばり方を、間違えていました。
-当時は、
-1リールにつき3品作る
-撮影から編集まで丸1日
-クオリティ重視で丁寧に作る
-というやり方をしていました。
-その一方で、Levelaでの通常業務が忙しくなり
-投稿はだんだん後回しに。
-さらに、
-夫別居が決まり、生活環境も大きく変わりました。
-結果として、
-アカウントの投稿は一度止まってしまいました。
-それでも、発信をやめるという選択肢はありませんでした。
-なぜならこのアカウントは、
-仕事の一部として関わっていたものだったからです。
-「未経験だから伸びない」で終わらせたくない。
-そこで私は、
-もっと周りの人に頼って、 もっとLevelaの環境を使い倒そうと思いました。
-Levelaの他のスタッフや、オフラインの講師の方たちにも協力してもらい、
+それでも、投稿は全く伸びませんでした。</p>
+<p class="article-paragraph">そして何よりがんばり方を、間違えていました。</p>
+<p class="article-paragraph">当時は、</p>
+<li>1リールにつき3品作る</li>
+<li>撮影から編集まで丸1日</li>
+<li>クオリティ重視で丁寧に作る</li>
+<p class="article-paragraph">というやり方をしていました。</p>
+<p class="article-paragraph">その一方で、Levelaでの通常業務が忙しくなり
+投稿はだんだん後回しに。</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HAJhAuTbQAAfLsr.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">さらに、
+夫別居が決まり、生活環境も大きく変わりました。</p>
+<p class="article-paragraph">結果として、
+アカウントの投稿は一度止まってしまいました。</p>
+<p class="article-paragraph">それでも、発信をやめるという選択肢はありませんでした。</p>
+<p class="article-paragraph">なぜならこのアカウントは、
+仕事の一部として関わっていたものだったからです。</p>
+<p class="article-paragraph">「未経験だから伸びない」で終わらせたくない。</p>
+<p class="article-paragraph">そこで私は、
+もっと周りの人に頼って、 もっとLevelaの環境を使い倒そうと思いました。</p>
+<p class="article-paragraph">Levelaの他のスタッフや、オフラインの講師の方たちにも協力してもらい、
 コンセプトをゼロから見直すことに。
-その結果、私のアカウントは大きく動き始めます。
-この見直しの過程では、
+その結果、私のアカウントは大きく動き始めます。</p>
+<p class="article-paragraph">この見直しの過程では、
 総フォロワー1000万人規模のアカウントを統括している
 村松さん（@ryo_y0521 ）の視点にも触れる機会があり、
 運用全体の考え方を改めて整理するきっかけになりました。
 
 ここからはコンセプトを見直してから実際にやったことを、
-できるだけ再現できる形でまとめていきます。
-1.コンセプトを再設計した
-まずはこのアカウントで、
+できるだけ再現できる形でまとめていきます。</p>
+<h3 class="article-h2">1.コンセプトを再設計した</h3>
+<p class="article-paragraph">まずはこのアカウントで、
 何を発信するのか。
-コンセプトをもう一度作り直しました。
-私はもともと、
-お酒に合うおしゃれなご飯やおつまみを発信していました。
-ただ、
-作るのに時間がかかる
-工程が多い
-というレシピが多く、
-このやり方を続けるのは正直厳しいと感じていました。
-そこで、
-今の生活環境
-仕事とのバランス
-無理なく継続できるか
-を前提に、
-まずは「続けられる形」を考えました。
-その上で、Instagramでは
+コンセプトをもう一度作り直しました。</p>
+<p class="article-paragraph">私はもともと、
+お酒に合うおしゃれなご飯やおつまみを発信していました。</p>
+<p class="article-paragraph">ただ、</p>
+<li>作るのに時間がかかる</li>
+<li>工程が多い</li>
+<p class="article-paragraph">というレシピが多く、
+このやり方を続けるのは正直厳しいと感じていました。</p>
+<p class="article-paragraph">そこで、</p>
+<li>今の生活環境</li>
+<li>仕事とのバランス</li>
+<li>無理なく継続できるか</li>
+<p class="article-paragraph">を前提に、
+まずは「続けられる形」を考えました。</p>
+<p class="article-paragraph">その上で、Instagramでは
 簡単そうで、真似しやすく見えるレシピの方が需要がある
-ことにも目を向けました。
-「続けられる形」と「需要がある形」。
-この2つが重なるところを探した結果、
-ワンボウル × レンチン × 時短
-この3つを軸に
+ことにも目を向けました。</p>
+<p class="article-paragraph">「続けられる形」と「需要がある形」。</p>
+<p class="article-paragraph">この2つが重なるところを探した結果、</p>
+<p class="article-paragraph">ワンボウル × レンチン × 時短</p>
+<p class="article-paragraph">この3つを軸に
 コンセプトを再設計しました。
-2. とにかく「冒頭2秒」を意識した
-リールで一番重要なのは、
- 冒頭2秒でスクロールを止められるかどうかです。
-私はこの冒頭2秒に、
-一番時間をかけることにしました。
-特に意識していたのは、
-気になるワード
-強い言葉
-一瞬で意味が伝わるインパクト
-具体的には、
-「別居しました」
-「何キロ痩せました」
-など、
+</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2018282860646662144/img/Et_IguoLeeiKptco.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2018282860646662144/vid/avc1/886x1920/rzCqGfF6q2iYteNU.mp4?tag=21" type="video/mp4"></video></div>
+<h3 class="article-h2">2. とにかく「冒頭2秒」を意識した</h3>
+<p class="article-paragraph">リールで一番重要なのは、
+ 冒頭2秒でスクロールを止められるかどうかです。</p>
+<p class="article-paragraph">私はこの冒頭2秒に、
+一番時間をかけることにしました。</p>
+<p class="article-paragraph">特に意識していたのは、</p>
+<li>気になるワード</li>
+<li>強い言葉</li>
+<li>一瞬で意味が伝わるインパクト</li>
+<p class="article-paragraph">具体的には、</p>
+<p class="article-paragraph">「別居しました」</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HAJh5GobgAA-5A2.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">「何キロ痩せました」
+</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HAJiWl-bEAATApb.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">など、
 瞬間的に気になる言葉を
-最初に置くようにしました。
-ここで止まってもらえれば、
-最後まで見てもらえる確率が上がります。
-3. 飽きずに見られる「テンポ感」を意識した
-冒頭で止まってもらえたとしても、
-最後まで見られなければ意味はありません。
-リールでは、
-視聴維持率がとても重要だと言われています。
-どれだけ再生されても、
+最初に置くようにしました。</p>
+<p class="article-paragraph">ここで止まってもらえれば、
+最後まで見てもらえる確率が上がります。</p>
+<h3 class="article-h2">3. 飽きずに見られる「テンポ感」を意識した</h3>
+<p class="article-paragraph">冒頭で止まってもらえたとしても、
+最後まで見られなければ意味はありません。</p>
+<p class="article-paragraph">リールでは、
+視聴維持率がとても重要だと言われています。</p>
+<p class="article-paragraph">どれだけ再生されても、
 途中で離脱されてしまえば、
-おすすめ欄には掲載されにくくなります。
-だから私は、「上手な動画」ではなく、
-最後まで見られる動画を作ることを優先しました。
-目指していたのは、
-気づいたら見終わっている
-もう一度見てしまう
-何度も再生される
-そんなテンポ感です。
-そのために意識していたのは、
-不要な間をとにかく作らない
-同じ画が長く続かないようにする
-とにかく、
- 「見るのをやめる理由」「ストレス」を省くこと。
-このテンポ感を意識するようになってから、
+おすすめ欄には掲載されにくくなります。</p>
+<p class="article-paragraph">だから私は、「上手な動画」ではなく、
+最後まで見られる動画を作ることを優先しました。</p>
+<p class="article-paragraph">目指していたのは、</p>
+<li>気づいたら見終わっている</li>
+<li>もう一度見てしまう</li>
+<li>何度も再生される</li>
+<p class="article-paragraph">そんなテンポ感です。</p>
+<p class="article-paragraph">そのために意識していたのは、</p>
+<li>不要な間をとにかく作らない</li>
+<li>同じ画が長く続かないようにする</li>
+<p class="article-paragraph">とにかく、
+ 「見るのをやめる理由」「ストレス」を省くこと。</p>
+<p class="article-paragraph">このテンポ感を意識するようになってから、
 視聴維持率が安定し、
-再生数も伸びやすくなりました。
-4.コメントされやすい台本を意識した
-リールでは、
-視聴維持率だけでなく、コメント数も重要だと考えていました。
-最後まで見られていても、
+再生数も伸びやすくなりました。</p>
+<h3 class="article-h2">4.コメントされやすい台本を意識した</h3>
+<p class="article-paragraph">リールでは、
+視聴維持率だけでなく、コメント数も重要だと考えていました。</p>
+<p class="article-paragraph">最後まで見られていても、
 反応がなければ
-おすすめ欄には掲載されにくいです。
-そのため、
+おすすめ欄には掲載されにくいです。</p>
+<p class="article-paragraph">そのため、
 「見てもらう」だけで終わらせず、
- コメントが生まれる台本を意識しました。
-具体的にやっていたのは、
-あえて賛否が分かれそうなテーマの台本にする
-正断言せず、意見が分かれそうな言い方にする
-ということです。
-また、「コメントしてくれた人へのレシピ配布」
-も取り入れていました。
-コメントが増えることで、
-投稿が広がりやすくなる
-新しい人に届きやすくなる
-という流れができ、
-アカウント全体の伸びにもつながりました。
-視聴維持率で“最後まで見てもらう”
-コメント数で“さらに広げる”
-この2つをセットで意識したことが、
-伸びを加速させたポイントです。
-5.レシピ選定にこだわった
-レシピ選定については、
-時間のかけ方そのものを変えました。
-元々は、
-インスタの発見欄で美味しそうなものを探す
-自分が食べたいから作る
-という、完全に感覚ベースの選び方をしていました。
-今は分析することに時間をかけるようにし、
-具体的には、
-実際に再生数が大きく伸びているレシピ
-複数のアカウントで投稿されているレシピ
-こうしたものを起点に、
+ コメントが生まれる台本を意識しました。</p>
+<p class="article-paragraph">具体的にやっていたのは、</p>
+<li>あえて賛否が分かれそうなテーマの台本にする</li>
+<li>正断言せず、意見が分かれそうな言い方にする</li>
+<p class="article-paragraph">ということです。</p>
+<p class="article-paragraph">また、「コメントしてくれた人へのレシピ配布」
+も取り入れていました。</p>
+<p class="article-paragraph">コメントが増えることで、</p>
+<li>投稿が広がりやすくなる</li>
+<li>新しい人に届きやすくなる</li>
+<p class="article-paragraph">という流れができ、
+アカウント全体の伸びにもつながりました。</p>
+<div class="article-media"><img src="https://pbs.twimg.com/media/HAJjOHBa8AAusnd.jpg?name=orig" alt="記事内画像" loading="lazy"></div>
+<p class="article-paragraph">視聴維持率で“最後まで見てもらう”
+コメント数で“さらに広げる”</p>
+<p class="article-paragraph">この2つをセットで意識したことが、
+伸びを加速させたポイントです。</p>
+<h3 class="article-h2">5.レシピ選定にこだわった</h3>
+<p class="article-paragraph">レシピ選定については、
+時間のかけ方そのものを変えました。</p>
+<p class="article-paragraph">元々は、</p>
+<li>インスタの発見欄で美味しそうなものを探す</li>
+<li>自分が食べたいから作る</li>
+<p class="article-paragraph">という、完全に感覚ベースの選び方をしていました。</p>
+<p class="article-paragraph">今は分析することに時間をかけるようにし、
+具体的には、</p>
+<li>実際に再生数が大きく伸びているレシピ</li>
+<li>複数のアカウントで投稿されているレシピ</li>
+<p class="article-paragraph">こうしたものを起点に、
 「今、確実に注目されている料理は何か」を
-把握するようにしました。
-実際、豆乳麻辣湯の投稿は、
+把握するようにしました。</p>
+<p class="article-paragraph">実際、豆乳麻辣湯の投稿は、
 当時すでに多くのアカウントで再生数が伸びており、
-かなりバズっているレシピでした。
-流行っているレシピを把握した上で投稿したことで、
+かなりバズっているレシピでした。</p>
+<p class="article-paragraph">流行っているレシピを把握した上で投稿したことで、
 再生数が一気に伸び、
-フォロワー増加にもつながりました。
-ちなみにこの投稿は、
+フォロワー増加にもつながりました。</p>
+<div class="article-media tweet-video"><video controls preload="metadata" poster="https://pbs.twimg.com/amplify_video_thumb/2018283943410421760/img/te087Z_ys8HQA_Z7.jpg" playsinline><source src="https://video.twimg.com/amplify_video/2018283943410421760/vid/avc1/886x1920/l8JVhhNWtqjIOQmF.mp4?tag=21" type="video/mp4"></video></div>
+<p class="article-paragraph">ちなみにこの投稿は、
  現在、約770万再生されており、
- この投稿だけでフォロワーは4万6千人増えています。
-レシピを考え込むよりも、
+ この投稿だけでフォロワーは4万6千人増えています。</p>
+<p class="article-paragraph">レシピを考え込むよりも、
  「今伸びているものを正しく選ぶ」ことに
-これが、結果に直結したポイントです。
-まとめ
-私が、
+これが、結果に直結したポイントです。</p>
+<h3 class="article-h2">まとめ</h3>
+<p class="article-paragraph">私が、
 ゼロから開始2ヶ月でInstagramフォロワー8万人
 という結果を出せたのは、
-特別な才能やセンスがあったからではありません。
-発信経験もなく、
+特別な才能やセンスがあったからではありません。</p>
+<p class="article-paragraph">発信経験もなく、
 SNS運用は完全に未経験。
 実際、最初はまったく伸びず、
-やり方も何度も間違えました。
-それでも結果が出たのは、
-コンセプトを再設計し、続けられる形に変えたこと
-冒頭2秒・テンポ・コメントを意識した構成に切り替えたこと
-レシピ選定を感覚ではなく、分析ベースにしたこと
-この記事で書いてきた
-こうしたノウハウを、一つずつ実行していったからです。
-Instagram運用は、
+やり方も何度も間違えました。</p>
+<p class="article-paragraph">それでも結果が出たのは、</p>
+<li>コンセプトを再設計し、続けられる形に変えたこと</li>
+<li>冒頭2秒・テンポ・コメントを意識した構成に切り替えたこと</li>
+<li>レシピ選定を感覚ではなく、分析ベースにしたこと</li>
+<p class="article-paragraph">この記事で書いてきた
+こうしたノウハウを、一つずつ実行していったからです。</p>
+<p class="article-paragraph">Instagram運用は、
 一度うまくいったら終わりではなく、
-状況に合わせてやり方を見直し続ける必要があります。
-今後Xでは、今回ご紹介したような
+状況に合わせてやり方を見直し続ける必要があります。</p>
+<p class="article-paragraph">今後Xでは、今回ご紹介したような
 Instagram運用のノウハウ、体験談の発信行っていきます。
 
 この記事が参考になった方は、
-ぜひフォローしてもらえると嬉しいです！</div>
-  
+ぜひフォローしてもらえると嬉しいです！</p>
   
 
   <div class="back-link">
