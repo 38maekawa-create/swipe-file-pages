@@ -16,31 +16,107 @@
     .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
     .tweet-video { margin: 12px 0; }
     .tweet-video video { max-width: 100%; border-radius: 8px; }
-    .tweet-video iframe { border: none; border-radius: 8px; }
-    .section-header { background: #1a73e8; color: white; padding: 8px 12px; border-radius: 4px; margin-top: 24px; }
     .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
     a { color: #1a73e8; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    .article-title { color: #1a73e8; font-size: 1.3em; margin: 16px 0 8px; }
+    .summary-box { background: #f8f9fa; border-left: 3px solid #1a73e8; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+    .summary-box h3 { font-size: 14px; color: #1a73e8; margin-bottom: 8px; }
+    .author-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .author-info img { width: 48px; height: 48px; border-radius: 50%; }
+    .author-name { font-weight: bold; }
+    .author-id { color: #666; font-size: 0.9em; }
   </style>
 </head>
 <body>
   <h1>@macchaice の投稿</h1>
+
+  <div class="author-info">
+    <img src="https://pbs.twimg.com/profile_images/1455884988181004288/kUVb2_8V_200x200.jpg" alt="@macchaice" onerror="this.style.display='none'">
+    <div>
+      <div class="author-name">西 正広 / Nishi Masahiro</div>
+      <div class="author-id">@macchaice</div>
+    </div>
+  </div>
+
   <div class="meta">
     <span>📅 投稿日時: 2026/02/08 13:56</span>
     <span>💾 保存日時: 2026/02/21</span>
     <span>単体投稿</span>
   </div>
-  <div class="tags"><span class="tag">#その他</span></div>
+
+  <div class="tags">
+    <span class="tag">AI</span>
+    <span class="tag">#その他</span>
+  </div>
+
   <div class="engagement">
     <span>❤️ 897</span>
     <span>🔄 77</span>
     <span>💬 3</span>
   </div>
 
-  <h2>投稿内容</h2>
-  <div class="tweet-text"></div>
+  
 
+  <h2 class="article-title">ひとりで10人のAIチームを回してみた </h2>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">あるデスクリサーチ業務を、収集・分析・レビューまで全部AIに分業させたら、普通にプロジェクトが成立した。人間がやっていたのは作業そのものではなく、何をやりたいかを決めて、AIに任せられない部分だけを引き受けることだった。
+昨日から今日にかけて、Claude CodeのAgent Teamsをずっと触っていた。きっかけはシンプルで、「AIがチームで仕事するとどうなるのか」をちゃんと体感してみたかったから。単体のAIが賢いのはもう分かっている。でも、人間の世界では複数人になると急に難しくなる。分業、引き継ぎ、レビュー、ボトルネック、責任の所在。あの“組織の面倒くささ”がAIでも起きるのかどうか、それを自分の目で確かめたかった。
+遊び半分というより、ほぼ研究。
+いきなり本番に行かず、チュートリアルから始めた
+当然いきなり10人チームを組んでも回らない。なのでClaudeにチュートリアルを作ってもらい、段階的に練習した。RPGみたいにレベル上げするイメージ。
+実際の順番はこんな感じ。
+Tutorial1：並列調査（2エージェント同時実行）
+Tutorial2：依存関係付きタスク（直列制御）
+Tutorial3：引き継ぎ設計・ドキュメント化
+Tutorial4：3人チームでのWebアプリ作成
+Tutorial5：HITL（人間承認）の設計
+Tutorial6：10人規模プロジェクト
+Tutorial7：Slack常駐Bot化
+遊びというより完全に訓練だった。
+序盤で分かったこと：性能より設計
+早い段階で気づいたのは、エージェントの賢さよりタスク設計の方が効くということ。
+優秀な1人に全部やらせるより、普通の2人を正しく分業させた方が速い。結局やっていることはAI活用というより、ただのマネジメントだった。
+人間がボトルネックになる
+チームを増やすと、今度は自分が詰まる。レビューを全部自分で確認していると普通に止まる。そこでSlack通知システム開発をTutorial5に入れ、判断が分かれるポイントだけ人間が見る設計に変えた。
+ここで学んだのは、「念のため確認」はだいたい害だということ。HITL(Human in the Loop)は多いほど安心ではなく、最小限のほうが速い。このあたりは完全にオペレーション設計の話だった。
+Tutorial6：10人編成にしたら普通につよつよチームになった
+Tutorial6では、日本の広告費をテーマに10人編成を組んだ。
+data-collector ×2（収集）
+analyst（分析）
+fact-checker（常駐検証）
+strategist（示唆出し）
+virtual-client ×2（疑似クライアントレビュー）
+formatter / writer（整形）
+team-lead（進行管理）
+自分（問い設計・最終判断）
+役割を書き出してみると、もう普通に“ちゃんとしたチーム”。小さな部署が一つできた、くらいの感覚。
+しかもこれ、人間は自分ひとり。一人＋AI9体で回している。ここが一番インパクトがあった。「一人で回せるプロジェクトの規模」が明らかに変わる。
+プロセスを変えたのは、全部「問い」だった
+面白かったのは、改善のきっかけが全部「問い」だったこと。
+「ファクトチェック最後にまとめてやるの遅くない？」 → 常駐 fact-checker 追加
+「仮想クライアント視点あった方がよくない？」 → CEO視点／現場視点レビュー導入
+「途中で落ちたらゼロからやり直しは無駄では？」 → checkpoint / draft保存導入
+「進捗見えないの怖くない？」 → 2分おきログ＋Slack通知
+AIが勝手に賢くなったわけではなく、人間が問いを投げるたびにチーム構造が変わっていった。あとから振り返ると、自分がやっていたのは分析ではなく、問いの設計だった。
+監査チームまで作ったら統制の世界に入った
+さらに作業とは別に監査専用チームも走らせた。成果物だけチェックしてレポートを出す役。
+すると、自分で決めたHITLルールを自分で破っているのを普通に指摘される。技術的に正しいからOK、と進めた部分が「プロセス違反です」と返ってくる。外部監査ってやっぱり意味あるんだなと実感した。
+Slack常駐化でツールからインフラへ
+Tutorial7ではClaudeをSlack常駐Botにした。Slackで話しかけると即レスが返る。Claudeを「開く」のではなく「話しかける」になる。この瞬間、ツール感が消えてインフラというか同僚になる。体験が一段変わった。
+一番の気づき
+ここまでやって分かったのは、人間の仕事はもう分析そのものではないということ。
+収集、集計、レポート生成はAIがやる。人間に残るのは、何を問いにするか、どうチームを組むか、どこで判断するか。つまり「問いの設計」と「組織設計」。
+よくこういう話になると、人間はプロジェクトリード役になると言われるが、それは違うと思った。プロジェクトリード・ディレクションはAIのほうがよっぽど優秀だ。それよりも、AIとの共創における人間の役割はこんなところだと理解した。
+AIに要求を投げる
+AIがアプローチできない領域（物理的・法的・倫理的・情報セキュリティ・プライバシー的・権限的）を人間が対応する
+最後のチェックや、出来上がったものを見たら、もっとこうだといいねを提案する
+軽い好奇心で始めたのに、気づいたらAIの部長みたいなことをしていた。Claude Code Agent Teams、かなり面白い。しばらく沼りそうです。
+執筆：西
+共著：Claude Code Agent Teams
+編集協力：ChatGPT</div>
   
   
 
