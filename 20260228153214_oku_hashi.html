@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@oku_hashi の投稿 - スワイプファイル</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
+    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+    .meta span { display: inline-block; margin-right: 16px; }
+    .tags { margin: 10px 0; }
+    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
+    .tweet-video { margin: 12px 0; overflow: hidden; }
+    .tweet-video video { width: 100%; display: block; border-radius: 8px; }
+    .tweet-video iframe { width: 100%; display: block; border: none; border-radius: 8px; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-box .tweet-images { margin: 12px 0 0; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 0; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    .reply-parent-box { margin: 20px 0; padding: 16px; background: #f0f7ff; border: 1px solid #c4d9f0; border-radius: 12px; }
+    .reply-parent-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .reply-parent-box .tweet-images { margin: 12px 0 0; }
+    .reply-parent-box .tweet-images img { border-radius: 8px; margin-top: 0; }
+    .reply-parent-box .tweet-video { margin-top: 12px; }
+    .reply-parent-box .tweet-video video { border-radius: 8px; }
+    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    
+    .content-badge { display: inline-block; background: #1da1f2; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.85em; font-weight: bold; margin-bottom: 12px; }
+  
+  </style>
+</head>
+<body>
+  <div class="content-badge">📝 Xポスト</div>
+  <h1>@oku_hashi の投稿</h1>
+  <div class="meta">
+    <span>👤 @oku_hashi</span>
+    <span>📅 投稿日時: 2026/02/27 18:04</span>
+    <span>💾 保存日時: 2026/03/01</span>
+    <span>単体投稿</span>
+  </div>
+  <div class="tags"><span class="tag">#ClaudeCode</span> <span class="tag">#AI動画生成</span> <span class="tag">#Remotion</span></div>
+  <div class="engagement">
+    <span>❤️ 94</span>
+    <span>🔄 6</span>
+    <span>💬 1</span>
+  </div>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">【動画編集不要‼️】ClaudeCode×Remotionで動画制作を自動化できます！！
+
+まずはこちらをご覧ください↓
+この動画、実はたった1枚の画像から
+作っています！
+・撮影不要
+・顔出し無し
+・機材不要
+・動画編集なし
+・イラストでも実写画像でもOK
+使ったのはAIのみ！！！
+この記事で紹介する方法を使えば、本来1本数十万円かかる動画制作費が、
+AIツール代のみで制作できます！
+セミナーや広告、Youtube用の動画もAIだけで完結します！
+前回はAntigravityを使ってこのような動画を作りましたが、
+今回はClaudeCodeを使って作っていきます！
+Antigravityを使った制作方法はこちら↓
+2月5日
+それではこの動画の作り方を解説していきます！
+必要なAIツール
+・HiggsField（またはKling）APIキーでも可　必須
+・ClaudeCode 必須
+・OpenAI APIキー（オプション）
+※ここで紹介する方法は、まず動画を生成して、ClaudeCodeで動画編集をしていく流れです。すべてのフローを自動化する方法は最後に書いています。
+１ さっそく喋る動画を生成します！
+まずは人物やキャラクターを喋らせるため、１枚の画像を用意します。
+Higgsfieldからimage→NanobananaProを選択。
+喋らせたい動画のイメージを入力。参照画像をアップしてもOK
+僕が使用したプロンプトはこちら↓
+他の画像生成AIで生成した画像やアバターを使ってもOKです！
+
+
+※正面を向いていて、口がしっかり見える画像を使用してください。動画生成時に口が認識できないとうまく動きません。
+次に、VideoからKling Avatars2.0を選択
+画像をUPしたらAudioから、キャラクターに話させたい内容を入力します。
+または音声ファイルをアップロードしてください。
+ナレーションモデルは好きなものを選んでください。
+
+僕はFishAudioで音声生成したものをアップして使っています。
+
+
+※KlingAvatarsでは現在最大５分の動画を生成できるので、音声ファイルは５分以内のものを使用してください。
+
+
+次に動画用のプロンプトを入力します。
+僕が使用したプロンプトはこちらです↓
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Precise lip syncing. No hand movements.
+(正確なリップシンク。手の動きは不要。)
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+
+このくらいシンプルな指示でOKです！
+複雑な指示をして失敗したときの代償が大きいでので....
+
+
+あとは生成画質の設定をしてGenerateボタンを押せば完成です！
+1080pと720pで倍ぐらいクレジット消費量が違いました；；
+完成した動画はわかりやすいファイル名で保存しておいてください。
+例：ワニ動画①
+どうでしょうか？これだけでもうほぼ完成です！
+あとはこの動画にCapCutなどでテロップを入れれば1本の動画が完成します
+が.....
+せっかくなのでClaudeCodeを使った動画編集の自動化方法について説明していきます。
+2 ClaudeCodeで動画編集を自動化する方法
+ここからClaudeCodeでテロップ入れなどの動画編集を自動化する方法を
+ご紹介していきます。
+
+ClaudeCodeのセットアップについてはこちらの記事をご覧ください↓
+2月14日
+３ Claude CodeにRemotionの説明書を渡す
+まずはClaudeCodeにRemotionという動画編集AIの使い方を覚えさせます。
+この使い方の説明書がSkills（スキル）と呼ばれるものです。
+
+ClaudeCodeを起動して、こちらをコピペしてEnterを押してください↓
+するとRmotionSkillsのインストールが実行されます。
+
+途中で止まったり選択肢が出てきますがとりあえず全部「Yes」でEnterを押して進めばOKです。
+途中で再起動してくださいといわれたら、もう一度ClaudeCodeを起動してください。
+これでClaudeCodeが動画編集AI「Remotion」を使えるようになりました！
+ゲームで例えたら主人公クロード君が新しい技(スキル）を習得して動画編集が使えるようになった！みたいな感じです。
+ClaudeCodeはゲームのようにこうやって技を覚えさせたりして
+自分専用のAIに育てていくと使いやすくなっていきます。
+３ OpenAI APIキーの習得
+※ここを飛ばしてRemotionで動画編集をすることも可能ですが、
+テロップの位置がずれたり、手直しする手間が結構かかります。
+
+
+今回はWhisperを使用して、その手間をはぶきます。
+Whisper（ウィスパー）とは？
+OpenAI（ChatGPTを作った会社）が開発した、世界最高クラスの精度を誇る「音声認識（文字起こし）AI」です。
+なぜ今回Whisperが必要なのか？
+
+結論から言うと、「テロップを出す正確なタイミングを全自動で作るため」です。
+手元に完璧な台本（テキスト）があっても、Remotion側は
+「そのセリフを動画の何分何秒の時点で喋っているか」が分かりません。
+Whisperを使うと、動画の音声をAIが「耳」で聞き取り、
+
+「この単語は1.2秒〜1.5秒の間で喋っているな」という時間データを
+1ミリのズレもなく完璧に割り出してくれます。
+これがあるおかげで、手作業でタイミングを合わせる地獄の作業から解放され、ワンクリックで完全にシンクロしたテロップ動画が完成するというわけです！
+🔑 OpenAI APIキーの取得手順
+※ページを日本語翻訳するとわかりやすいですが、決済ができなかったりクリックできない場合は英訳に戻してください。
+1　OpenAI Developer Platformにログイン。
+
+まずは、開発者向けのページ（ https://platform.openai.com/ ）にアクセスし、アカウントを作成するか、お持ちのGoogleアカウント等でログインします。
+2　クレジットカードの登録とチャージ（重要）
+
+APIを利用するには、事前にお金（クレジット）を少しだけ入れておく必要があります。
+※Whisper APIでの文字起こしは1分あたり約0.9円なので、5ドルあれば動画何十本分も余裕で持ちます！
+3　APIキーの発行
+左側のメニューから 「API keys」をクリックします。
+画面右上あたりにある 「Create new secret key」をクリック。
+名前をつける画面が出たら、分かりやすく「リモーション用」などと入力して作成します。
+4　キーのコピー（ここで注意！）
+画面に sk-... から始まる長い文字列が表示されます。
+これがAPIキーです。
+必ず「Copy」ボタンを押して、どこか安全なメモ帳などに貼り付けておいてください。（※「Done」を押してこの画面を閉じると、二度とこの文字列は見られなくなります！）
+４ ClaudeCode×Remotionで動画編集！
+それではいよいよワンぽち動画編集です！！
+
+
+このまま下記のプロンプトをClaudeCodeにコピペしてEnterをおしてみてください！
+
+途中で台本があるか聞かれますが、
+
+ナレーション用の台本がある場合は、そのままコピペして使用すると
+文字起こしの誤字脱字がゼロになるので、クオリティは間違いなく上がります！
+
+それ以外の選択は全てEnterで進んでください。
+※手順1の対象の動画ファイルは先ほど保存したものを指定してください。
+これで元動画に自動でテロップが入ったとおもいます！
+表示されるタイミングも完璧ですね！
+
+このプロンプトは僕が何回も修正して作ったので、
+ワンぽちでほぼ完成形までできるはずです！！！たぶん！！笑
+さらにここから、ClaudeCodeに細かい指示をすれば、
+
+エフェクトやアニメーション、スライドを表示させたり、
+BGMをつけることも可能です！
+
+
+
+チャットで指示する新しい時代の動画編集を是非楽しんでみてください！
+最後に
+ここまでのワークフローを全てClaudeCodeで実行できます。
+ただし、必要なAPIキーが増えるためコストは上がります。
+動画を量産したい方や、編集まで自動化したい方はぜひ活用してみてください！
+自動化プロンプト↓
+以上がこの動画の作り方です！
+
+いつもいいねや、引用ありがとうございます！！！
+これからも有益な発信をしていきますのでよろしくお願いします！
+～おまけ～🎁
+こちらで100万再生を連発するノウハウや、フォロワー0から1投稿目でバズらせる手法、3投稿で120万を稼ぐノウハウを近日公開予定です！
+必ず入っておいてください！↓
+こちらで0円コンサルも実施しています↓</div>
+
+  
+  
+
+  <div class="back-link">
+    <a href="index.html">← 一覧に戻る</a> |
+    <a href="https://x.com/oku_hashi/status/2027308787921715534" target="_blank">元の投稿を見る ↗</a>
+  </div>
+</body>
+</html>
