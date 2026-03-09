@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@masahirochaen の投稿 - スワイプファイル</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; background: #fafbfc; }
+    h1 { font-size: 1.5em; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; }
+    h2 { font-size: 1.2em; margin-top: 24px; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+    .meta span { display: inline-block; margin-right: 16px; }
+    .tags { margin: 10px 0; }
+    .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
+    .tweet-text { white-space: pre-wrap; line-height: 1.7; margin: 16px 0; }
+    .tweet-images img { max-width: 100%; border-radius: 8px; margin: 8px 0; }
+    .tweet-video { margin: 12px 0; overflow: hidden; }
+    .tweet-video video { width: 100%; display: block; border-radius: 8px; }
+    .tweet-video iframe { width: 100%; display: block; border: none; border-radius: 8px; }
+    .quote-box { margin: 20px 0; padding: 16px; background: #f7f9fa; border: 1px solid #e1e4e8; border-radius: 12px; }
+    .quote-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .quote-box .tweet-images { margin: 12px 0 0; }
+    .quote-box .tweet-images img { border-radius: 8px; margin-top: 0; }
+    .quote-box .tweet-video { margin-top: 12px; }
+    .quote-box .tweet-video video { border-radius: 8px; }
+    .reply-parent-box { margin: 20px 0; padding: 16px; background: #f0f7ff; border: 1px solid #c4d9f0; border-radius: 12px; }
+    .reply-parent-header { font-weight: 600; font-size: 0.9em; margin-bottom: 8px; color: #536471; }
+    .reply-parent-box .tweet-images { margin: 12px 0 0; }
+    .reply-parent-box .tweet-images img { border-radius: 8px; margin-top: 0; }
+    .reply-parent-box .tweet-video { margin-top: 12px; }
+    .reply-parent-box .tweet-video video { border-radius: 8px; }
+    .engagement { display: flex; gap: 16px; color: #888; font-size: 0.9em; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back-link { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+    
+    .content-badge { display: inline-block; background: #1da1f2; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.85em; font-weight: bold; margin-bottom: 12px; }
+  
+  </style>
+</head>
+<body>
+  <div class="content-badge">📝 Xポスト</div>
+  <h1>@masahirochaen の投稿</h1>
+  <div class="meta">
+    <span>👤 @masahirochaen</span>
+    <span>📅 投稿日時: 2026/03/07 18:59</span>
+    <span>💾 保存日時: 2026/03/09</span>
+    <span>単体投稿</span>
+  </div>
+  <div class="tags"><span class="tag">#Claude Code</span> <span class="tag">#フォルダ整理</span> <span class="tag">#AI自動化</span></div>
+  <div class="engagement">
+    <span>❤️ 936</span>
+    <span>🔄 80</span>
+    <span>💬 6</span>
+  </div>
+
+  <h2>投稿内容</h2>
+  <div class="tweet-text">AI時代はフォルダ整理が命。Claude Codeの潜在能力を引き出すフォルダを整理術を大公開。
+
+※ 本記事に登場する社名・人名・顧客名はすべて架空のものです。実在の企業・個人とは一切関係ありません。
+はじめに ── 散らかったMacが、AIの「秘書」になるまで
+正直に言います。
+Desktopには21個のファイルが散乱し、Downloadsには474件が放置され、Screen Studioの録画データが551GBを占有していた。議事録は161件が1つのフォルダに山積み。顧客17社のドキュメントに命名ルールはなく、どこに何があるか自分でも把握できていなかった。
+「いつか整理しよう」を3年間先送りにした結果がこれだ。
+ある日、Claude Code（AnthropicのターミナルAI）に「フォルダ全部整理して」と投げてみた。
+返ってきたのは、単なるファイル移動ではなかった。フォルダ設計、命名規則、Notion連携、自動化cron、そしてAI自身が文脈を理解するための仕組み──人間には思いつかないレベルの「構造」が出来上がった。
+約1時間で。
+この記事では、実際に何をどう整理して、どんな仕組みを構築したのかを全部公開する。
+非エンジニアでもClaude Codeで全業務を変えたい方へ
+→ 3/29（日）にオンライン講座やります。本格的に学びたい方は是非ご参加ください。
+▼ 申込（早割・定員あり）
+https://luma.com/0329?utm_source=xpost
+1. Before ── 崩壊していたフォルダの実態
+まず、整理前の惨状を晒しておく。
+ファイルを探すたびに Cmd+F で検索。見つからなければSlackを遡る。この非効率を、もう終わりにしたかった。
+2. 設計思想 ── 「人間のため」ではなく「AIのため」に整理する
+今回のフォルダ整理で最も重要だった考え方がある。
+「AIが自律的に理解・操作できるフォルダ構造にする」ということ。
+従来のフォルダ整理は「人間が探しやすいように」設計する。でも2026年、僕の業務の大半はAIが実行する。議事録作成、顧客管理、タスク整理、コンテンツ制作──すべてAIが触るフォルダだ。
+だから設計の軸をこう変えた：
+人間が見て分かる → 最低条件
+AIが読んで即座に文脈を理解できる → 最重要条件
+AIが自動で維持・運用できる → ゴール
+この発想の転換が、今回の整理を「ただの片付け」から「AI駆動ワークフローの構築」に変えた。
+3. フォルダ構造 ── 6つのトップレベルで全てを分離
+まず、ホームディレクトリ直下を6つに整理した。
+分離の基準は明確：
+work/ → Google Driveと同期するもの。チームで共有する業務ドキュメント
+dev/ → Gitで管理するもの。コードは全てここ
+content/ → SNS・メディア制作物。YouTube台本、note記事、セミナー資料
+agents/ → AIエージェントの本体。PM2とcronで24時間稼働中。パス変更禁止
+「どこに置くか迷う」という状況が、この設計で消えた。
+4. 法人×顧客の階層設計 ── 17社を一目で管理
+僕は2つの法人を経営している。仮に「株式会社ノヴァテック」と「株式会社クロスフィールド」としよう。それぞれにクライアントがいる。
+各顧客フォルダの中には、統一された構造がある：
+顧客名のフォルダは全て kebab-case（英語小文字ハイフン区切り） で統一。RULES.md に「フォルダ名 → 会社名」の対応表を書いて、AIも人間もブレない命名にした。
+5. CLAUDE.md ── AIに「地図」を渡す仕組み
+ここが今回の整理で一番こだわったポイントだ。
+CLAUDE.md とは、Claude Codeがフォルダを開いたときに自動で読み込む文脈ファイルのこと。いわばAIへの「このフォルダの説明書」だ。
+これを合計40個、事業フォルダから顧客フォルダまで全階層に配置した。
+階層構造
+具体的に何が書いてあるのか
+たとえば顧客のCLAUDE.mdにはこう書いてある：
+つまり、Claude Codeでそのフォルダを開いた瞬間、AIは「Apex TechのAI開発案件、現在activeで、直近のTODOはこれ」と即座に理解できる。
+なぜ40個も必要なのか
+1つのCLAUDE.mdに全部書けばいいのでは？と思うかもしれない。
+違う。階層型にすることで、AIが「今いる場所」に応じた適切な粒度の文脈を得られる。
+work/ を開いたとき → 会社全体の概要が分かる
+work/novatech/clients/ を開いたとき → 全顧客の一覧が分かる
+work/novatech/clients/apex-tech/ を開いたとき → その顧客の詳細が分かる
+人間でいえば「社内Wiki」に近い。でもこれはAIが自動で読む。設定不要。ファイルを置くだけ。
+6. 議事録161件の自動仕分け
+溜まりに溜まった議事録161件。これを手作業で仕分ける気力はなかった。
+Claude Codeにやらせた。
+仕分けロジック
+ファイル名と内容のキーワードを解析
+顧客名マッチング（Apex Tech、ブリッジワークス、ヴォルトモーターズ…）
+スクール関連キーワード検出（LMS、受講生、カリキュラム…）
+経理関連キーワード検出（freee、決算、請求…）
+どれにも該当しない → 社内議事録として月別フォルダへ
+結果
+分類先件数顧客別フォルダ（9社に振り分け）19件スクール関連12件経理関連3件社内議事録（月別）122件スキップ（判定不能）5件
+Pythonスクリプトを自動生成させて、一括実行。手動なら半日、AIなら数分。
+仕分けに使ったPythonコードの構造はこんな感じだ：
+キーワードマッチングという単純なロジックだが、161件中156件を正しく振り分けられた。
+7. Notion連携 ── フォルダとデータベースを橋渡し
+フォルダ整理だけでは足りない。Notionのデータベースとも同期させた。
+顧客データベース
+既存のNotionの顧客DBに、新しいカラムを追加：
+17社すべてを登録。これで「Notionを見れば顧客一覧」「フォルダを見れば詳細」という導線ができた。
+議事録データベース
+新規作成。会議名・日付・種別・顧客名・ファイルパスを記録するDB。議事録を作成するたびに自動登録される仕組み。
+8. 自動化 ── 「散らからない仕組み」を仕込む
+整理は一度やれば終わりだが、維持するのは仕組みがないと無理だ。
+自動化スキル（Claude Code拡張）
+Claude Codeにはカスタムスキル（/コマンド名 で呼び出せる拡張機能）がある。今回、3つのスキルを作成した：
+スキルの定義ファイル（SKILL.md）はこんな構造だ：
+cronジョブ（定期自動実行）
+もう「Downloadsが溜まる」「Zoom録画でストレージ圧迫」は起きない。
+9. RULES.md ── AIが守るべきルールを明文化
+RULES.md には、フォルダ運用のルールと禁止事項を書いた。
+重要なのは、このルールをAI自身が読んで守ること。Claude Codeがファイルを作成するとき、自動的にこのルールに従う。人間がルールを覚える必要はない。
+10. 全体像 ── After の完成形
+最終的に出来上がった構造はこうだ：
+CLAUDE.md: 40個 ／ 顧客: 17社 ／ 議事録: 161件仕分け済み ／ 自動化: 6スキル + 3 cronジョブ
+まとめ ── AIに整理させて気づいたこと
+1. AIは「整理」だけじゃなく「設計」ができる
+ファイルを移動するだけなら人間でもできる。でもClaude Codeは「どう構造化すれば今後散らからないか」まで設計してくれた。命名規則、階層設計、自動化の仕組み──これは人間が自分でやろうとすると、つい後回しにする部分だ。
+2. CLAUDE.mdは「AIへの投資」
+40個のCLAUDE.mdを書く（書かせる）のは、一見すると過剰に見える。でもこれは「AIが毎回ゼロから文脈を理解するコスト」を削減する投資だ。一度書けば、以降の全てのAI操作が高速化・高精度化する。
+3. 「散らからない仕組み」が本質
+整理は手段であって、目的ではない。本当に価値があるのは「二度と散らからない仕組み」を作ること。cron、スキル、RULES.md──この3つが揃って初めて、整理が永続する。
+4. かかった時間：約1時間
+人間が手作業でやったら丸3-5日はかかる作業量。AIに任せて1時間。しかも人間より精緻な設計が出てくる。
+Claude Codeを「コードを書くツール」としか見ていない人は、もったいない。
+フォルダ設計、業務フロー構築、Notion連携、自動化──業務の「OS」をAIに設計させるという使い方が、2026年の正解だと思っている。
+【非エンジニア向け｜全業務でClaude Code活用講座】3/29（日）開催
+この記事でやったこと──
+フォルダ設計・議事録自動仕分け・Notion連携・cron自動化──
+全部プログラミング知識ゼロでできます。
+私がコンサル・社内業務で使い倒している
+「チャエンの秘伝スキル7選」をそのまま配布します。
+○ 議事録＆資料の自動生成
+○ ヒアリング→ガントチャート自動作成
+○ 評価制度Excel自動作成
+○ 営業提案書一式自動生成
+○ 市場調査レポート自動作成
+○ 動画解析→要点抽出
+○ 業務フォルダ設計（今回の記事そのもの）
+「使う」から「組み込む」へ。
+その第一歩を一緒に踏み出しましょう。
+▼ 申込（早割・定員あり）
+https://luma.com/0329?utm_source=xpost
+📅 2026年3月29日（日）14:00〜16:00
+💻 オンライン（Zoom）</div>
+
+  
+  
+
+  <div class="back-link">
+    <a href="index.html">← 一覧に戻る</a> |
+    <a href="https://x.com/masahirochaen/status/2030221859225301187" target="_blank">元の投稿を見る ↗</a>
+  </div>
+</body>
+</html>
